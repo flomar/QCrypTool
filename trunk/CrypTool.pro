@@ -4,7 +4,7 @@ QT += core gui widgets
 
 TEMPLATE = app
 
-INCLUDEPATH += Sources
+INCLUDEPATH += Sources $$OUT_PWD
 
 TARGET = CrypTool
 
@@ -33,6 +33,11 @@ Sources/CrypTool/Dialogs/DialogLanguage.cpp
 RESOURCES += \
 Resources/QCrypTool.qrc \
 Resources/CrypTool.qrc
+
+FORMS += \
+Resources/CrypTool/CrypToolMainWindow.ui \
+Resources/CrypTool/Dialogs/DialogAbout.ui \
+Resources/CrypTool/Dialogs/DialogLanguage.ui
 
 # Linux-specific
 unix:!macx {

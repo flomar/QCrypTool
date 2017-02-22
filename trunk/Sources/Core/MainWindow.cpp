@@ -17,13 +17,22 @@ namespace QCrypTool {
             disconnect(this, SIGNAL(signalRequestContextHelp(QString)), &HelpSystem::instance(), SLOT(slotRequestContextHelp(QString)));
         }
 
+        void MainWindow::show() {
+            // install event filters for menus and actions
+            installEventFilterForMenusAndActions();
+            // initialize signals and slots in derived class
+            initializeSignalsAndSlots();
+            // invoke base class implementation
+            QMainWindow::show();
+        }
+
         bool MainWindow::eventFilter(QObject *_object, QEvent *_event) {
             // signal key presses of F1 to the help system
             if(_event->type() == QEvent::KeyPress) {
-                QKeyEvent *keyEvent = static_cast<QKeyEvent*>(_event);
+                QKeyEvent *keyEvent = dynamic_cast<QKeyEvent*>(_event);
                 if(keyEvent) {
                     if(keyEvent->key() == Qt::Key_F1) {
-                        QMenu *menu = static_cast<QMenu*>(_object);
+                        QMenu *menu = dynamic_cast<QMenu*>(_object);
                         if(menu) {
                             QAction *action = menu->actionAt(menu->mapFromGlobal(QCursor::pos()));
                             if(action) {
@@ -37,6 +46,19 @@ namespace QCrypTool {
                 }
             }
             return QObject::eventFilter(_object, _event);
+        }
+
+        void MainWindow::installEventFilterForMenusAndActions() {
+            if(menuBar()) {
+                QList<QMenu*> menus = menuBar()->findChildren<QMenu*>();
+                foreach(QMenu *menu, menus) {
+                    menu->installEventFilter(this);
+                    QList<QAction*> actions = menu->actions();
+                    foreach(QAction *action, actions) {
+                        action->installEventFilter(this);
+                    }
+                }
+            }
         }
 
     }

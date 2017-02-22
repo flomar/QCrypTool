@@ -6,6 +6,10 @@
 #include <CrypTool/CrypTool.h>
 #include <Core/Dialog.h>
 
+namespace Ui {
+    class DialogAbout;
+}
+
 namespace QCrypTool {
     namespace CrypTool {
         namespace Dialogs {
@@ -15,6 +19,11 @@ namespace QCrypTool {
             public:
                 DialogAbout(QWidget *_parent = 0, Qt::WindowFlags _flags = Qt::WindowFlags());
                 virtual ~DialogAbout();
+            protected:
+                virtual void initializeSignalsAndSlots();
+                virtual void initializeData();
+            private:
+                Ui::DialogAbout *m_ui;
             };
 
         }

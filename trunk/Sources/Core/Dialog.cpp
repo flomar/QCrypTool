@@ -8,6 +8,8 @@ namespace QCrypTool {
 
         Dialog::Dialog(QWidget *_parent, const Qt::WindowFlags _flags) :
             QDialog(_parent, _flags) {
+            // install event filter
+            installEventFilter(this);
             // register with help system
             connect(this, SIGNAL(signalRequestContextHelp(QString)), &HelpSystem::instance(), SLOT(slotRequestContextHelp(QString)));
         }
@@ -15,6 +17,15 @@ namespace QCrypTool {
         Dialog::~Dialog() {
             // unregister with help system
             disconnect(this, SIGNAL(signalRequestContextHelp(QString)), &HelpSystem::instance(), SLOT(slotRequestContextHelp(QString)));
+        }
+
+        int Dialog::exec() {
+            // initialize signals and slots in derived class
+            initializeSignalsAndSlots();
+            // initialize data in derived class
+            initializeData();
+            // invoke base class implementation
+            return QDialog::exec();
         }
 
         bool Dialog::eventFilter(QObject *_object, QEvent *_event) {

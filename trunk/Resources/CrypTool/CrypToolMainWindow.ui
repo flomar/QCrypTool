@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CrypToolMainWindow</class>
+ <widget class="QMainWindow" name="CrypToolMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="CrypToolMainWindow" stdset="0">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QMdiArea" name="mdiArea"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="MenuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="MenuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="MenuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="MenuEncryptDecrypt">
+    <property name="title">
+     <string>Encrypt/Decrypt</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="MenuDigitalSignaturesPKI">
+    <property name="title">
+     <string>Digital Signatures/PKI</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="MenuIndividualProcedures">
+    <property name="title">
+     <string>Individual Procedures</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="MenuAnalysis">
+    <property name="title">
+     <string>Analysis</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="MenuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="MenuOptionsActionLanguage"/>
+   </widget>
+   <widget class="QMenu" name="MenuWindow">
+    <property name="title">
+     <string>Window</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="MenuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="MenuHelpActionStartingPage"/>
+    <addaction name="MenuHelpActionIndex"/>
+    <addaction name="MenuHelpActionScenariosTutorials"/>
+    <addaction name="separator"/>
+    <addaction name="MenuHelpActionReadme"/>
+    <addaction name="MenuHelpActionCTBook"/>
+    <addaction name="MenuHelpActionPresentation"/>
+    <addaction name="separator"/>
+    <addaction name="MenuHelpActionAboutCrypTool"/>
+   </widget>
+   <addaction name="MenuFile"/>
+   <addaction name="MenuEdit"/>
+   <addaction name="MenuView"/>
+   <addaction name="MenuEncryptDecrypt"/>
+   <addaction name="MenuDigitalSignaturesPKI"/>
+   <addaction name="MenuIndividualProcedures"/>
+   <addaction name="MenuAnalysis"/>
+   <addaction name="MenuOptions"/>
+   <addaction name="MenuWindow"/>
+   <addaction name="MenuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="MenuHelpActionStartingPage">
+   <property name="text">
+    <string>Starting Page</string>
+   </property>
+  </action>
+  <action name="MenuHelpActionIndex">
+   <property name="text">
+    <string>Index</string>
+   </property>
+  </action>
+  <action name="MenuHelpActionScenariosTutorials">
+   <property name="text">
+    <string>Scenarios (Tutorials)</string>
+   </property>
+  </action>
+  <action name="MenuHelpActionReadme">
+   <property name="text">
+    <string>Readme</string>
+   </property>
+  </action>
+  <action name="MenuHelpActionCTBook">
+   <property name="text">
+    <string>CT Book</string>
+   </property>
+  </action>
+  <action name="MenuHelpActionPresentation">
+   <property name="text">
+    <string>Presentation</string>
+   </property>
+  </action>
+  <action name="MenuHelpActionAboutCrypTool">
+   <property name="text">
+    <string>About CrypTool</string>
+   </property>
+  </action>
+  <action name="MenuOptionsActionLanguage">
+   <property name="text">
+    <string>Language</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -10,6 +10,7 @@
 #include <QEvent>
 #include <QKeyEvent>
 #include <QMouseEvent>
+#include <QMenuBar>
 #include <QMenu>
 #include <QAction>
 #include <QSharedPointer>

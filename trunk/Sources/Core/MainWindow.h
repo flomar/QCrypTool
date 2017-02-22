@@ -18,10 +18,16 @@ namespace QCrypTool {
         protected:
             MainWindow(QWidget *_parent = 0, const Qt::WindowFlags _flags = Qt::WindowFlags());
             virtual ~MainWindow();
+        public slots:
+            void show();
+        protected:
+            virtual void initializeSignalsAndSlots() = 0;
         protected:
             bool eventFilter(QObject *_object, QEvent *_event);
         signals:
             void signalRequestContextHelp(const QString &_identifierContextHelp);
+        private:
+            void installEventFilterForMenusAndActions();
         };
 
     }

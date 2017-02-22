@@ -6,6 +6,10 @@
 #include <CrypTool/CrypTool.h>
 #include <Core/MainWindow.h>
 
+namespace Ui {
+    class CrypToolMainWindow;
+}
+
 namespace QCrypTool {
     namespace CrypTool {
 
@@ -14,6 +18,14 @@ namespace QCrypTool {
         public:
             MainWindow(QWidget *_parent = 0, const Qt::WindowFlags _flags = Qt::WindowFlags());
             virtual ~MainWindow();
+        protected:
+            virtual void initializeSignalsAndSlots();
+        private slots:
+            void slotTriggeredMenuOptionsActionLanguage();
+        private slots:
+            void slotTriggeredMenuHelpActionAboutCrypTool();
+        private:
+            Ui::CrypToolMainWindow *m_ui;
         };
 
     }
