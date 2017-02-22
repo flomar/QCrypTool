@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/QCrypTool"/>
+    <qresource prefix="/QCrypTool/Fonts">
+        <file alias="Arial.ttf">QCrypTool/Fonts/Arial.ttf</file>
+        <file alias="Courier.ttf">QCrypTool/Fonts/Courier.ttf</file>
+    </qresource>
+</RCC>
