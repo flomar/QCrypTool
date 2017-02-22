@@ -13,6 +13,8 @@ Sources/QCrypTool.h \
 Sources/Core/MainWindow.h \
 Sources/Core/Dialog.h \
 Sources/Core/HelpSystem.h \
+Sources/Core/Cryptography.h \
+Sources/Core/Utilities.h \
 Sources/CrypTool/CrypTool.h \
 Sources/CrypTool/CrypToolApplication.h \
 Sources/CrypTool/CrypToolMainWindow.h \
@@ -24,6 +26,8 @@ Sources/QCrypTool.cpp \
 Sources/Core/MainWindow.cpp \
 Sources/Core/Dialog.cpp \
 Sources/Core/HelpSystem.cpp \
+Sources/Core/Cryptography.cpp \
+Sources/Core/Utilities.cpp \
 Sources/CrypTool/CrypTool.cpp \
 Sources/CrypTool/CrypToolApplication.cpp \
 Sources/CrypTool/CrypToolMainWindow.cpp \

@@ -21,8 +21,43 @@ namespace QCrypTool {
         }
 
         void MainWindow::initializeSignalsAndSlots() {
+            connect(m_ui->MenuIndividualProceduresMenuHashActionMD4, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuIndividualProceduresMenuHashActionMD4()));
+            connect(m_ui->MenuIndividualProceduresMenuHashActionMD5, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuIndividualProceduresMenuHashActionMD5()));
+            connect(m_ui->MenuIndividualProceduresMenuHashActionSHA, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuIndividualProceduresMenuHashActionSHA()));
+            connect(m_ui->MenuIndividualProceduresMenuHashActionSHA1, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuIndividualProceduresMenuHashActionSHA1()));
+            connect(m_ui->MenuIndividualProceduresMenuHashActionSHA256, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuIndividualProceduresMenuHashActionSHA256()));
+            connect(m_ui->MenuIndividualProceduresMenuHashActionSHA512, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuIndividualProceduresMenuHashActionSHA512()));
+            connect(m_ui->MenuIndividualProceduresMenuHashActionRIPEMD160, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuIndividualProceduresMenuHashActionRIPEMD160()));
             connect(m_ui->MenuOptionsActionLanguage, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuOptionsActionLanguage()));
             connect(m_ui->MenuHelpActionAboutCrypTool, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuHelpActionAboutCrypTool()));
+        }
+
+        void MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionMD4() {
+            qDebug() << QString("TODO/FIXME: MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionMD4");
+        }
+
+        void MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionMD5() {
+            qDebug() << QString("TODO/FIXME: MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionMD5");
+        }
+
+        void MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionSHA() {
+            qDebug() << QString("TODO/FIXME: MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionSHA");
+        }
+
+        void MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionSHA1() {
+            qDebug() << QString("TODO/FIXME: MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionSHA1");
+        }
+
+        void MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionSHA256() {
+            qDebug() << QString("TODO/FIXME: MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionSHA256");
+        }
+
+        void MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionSHA512() {
+            qDebug() << QString("TODO/FIXME: MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionSHA512");
+        }
+
+        void MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionRIPEMD160() {
+            qDebug() << QString("TODO/FIXME: MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionRIPEMD160");
         }
 
         void MainWindow::slotTriggeredMenuOptionsActionLanguage() {

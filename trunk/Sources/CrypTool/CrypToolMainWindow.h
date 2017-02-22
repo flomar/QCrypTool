@@ -21,6 +21,14 @@ namespace QCrypTool {
         protected:
             virtual void initializeSignalsAndSlots();
         private slots:
+            void slotTriggeredMenuIndividualProceduresMenuHashActionMD4();
+            void slotTriggeredMenuIndividualProceduresMenuHashActionMD5();
+            void slotTriggeredMenuIndividualProceduresMenuHashActionSHA();
+            void slotTriggeredMenuIndividualProceduresMenuHashActionSHA1();
+            void slotTriggeredMenuIndividualProceduresMenuHashActionSHA256();
+            void slotTriggeredMenuIndividualProceduresMenuHashActionSHA512();
+            void slotTriggeredMenuIndividualProceduresMenuHashActionRIPEMD160();
+        private slots:
             void slotTriggeredMenuOptionsActionLanguage();
         private slots:
             void slotTriggeredMenuHelpActionAboutCrypTool();

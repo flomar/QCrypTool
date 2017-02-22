@@ -4,6 +4,7 @@
 #define _QCRYPTOOL_QCRYPTOOL_H_
 
 #include <QDebug>
+#include <QSharedPointer>
 #include <QApplication>
 #include <QMainWindow>
 #include <QDialog>
@@ -13,10 +14,11 @@
 #include <QMenuBar>
 #include <QMenu>
 #include <QAction>
-#include <QSharedPointer>
 #include <QVector>
 #include <QMap>
 #include <QSet>
+#include <QDateTime>
+#include <QRegExp>
 
 namespace QCrypTool {
 
