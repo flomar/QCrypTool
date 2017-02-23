@@ -15,8 +15,12 @@ Sources/QCrypTool.h \
 Sources/Core/MainWindow.h \
 Sources/Core/Dialog.h \
 Sources/Core/HelpSystem.h \
-Sources/Core/Cryptography.h \
 Sources/Core/Utilities.h \
+Sources/Core/Cryptography.h \
+Sources/Core/Cryptography/CryptographyHash.h \
+Sources/Core/Cryptography/CryptographySymmetric.h \
+Sources/Core/Cryptography/CryptographyAsymmetric.h \
+Sources/Core/Cryptography/CryptographyCertificates.h \
 Sources/CrypTool/CrypTool.h \
 Sources/CrypTool/CrypToolApplication.h \
 Sources/CrypTool/CrypToolMainWindow.h \
@@ -28,8 +32,12 @@ Sources/QCrypTool.cpp \
 Sources/Core/MainWindow.cpp \
 Sources/Core/Dialog.cpp \
 Sources/Core/HelpSystem.cpp \
-Sources/Core/Cryptography.cpp \
 Sources/Core/Utilities.cpp \
+Sources/Core/Cryptography.cpp \
+Sources/Core/Cryptography/CryptographyHash.cpp \
+Sources/Core/Cryptography/CryptographySymmetric.cpp \
+Sources/Core/Cryptography/CryptographyAsymmetric.cpp \
+Sources/Core/Cryptography/CryptographyCertificates.cpp \
 Sources/CrypTool/CrypTool.cpp \
 Sources/CrypTool/CrypToolApplication.cpp \
 Sources/CrypTool/CrypToolMainWindow.cpp \
