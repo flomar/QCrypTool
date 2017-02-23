@@ -14,8 +14,6 @@ namespace QCrypTool {
     namespace Core {
         namespace Cryptography {
 
-            // TODO/FIXME
-
         }
     }
 }
