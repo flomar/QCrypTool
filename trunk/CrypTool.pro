@@ -67,5 +67,7 @@ macx: {
 }
 # Win-specific
 win32: {
-
+INCLUDEPATH += $$PWD/External/Windows/OpenSSL/include
+LIBS += -L$$PWD/External/Windows/OpenSSL/lib -llibcrypto
+LIBS += -L$$PWD/External/Windows/OpenSSL/lib -llibssl
 }
