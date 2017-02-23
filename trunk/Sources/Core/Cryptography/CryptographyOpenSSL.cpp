@@ -1,11 +1,11 @@
-// CryptographyHash.cpp
+// CryptographyOpenSSL.cpp
 
-#include <Core/Cryptography/CryptographyHash.h>
+#include <Core/Cryptography/CryptographyOpenSSL.h>
 
 namespace QCrypTool {
     namespace Core {
         namespace Cryptography {
-            namespace Hash {
+            namespace OpenSSL {
 
             }
         }

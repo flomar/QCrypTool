@@ -5,6 +5,8 @@
 
 #include <QCrypTool.h>
 
+#include <Core/Cryptography/CryptographyOpenSSL.h>
+
 namespace QCrypTool {
     namespace Core {
         namespace Cryptography {
@@ -20,19 +22,6 @@ namespace QCrypTool {
                     HASH_ALGORITHM_TYPE_SHA512,
                     HASH_ALGORITHM_TYPE_RIPEMD160
                 };
-
-                const QMap<HashAlgorithmType, QString> mapHashAlgorithmNames = {
-                    { HASH_ALGORITHM_TYPE_MD4, "MD4" },
-                    { HASH_ALGORITHM_TYPE_MD5, "MD5" },
-                    { HASH_ALGORITHM_TYPE_SHA, "SHA" },
-                    { HASH_ALGORITHM_TYPE_SHA1, "SHA1" },
-                    { HASH_ALGORITHM_TYPE_SHA256, "SHA256" },
-                    { HASH_ALGORITHM_TYPE_SHA512, "SHA512" },
-                    { HASH_ALGORITHM_TYPE_RIPEMD160, "RIPEMD160" }
-                };
-
-                QString getHashAlgorithmName(const HashAlgorithmType _hashAlgorithmType);
-                HashAlgorithmType getHashAlgorithmType(const QString &_hashAlgorithmName);
 
             }
         }

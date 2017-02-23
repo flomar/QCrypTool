@@ -5,6 +5,8 @@
 
 #include <QCrypTool.h>
 
+#include <Core/Cryptography/CryptographyOpenSSL.h>
+
 namespace QCrypTool {
     namespace Core {
         namespace Cryptography {
@@ -16,15 +18,6 @@ namespace QCrypTool {
                     ASYMMETRIC_ALGORITHM_TYPE_DSA,
                     ASYMMETRIC_ALGORITHM_TYPE_ECC
                 };
-
-                const QMap<AsymmetricAlgorithmType, QString> mapAsymmetricAlgorithmNames = {
-                    { ASYMMETRIC_ALGORITHM_TYPE_RSA, "RSA" },
-                    { ASYMMETRIC_ALGORITHM_TYPE_DSA, "DSA" },
-                    { ASYMMETRIC_ALGORITHM_TYPE_ECC, "ECC" }
-                };
-
-                QString getAsymmetricAlgorithmName(const AsymmetricAlgorithmType _asymmetricAlgorithmType);
-                AsymmetricAlgorithmType getAsymmetricAlgorithmType(const QString &_asymmetricAlgorithmName);
 
             }
         }
