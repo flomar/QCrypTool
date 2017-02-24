@@ -8,4 +8,5 @@
 		<License name="LGPL3" file="LICENSE" />
 	</Licenses>
 	<Default>true</Default>
+	<Script>installscript.qs</Script>
 </Package>
