@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+	<Name>QCrypTool</Name>
+	<Version>0.0.0</Version>
+	<Title>QCrypTool Installer</Title>
+	<Publisher>CrypTool Team</Publisher>
+	<StartMenuDir>QCrypTool</StartMenuDir>
+	<TargetDir>@HomeDir@/QCrypTool</TargetDir>
+</Installer>

@@ -61,7 +61,7 @@ Resources/CrypTool/Dialogs/DialogLanguage.ui
 unix:!macx {
 
 }
-# Mac-specific
+# MacOS-specific
 macx: {
 
 }
