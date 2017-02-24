@@ -4,4 +4,7 @@
         <file alias="Arial.ttf">QCrypTool/Fonts/Arial.ttf</file>
         <file alias="Courier.ttf">QCrypTool/Fonts/Courier.ttf</file>
     </qresource>
+    <qresource prefix="/QCrypTool/Images">
+        <file alias="QCrypToolLogo.svg">QCrypTool/Images/QCrypToolLogo.svg</file>
+    </qresource>
 </RCC>
