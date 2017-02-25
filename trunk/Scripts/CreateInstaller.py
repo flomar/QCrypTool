@@ -90,11 +90,14 @@ def createInstaller():
         shutil.copyfile(SCRIPTDIR + "/../External/Windows/OpenSSL/bin/libssl-1_1-x64.dll", installerPackageDataDir + "/libssl-1_1-x64.dll")
         command = QTINSTALLATIONDIR + "/bin/windeployqt.exe" + " " + installerPackageDataDir + "/CrypTool.exe"
         os.system(command)
+        shutil.copyfile(SCRIPTDIR + "/../Translations/CrypTool/CrypToolEnglish.qm", installerPackageDataDir + "/translations/CrypToolEnglish.qm")
+        shutil.copyfile(SCRIPTDIR + "/../Translations/CrypTool/CrypToolGerman.qm", installerPackageDataDir + "/translations/CrypToolGerman.qm")
         command = QTINSTALLERFRAMEWORKDIR + "/bin/binarycreator.exe -c " + installerConfigFileOriginal + " -p " + SCRIPTDIR + "/../Installer/packages " + SCRIPTDIR + "/../Installer/SetupQCrypTool-" + applicationVersion + ".exe"
         os.system(command)
-        if os.path.isdir(installerPackageDataDir):
-            shutil.rmtree(installerPackageDataDir)
-        os.makedirs(installerPackageDataDir)
+    # clean up
+    if os.path.isdir(installerPackageDataDir):
+        shutil.rmtree(installerPackageDataDir)
+    os.makedirs(installerPackageDataDir)
 
 def main():
     if not checkEnvironment():

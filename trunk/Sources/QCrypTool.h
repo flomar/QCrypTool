@@ -19,6 +19,7 @@
 #include <QSet>
 #include <QDateTime>
 #include <QRegExp>
+#include <QTranslator>
 
 namespace QCrypTool {
 

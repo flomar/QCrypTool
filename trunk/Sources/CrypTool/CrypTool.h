@@ -5,6 +5,8 @@
 
 #include <QCrypTool.h>
 
+#include <CrypTool/CrypToolTranslation.h>
+
 namespace QCrypTool {
     namespace CrypTool {
 

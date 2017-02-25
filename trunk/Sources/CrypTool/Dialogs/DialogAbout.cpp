@@ -22,7 +22,8 @@ namespace QCrypTool {
             }
 
             void DialogAbout::initializeData() {
-
+                setWindowTitle(m_translator.getString(I18N_STRING_DIALOG_ABOUT_TITLE));
+                m_ui->DialogAboutPushButtonClose->setText(m_translator.getString(I18N_STRING_CLOSE));
             }
 
         }

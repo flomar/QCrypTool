@@ -7,7 +7,8 @@ namespace QCrypTool {
     namespace Core {
 
         MainWindow::MainWindow(QWidget *_parent, const Qt::WindowFlags _flags) :
-            QMainWindow(_parent, _flags) {
+            QMainWindow(_parent, _flags),
+            m_translator(Translator::instance()) {
             // register with help system
             connect(this, SIGNAL(signalRequestContextHelp(QString)), &HelpSystem::instance(), SLOT(slotRequestContextHelp(QString)));
         }

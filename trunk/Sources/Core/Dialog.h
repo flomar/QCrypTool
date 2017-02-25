@@ -5,6 +5,8 @@
 
 #include <QCrypTool.h>
 
+#include <Core/Translator.h>
+
 namespace QCrypTool {
     namespace Core {
 
@@ -26,6 +28,8 @@ namespace QCrypTool {
             bool eventFilter(QObject *_object, QEvent *_event);
         signals:
             void signalRequestContextHelp(const QString &_identifierContextHelp);
+        protected:
+            Translator &m_translator;
         };
 
     }

@@ -24,6 +24,9 @@ namespace QCrypTool {
                 virtual void initializeData();
             private:
                 Ui::DialogLanguage *m_ui;
+            private slots:
+                void slotClickedDialogLanguagePushButtonCancel(const bool _checked);
+                void slotClickedDialogLanguagePushButtonOK(const bool _checked);
             };
 
         }
