@@ -22,6 +22,10 @@
 
 namespace QCrypTool {
 
+    QString getApplicationName();
+    QString getApplicationVersion();
+    QString getApplicationCopyright();
+
 }
 
 #endif
