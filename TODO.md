@@ -2,6 +2,10 @@
 
 This document contains the most important TODOs for the project.
 
+## Known Bugs
+
+- The "UpdateBuildInformation.py" script doesn't seem to do its job, just check out the main window title which should display the current version number. The "CreateInstaller.py" script does correctly process and display the current version though.
+
 ## Short-Term Roadmap
 
 - [WIP]: Integrate an up-to-date OpenSSL library required for the OpenSSL-based crypto layer (TODO: Windows-only for now).
