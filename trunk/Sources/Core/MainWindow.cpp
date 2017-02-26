@@ -7,15 +7,18 @@ namespace QCrypTool {
     namespace Core {
 
         MainWindow::MainWindow(QWidget *_parent, const Qt::WindowFlags _flags) :
-            QMainWindow(_parent, _flags),
-            m_translator(Translator::instance()) {
+            QMainWindow(_parent, _flags) {
             // register with help system
             connect(this, SIGNAL(signalRequestContextHelp(QString)), &HelpSystem::instance(), SLOT(slotRequestContextHelp(QString)));
+            // connect with translator
+            connect(&Translation::instance(), SIGNAL(signalChangedLanguage()), this, SLOT(slotChangedLanguage()));
         }
 
         MainWindow::~MainWindow() {
             // unregister with help system
             disconnect(this, SIGNAL(signalRequestContextHelp(QString)), &HelpSystem::instance(), SLOT(slotRequestContextHelp(QString)));
+            // disconnect with translator
+            disconnect(&Translation::instance(), SIGNAL(signalChangedLanguage()), this, SLOT(slotChangedLanguage()));
         }
 
         void MainWindow::show() {

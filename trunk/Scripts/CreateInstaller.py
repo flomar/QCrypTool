@@ -90,8 +90,8 @@ def createInstaller():
         shutil.copyfile(SCRIPTDIR + "/../External/Windows/OpenSSL/bin/libssl-1_1-x64.dll", installerPackageDataDir + "/libssl-1_1-x64.dll")
         command = QTINSTALLATIONDIR + "/bin/windeployqt.exe" + " " + installerPackageDataDir + "/CrypTool.exe"
         os.system(command)
-        shutil.copyfile(SCRIPTDIR + "/../Translations/CrypTool/CrypToolEnglish.qm", installerPackageDataDir + "/translations/CrypToolEnglish.qm")
-        shutil.copyfile(SCRIPTDIR + "/../Translations/CrypTool/CrypToolGerman.qm", installerPackageDataDir + "/translations/CrypToolGerman.qm")
+        shutil.copyfile(SCRIPTDIR + "/../translations/QCrypToolEnglish.qm", installerPackageDataDir + "/translations/QCrypToolEnglish.qm")
+        shutil.copyfile(SCRIPTDIR + "/../translations/QCrypToolGerman.qm", installerPackageDataDir + "/translations/QCrypToolGerman.qm")
         command = QTINSTALLERFRAMEWORKDIR + "/bin/binarycreator.exe -c " + installerConfigFileOriginal + " -p " + SCRIPTDIR + "/../Installer/packages " + SCRIPTDIR + "/../Installer/SetupQCrypTool-" + applicationVersion + ".exe"
         os.system(command)
     # clean up

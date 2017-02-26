@@ -32,6 +32,12 @@ namespace QCrypTool {
             connect(m_ui->MenuHelpActionAboutCrypTool, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuHelpActionAboutCrypTool()));
         }
 
+        void MainWindow::slotChangedLanguage() {
+            setWindowTitle(QString("%1 %2").arg(getApplicationName()).arg(getApplicationVersion()));
+            // TODO/FIXME: add more translations
+            m_ui->MenuHelp->setTitle(trStr(I18N_CRYPTOOL_MAIN_WINDOW_MENU_HELP));
+        }
+
         void MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionMD4() {
             qDebug() << QString("TODO/FIXME: MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionMD4");
         }

@@ -4,8 +4,7 @@
 #define _QCRYPTOOL_CRYPTOOL_CRYPTOOL_H_
 
 #include <QCrypTool.h>
-
-#include <CrypTool/CrypToolTranslation.h>
+#include <QCrypToolTranslation.h>
 
 namespace QCrypTool {
     namespace CrypTool {

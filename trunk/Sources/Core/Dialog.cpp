@@ -7,8 +7,7 @@ namespace QCrypTool {
     namespace Core {
 
         Dialog::Dialog(QWidget *_parent, const Qt::WindowFlags _flags) :
-            QDialog(_parent, _flags),
-            m_translator(Translator::instance()) {
+            QDialog(_parent, _flags) {
             // install event filter
             installEventFilter(this);
             // register with help system

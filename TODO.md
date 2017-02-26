@@ -5,7 +5,7 @@ This document contains the most important TODOs for the project.
 ## Short-Term Roadmap
 
 - [WIP]: Integrate an up-to-date OpenSSL library required for the OpenSSL-based crypto layer (TODO: Windows-only for now).
-- [WIP]: I18N is based on the QtLinguist language files, working fine for English and German for now. However, the entries in the combo box of the language dialog need to be translated as well, so there needs to be a mapping of some sort.
+- ~~I18N is based on QtLinguist language files. The solution is working fine for English and German, switching back and forth works seamlessly.~~
 - Add a DEVELOPERS.md document to guide contributors through the build process on all supported platforms.
 - Integrate an HTML browser for browsing the to-be-created content of the context-sensitive help system.
 - Develop a QTextEdit-derived ASCII editor and a custom HEX editor, both preferably with support for files larger than 2GB.

@@ -12,10 +12,11 @@ TARGET = CrypTool
 
 HEADERS += \
 Sources/QCrypTool.h \
+Sources/QCrypToolTranslation.h \
+Sources/Core/Application.h \
 Sources/Core/MainWindow.h \
 Sources/Core/Dialog.h \
 Sources/Core/HelpSystem.h \
-Sources/Core/Translator.h \
 Sources/Core/Utilities.h \
 Sources/Core/Utilities/UtilitiesDateAndTime.h \
 Sources/Core/Cryptography.h \
@@ -25,7 +26,6 @@ Sources/Core/Cryptography/CryptographySymmetric.h \
 Sources/Core/Cryptography/CryptographyAsymmetric.h \
 Sources/Core/Cryptography/CryptographyCertificates.h \
 Sources/CrypTool/CrypTool.h \
-Sources/CrypTool/CrypToolTranslation.h \
 Sources/CrypTool/CrypToolApplication.h \
 Sources/CrypTool/CrypToolMainWindow.h \
 Sources/CrypTool/Dialogs/DialogAbout.h \
@@ -33,10 +33,11 @@ Sources/CrypTool/Dialogs/DialogLanguage.h
 
 SOURCES += \
 Sources/QCrypTool.cpp \
+Sources/QCrypToolTranslation.cpp \
+Sources/Core/Application.cpp \
 Sources/Core/MainWindow.cpp \
 Sources/Core/Dialog.cpp \
 Sources/Core/HelpSystem.cpp \
-Sources/Core/Translator.cpp \
 Sources/Core/Utilities.cpp \
 Sources/Core/Utilities/UtilitiesDateAndTime.cpp \
 Sources/Core/Cryptography.cpp \
@@ -46,7 +47,6 @@ Sources/Core/Cryptography/CryptographySymmetric.cpp \
 Sources/Core/Cryptography/CryptographyAsymmetric.cpp \
 Sources/Core/Cryptography/CryptographyCertificates.cpp \
 Sources/CrypTool/CrypTool.cpp \
-Sources/CrypTool/CrypToolTranslation.cpp \
 Sources/CrypTool/CrypToolApplication.cpp \
 Sources/CrypTool/CrypToolMainWindow.cpp \
 Sources/CrypTool/Dialogs/DialogAbout.cpp \

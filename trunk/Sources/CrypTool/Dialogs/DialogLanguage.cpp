@@ -23,16 +23,17 @@ namespace QCrypTool {
             }
 
             void DialogLanguage::initializeData() {
-                setWindowTitle(m_translator.getString(I18N_STRING_DIALOG_LANGUAGE_TITLE));
-                m_ui->DialogLanguageLabelDescription->setText(m_translator.getString(I18N_STRING_DIALOG_LANGUAGE_LABEL_DESCRIPTION));
+                setWindowTitle(trStr(I18N_CRYPTOOL_DIALOG_LANGUAGE_TITLE));
+                m_ui->DialogLanguageLabelDescription->setText(trStr(I18N_CRYPTOOL_DIALOG_LANGUAGE_LABEL_DESCRIPTION));
                 m_ui->DialogLanguageComboxBoxLanguage->clear();
-                const QVector<QString> languages = m_translator.getLanguages();
+                const QVector<QString> languages = Translation::instance().getLanguages();
                 foreach(const QString language, languages) {
-                    m_ui->DialogLanguageComboxBoxLanguage->addItem(language);
+                    const QString languageTranslated = Translation::instance().getLanguageTranslated(language);
+                    m_ui->DialogLanguageComboxBoxLanguage->addItem(languageTranslated);
                 }
-                m_ui->DialogLanguageComboxBoxLanguage->setCurrentText(m_translator.getLanguage());
-                m_ui->DialogLanguagePushButtonCancel->setText(m_translator.getString(I18N_STRING_CANCEL));
-                m_ui->DialogLanguagePushButtonOK->setText(m_translator.getString(I18N_STRING_OK));
+                m_ui->DialogLanguageComboxBoxLanguage->setCurrentText(Translation::instance().getLanguageTranslated(Translation::instance().getLanguage()));
+                m_ui->DialogLanguagePushButtonCancel->setText(trStr(I18N_GENERIC_CANCEL));
+                m_ui->DialogLanguagePushButtonOK->setText(trStr(I18N_GENERIC_OK));
             }
 
             void DialogLanguage::slotClickedDialogLanguagePushButtonCancel(const bool _checked) {
@@ -42,7 +43,7 @@ namespace QCrypTool {
 
             void DialogLanguage::slotClickedDialogLanguagePushButtonOK(const bool _checked) {
                 Q_UNUSED(_checked);
-                m_translator.setLanguage("CrypTool", m_ui->DialogLanguageComboxBoxLanguage->currentText());
+                Translation::instance().setLanguage(Translation::instance().getLanguageUntranslated(m_ui->DialogLanguageComboxBoxLanguage->currentText()));
                 done(QDialog::Accepted);
             }
 

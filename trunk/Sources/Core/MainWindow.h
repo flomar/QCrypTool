@@ -4,8 +4,7 @@
 #define _QCRYPTOOL_CORE_MAINWINDOW_H_
 
 #include <QCrypTool.h>
-
-#include <Core/Translator.h>
+#include <QCrypToolTranslation.h>
 
 namespace QCrypTool {
     namespace Core {
@@ -26,12 +25,12 @@ namespace QCrypTool {
             virtual void initializeSignalsAndSlots() = 0;
         protected:
             bool eventFilter(QObject *_object, QEvent *_event);
+        protected slots:
+            virtual void slotChangedLanguage() = 0;
         signals:
             void signalRequestContextHelp(const QString &_identifierContextHelp);
         private:
             void installEventFilterForMenusAndActions();
-        protected:
-            Translator &m_translator;
         };
 
     }

@@ -20,6 +20,11 @@
 #include <QDateTime>
 #include <QRegExp>
 #include <QTranslator>
+#include <QMessageBox>
+#include <QFile>
+#include <QFileInfo>
+#include <QDir>
+#include <QDirIterator>
 
 namespace QCrypTool {
 
