@@ -12,12 +12,10 @@ namespace QCrypTool {
         class Application : public QApplication {
             Q_OBJECT
         public:
-            Application(int &_argc, char **_argv, const QVector<QString> &_vectorLanguages);
+            Application(int &_argc, char **_argv);
             virtual ~Application();
         public:
             int exec();
-        protected:
-            const QVector<QString> m_vectorLanguages;
         };
 
     }

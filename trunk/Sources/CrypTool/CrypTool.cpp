@@ -10,8 +10,7 @@ namespace QCrypTool {
 }
 
 int main(int _argc, char **_argv) {
-    const QVector<QString> vectorLanguages = QVector<QString>() << "English" << "German";
-    QCrypTool::CrypTool::Application application(_argc, _argv, vectorLanguages);
+    QCrypTool::CrypTool::Application application(_argc, _argv);
     QCrypTool::CrypTool::MainWindow mainWindow;
     mainWindow.show();
     return application.exec();

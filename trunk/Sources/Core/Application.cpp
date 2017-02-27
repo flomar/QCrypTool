@@ -5,9 +5,8 @@
 namespace QCrypTool {
     namespace Core {
 
-        Application::Application(int &_argc, char **_argv, const QVector<QString> &_vectorLanguages) :
-            QApplication(_argc, _argv),
-            m_vectorLanguages(_vectorLanguages) {
+        Application::Application(int &_argc, char **_argv) :
+            QApplication(_argc, _argv) {
 
         }
 
