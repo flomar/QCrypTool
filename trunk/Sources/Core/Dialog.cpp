@@ -20,6 +20,8 @@ namespace QCrypTool {
         }
 
         int Dialog::exec() {
+            // make dialogs non-resizable
+            setFixedSize(size());
             // initialize signals and slots in derived class
             initializeSignalsAndSlots();
             // initialize data in derived class

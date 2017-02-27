@@ -20,7 +20,8 @@ namespace QCrypTool {
         }
 
         void HelpSystem::slotRequestContextHelp(const QString &_identifierContextHelp) {
-            qDebug() << QString("TODO/FIXME: HelpSystem::slotRequestContextHelp(%1)").arg(_identifierContextHelp);
+            QMessageBox messageBox(QMessageBox::Information, QString("Information"), QString("TODO/FIXME: show context help\nTODO/FIXME: %1").arg(_identifierContextHelp));
+            messageBox.exec();
         }
 
     }
