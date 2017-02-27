@@ -19,6 +19,7 @@ Sources/Core/Dialog.h \
 Sources/Core/HelpSystem.h \
 Sources/Core/Utilities.h \
 Sources/Core/Utilities/UtilitiesDateAndTime.h \
+Sources/Core/Utilities/UtilitiesGraphics.h \
 Sources/Core/Cryptography.h \
 Sources/Core/Cryptography/CryptographyOpenSSL.h \
 Sources/Core/Cryptography/CryptographyHash.h \
@@ -40,6 +41,7 @@ Sources/Core/Dialog.cpp \
 Sources/Core/HelpSystem.cpp \
 Sources/Core/Utilities.cpp \
 Sources/Core/Utilities/UtilitiesDateAndTime.cpp \
+Sources/Core/Utilities/UtilitiesGraphics.cpp \
 Sources/Core/Cryptography.cpp \
 Sources/Core/Cryptography/CryptographyOpenSSL.cpp \
 Sources/Core/Cryptography/CryptographyHash.cpp \

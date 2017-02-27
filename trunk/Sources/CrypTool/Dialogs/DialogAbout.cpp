@@ -23,7 +23,7 @@ namespace QCrypTool {
 
             void DialogAbout::initializeData() {
                 setWindowTitle(trStr(I18N_CRYPTOOL_DIALOGABOUT_TITLE));
-                m_ui->DialogAboutLabelApplicationLogo->setPixmap(QIcon(":/QCrypTool/Images/QCrypToolLogo.svg").pixmap(m_ui->DialogAboutLabelApplicationLogo->size()));
+                m_ui->DialogAboutLabelApplicationLogo->setPixmap(Core::Utilities::Graphics::getPixmapFromSvg(":/QCrypTool/Images/QCrypToolLogo.svg", m_ui->DialogAboutLabelApplicationLogo->size()));
                 m_ui->DialogAboutLabelApplicationNameAndVersion->setText(QString("%1 %2").arg(getApplicationName()).arg(getApplicationVersion()));
                 m_ui->DialogAboutLabelApplicationInformation->setText(trStr(I18N_CRYPTOOL_DIALOGABOUT_APPLICATIONINFORMATION));
                 m_ui->DialogAboutLabelApplicationLicensingInformation->setText(trStr(I18N_CRYPTOOL_DIALOGABOUT_APPLICATIONLICENSINGINFORMATION));

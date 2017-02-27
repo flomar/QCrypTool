@@ -6,6 +6,7 @@
 #include <QCrypTool.h>
 
 #include <Core/Utilities/UtilitiesDateAndTime.h>
+#include <Core/Utilities/UtilitiesGraphics.h>
 
 namespace QCrypTool {
     namespace Core {

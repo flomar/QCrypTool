@@ -6,6 +6,8 @@
 #include <QCrypTool.h>
 #include <QCrypToolTranslation.h>
 
+#include <Core/Utilities.h>
+
 namespace QCrypTool {
     namespace Core {
 

@@ -6,13 +6,15 @@
 #include <QCrypTool.h>
 #include <QCrypToolTranslation.h>
 
+#include <Core/Utilities.h>
+
 namespace QCrypTool {
     namespace Core {
 
         class Application : public QApplication {
             Q_OBJECT
         public:
-            Application(int &_argc, char **_argv, const QIcon &_icon);
+            Application(int &_argc, char **_argv, const QString &_pathIconSvg, const QSize &_sizeIconSvg);
             virtual ~Application();
         public:
             int exec();

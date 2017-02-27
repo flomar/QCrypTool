@@ -6,7 +6,7 @@ namespace QCrypTool {
     namespace CrypTool {
 
         Application::Application(int &_argc, char **_argv) :
-            Core::Application(_argc, _argv, QIcon(":/QCrypTool/Images/QCrypToolLogo.svg")) {
+            Core::Application(_argc, _argv, QString(":/QCrypTool/Images/QCrypToolLogo.svg"), QSize(512, 512)) {
 
         }
 

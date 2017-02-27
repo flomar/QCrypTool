@@ -25,8 +25,11 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QDirIterator>
+#include <QSvgRenderer>
+#include <QPainter>
 #include <QPixmap>
 #include <QIcon>
+#include <QImage>
 
 namespace QCrypTool {
 

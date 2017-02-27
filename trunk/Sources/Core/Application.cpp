@@ -5,9 +5,9 @@
 namespace QCrypTool {
     namespace Core {
 
-        Application::Application(int &_argc, char **_argv, const QIcon &_icon) :
+        Application::Application(int &_argc, char **_argv, const QString &_pathIconSvg, const QSize &_sizeIconSvg) :
             QApplication(_argc, _argv) {
-            setWindowIcon(_icon);
+            setWindowIcon(Core::Utilities::Graphics::getIconFromSvg(_pathIconSvg, _sizeIconSvg));
         }
 
         Application::~Application() {
