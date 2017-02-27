@@ -1,6 +1,6 @@
 # CrypTool.pro
 
-QT += core gui widgets
+QT += core gui svg widgets
 
 CONFIG += c++11
 

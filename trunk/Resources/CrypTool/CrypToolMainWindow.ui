@@ -41,7 +41,7 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="MenuFile">
@@ -115,7 +115,7 @@
     <addaction name="MenuHelpActionCTBook"/>
     <addaction name="MenuHelpActionPresentation"/>
     <addaction name="separator"/>
-    <addaction name="MenuHelpActionAboutCrypTool"/>
+    <addaction name="MenuHelpActionAboutQCrypTool"/>
    </widget>
    <addaction name="MenuFile"/>
    <addaction name="MenuEdit"/>
@@ -159,9 +159,9 @@
     <string>Presentation</string>
    </property>
   </action>
-  <action name="MenuHelpActionAboutCrypTool">
+  <action name="MenuHelpActionAboutQCrypTool">
    <property name="text">
-    <string>About CrypTool</string>
+    <string>About QCrypTool</string>
    </property>
   </action>
   <action name="MenuOptionsActionLanguage">

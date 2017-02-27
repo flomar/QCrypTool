@@ -33,7 +33,7 @@ namespace QCrypTool {
         private slots:
             void slotTriggeredMenuOptionsActionLanguage();
         private slots:
-            void slotTriggeredMenuHelpActionAboutCrypTool();
+            void slotTriggeredMenuHelpActionAboutQCrypTool();
         private:
             Ui::CrypToolMainWindow *m_ui;
         };

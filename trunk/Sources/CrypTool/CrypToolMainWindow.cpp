@@ -29,7 +29,7 @@ namespace QCrypTool {
             connect(m_ui->MenuIndividualProceduresMenuHashActionSHA512, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuIndividualProceduresMenuHashActionSHA512()));
             connect(m_ui->MenuIndividualProceduresMenuHashActionRIPEMD160, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuIndividualProceduresMenuHashActionRIPEMD160()));
             connect(m_ui->MenuOptionsActionLanguage, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuOptionsActionLanguage()));
-            connect(m_ui->MenuHelpActionAboutCrypTool, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuHelpActionAboutCrypTool()));
+            connect(m_ui->MenuHelpActionAboutQCrypTool, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuHelpActionAboutQCrypTool()));
         }
 
         void MainWindow::slotChangedLanguage() {
@@ -42,7 +42,7 @@ namespace QCrypTool {
             m_ui->MenuHelpActionReadme->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONREADME));
             m_ui->MenuHelpActionCTBook->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONCTBOOK));
             m_ui->MenuHelpActionPresentation->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONPRESENTATION));
-            m_ui->MenuHelpActionAboutCrypTool->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONABOUTCRYPTOOL));
+            m_ui->MenuHelpActionAboutQCrypTool->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONABOUTQCRYPTOOL));
         }
 
         void MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionMD4() {
@@ -78,7 +78,7 @@ namespace QCrypTool {
             dialogLanguage.exec();
         }
 
-        void MainWindow::slotTriggeredMenuHelpActionAboutCrypTool() {
+        void MainWindow::slotTriggeredMenuHelpActionAboutQCrypTool() {
             Dialogs::DialogAbout dialogAbout;
             dialogAbout.exec();
         }
