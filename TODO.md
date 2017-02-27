@@ -4,7 +4,7 @@ This document contains the most important TODOs for the project.
 
 ## Known Bugs
 
-- The "UpdateBuildInformation.py" script doesn't seem to do its job, just check out the main window title which should display the current version number. The "CreateInstaller.py" script does correctly process and display the current version though.
+- ~~The "UpdateBuildInformation.py" script doesn't seem to do its job, just check out the main window title which should display the current version number. The "CreateInstaller.py" script does correctly process and display the current version though.~~
 
 ## Short-Term Roadmap
 
@@ -22,4 +22,5 @@ This document contains the most important TODOs for the project.
 - Qt 5.8+ including QtInstallerFramework 2.0+
 - Python 2.7+ (needs to be in PATH)
 - Git (needs to be in PATH)
-- In order to automate "UpdateBuildInformation.py" PREBUILD and POSTBUILD, developers need to add custom build steps to the QtCreator project (TODO: provide a tutorial).
+- To successfully build and later on deploy "CrypTool.pro" (which is only one of the future sub projects of QCrypTool, think AESTool and NumberShark), developers need to create a "build" directory parallel to the "trunk" directory. In this "build" directory, QCrypTool expects a "CrypTool/debug" and a "CrypTool/release" folder for the debug and the release builds (TODO: provide a tutorial).
+- To automate "UpdateBuildInformation.py" PREBUILD and POSTBUILD, developers need to add custom build steps to the QtCreator project (TODO: provide a tutorial).
