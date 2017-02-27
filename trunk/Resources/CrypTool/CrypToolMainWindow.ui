@@ -68,6 +68,20 @@
     <property name="title">
      <string>Digital Signatures/PKI</string>
     </property>
+    <widget class="QMenu" name="MenuDigitalSignaturesPKIMenuPKI">
+     <property name="title">
+      <string>PKI</string>
+     </property>
+     <addaction name="MenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys"/>
+     <addaction name="MenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys"/>
+    </widget>
+    <addaction name="MenuDigitalSignaturesPKIMenuPKI"/>
+    <addaction name="separator"/>
+    <addaction name="MenuDigitalSignaturesPKIActionCreateSignature"/>
+    <addaction name="MenuDigitalSignaturesPKIActionVerifySignature"/>
+    <addaction name="MenuDigitalSignaturesPKIActionExtractSignature"/>
+    <addaction name="separator"/>
+    <addaction name="MenuDigitalSignaturesPKIActionSignatureDemonstration"/>
    </widget>
    <widget class="QMenu" name="MenuIndividualProcedures">
     <property name="title">
@@ -202,6 +216,36 @@
   <action name="MenuIndividualProceduresMenuHashActionRIPEMD160">
    <property name="text">
     <string>RIPEMD160</string>
+   </property>
+  </action>
+  <action name="MenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys">
+   <property name="text">
+    <string>Create/Import Keys</string>
+   </property>
+  </action>
+  <action name="MenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys">
+   <property name="text">
+    <string>Display/Export Keys</string>
+   </property>
+  </action>
+  <action name="MenuDigitalSignaturesPKIActionCreateSignature">
+   <property name="text">
+    <string>Create Signature</string>
+   </property>
+  </action>
+  <action name="MenuDigitalSignaturesPKIActionVerifySignature">
+   <property name="text">
+    <string>Verify Signature</string>
+   </property>
+  </action>
+  <action name="MenuDigitalSignaturesPKIActionExtractSignature">
+   <property name="text">
+    <string>Extract Signature</string>
+   </property>
+  </action>
+  <action name="MenuDigitalSignaturesPKIActionSignatureDemonstration">
+   <property name="text">
+    <string>Signature Demonstration</string>
    </property>
   </action>
  </widget>

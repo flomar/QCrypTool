@@ -25,7 +25,7 @@ namespace QCrypTool {
             private:
                 Ui::DialogAbout *m_ui;
             private slots:
-                void slotClickedDialogAboutPushButtonClose(const bool _checked);
+                void slotClickedDialogAboutPushButtonClose();
             };
 
         }

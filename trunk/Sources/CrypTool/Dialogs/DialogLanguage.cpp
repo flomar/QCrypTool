@@ -18,8 +18,8 @@ namespace QCrypTool {
             }
 
             void DialogLanguage::initializeSignalsAndSlots() {
-                connect(m_ui->DialogLanguagePushButtonCancel, SIGNAL(clicked(bool)), this, SLOT(slotClickedDialogLanguagePushButtonCancel(bool)));
-                connect(m_ui->DialogLanguagePushButtonOK, SIGNAL(clicked(bool)), this, SLOT(slotClickedDialogLanguagePushButtonOK(bool)));
+                connect(m_ui->DialogLanguagePushButtonCancel, SIGNAL(clicked()), this, SLOT(slotClickedDialogLanguagePushButtonCancel()));
+                connect(m_ui->DialogLanguagePushButtonOK, SIGNAL(clicked()), this, SLOT(slotClickedDialogLanguagePushButtonOK()));
             }
 
             void DialogLanguage::initializeData() {
@@ -36,13 +36,11 @@ namespace QCrypTool {
                 m_ui->DialogLanguagePushButtonOK->setText(trStr(I18N_GENERIC_OK));
             }
 
-            void DialogLanguage::slotClickedDialogLanguagePushButtonCancel(const bool _checked) {
-                Q_UNUSED(_checked);
+            void DialogLanguage::slotClickedDialogLanguagePushButtonCancel() {
                 done(QDialog::Rejected);
             }
 
-            void DialogLanguage::slotClickedDialogLanguagePushButtonOK(const bool _checked) {
-                Q_UNUSED(_checked);
+            void DialogLanguage::slotClickedDialogLanguagePushButtonOK() {
                 Translation::instance().setLanguage(Translation::instance().getLanguageUntranslated(m_ui->DialogLanguageComboxBoxLanguage->currentText()));
                 done(QDialog::Accepted);
             }

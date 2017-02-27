@@ -23,6 +23,13 @@ namespace QCrypTool {
         protected slots:
             virtual void slotChangedLanguage();
         private slots:
+            void slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys();
+            void slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys();
+            void slotTriggeredMenuDigitalSignaturesPKIActionCreateSignature();
+            void slotTriggeredMenuDigitalSignaturesPKIActionVerifySignature();
+            void slotTriggeredMenuDigitalSignaturesPKIActionExtractSignature();
+            void slotTriggeredMenuDigitalSignaturesPKIActionSignatureDemonstration();
+        private slots:
             void slotTriggeredMenuIndividualProceduresMenuHashActionMD4();
             void slotTriggeredMenuIndividualProceduresMenuHashActionMD5();
             void slotTriggeredMenuIndividualProceduresMenuHashActionSHA();

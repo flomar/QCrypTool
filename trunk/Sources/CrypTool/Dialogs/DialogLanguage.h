@@ -25,8 +25,8 @@ namespace QCrypTool {
             private:
                 Ui::DialogLanguage *m_ui;
             private slots:
-                void slotClickedDialogLanguagePushButtonCancel(const bool _checked);
-                void slotClickedDialogLanguagePushButtonOK(const bool _checked);
+                void slotClickedDialogLanguagePushButtonCancel();
+                void slotClickedDialogLanguagePushButtonOK();
             };
 
         }

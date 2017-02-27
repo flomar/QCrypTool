@@ -18,7 +18,7 @@ namespace QCrypTool {
             }
 
             void DialogAbout::initializeSignalsAndSlots() {
-                connect(m_ui->DialogAboutPushButtonClose, SIGNAL(clicked(bool)), this, SLOT(slotClickedDialogAboutPushButtonClose(bool)));
+                connect(m_ui->DialogAboutPushButtonClose, SIGNAL(clicked()), this, SLOT(slotClickedDialogAboutPushButtonClose()));
             }
 
             void DialogAbout::initializeData() {
@@ -31,8 +31,7 @@ namespace QCrypTool {
                 m_ui->DialogAboutPushButtonClose->setText(trStr(I18N_GENERIC_CLOSE));
             }
 
-            void DialogAbout::slotClickedDialogAboutPushButtonClose(const bool _checked) {
-                Q_UNUSED(_checked);
+            void DialogAbout::slotClickedDialogAboutPushButtonClose() {
                 done(QDialog::Accepted);
             }
 

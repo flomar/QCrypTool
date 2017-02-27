@@ -4,7 +4,7 @@
 <context>
     <name>I18N_CRYPTOOL_DIALOGABOUT_APPLICATIONINFORMATION</name>
     <message>
-        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="95"/>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="103"/>
         <source>I18N_CRYPTOOL_DIALOGABOUT_APPLICATIONINFORMATION</source>
         <translation>QCrypTool ist ein Fork von CrypTool 1 ausgerichtet auf Plattformunabhängigkeit.&lt;br&gt;Bitte besuchen Sie http://www.cryptool.org für Informationen zum ursprünglichen Projekt.</translation>
     </message>
@@ -12,7 +12,7 @@
 <context>
     <name>I18N_CRYPTOOL_DIALOGABOUT_APPLICATIONLICENSINGINFORMATION</name>
     <message>
-        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="96"/>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="104"/>
         <source>I18N_CRYPTOOL_DIALOGABOUT_APPLICATIONLICENSINGINFORMATION</source>
         <translation>QCrypTool ist lizenziert unter der LGPLv3.</translation>
     </message>
@@ -20,7 +20,7 @@
 <context>
     <name>I18N_CRYPTOOL_DIALOGABOUT_TITLE</name>
     <message>
-        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="94"/>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="102"/>
         <source>I18N_CRYPTOOL_DIALOGABOUT_TITLE</source>
         <translation>Über QCrypTool</translation>
     </message>
@@ -28,23 +28,87 @@
 <context>
     <name>I18N_CRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION</name>
     <message>
-        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="98"/>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="106"/>
         <source>I18N_CRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION</source>
-        <translation>Hier können Sie die Sprache der QCrypTool-Benutzerschnittstelle ändern.</translation>
+        <translation>Hier können Sie die Sprache der QCrypTool-Benutzerschnittstelle ändern.&lt;br&gt;&lt;br&gt;Die ausgewählte Sprache wird sofort aktiv, nachdem Sie auf OK klicken. Sie müssen QCrypTool nicht neu starten.</translation>
     </message>
 </context>
 <context>
     <name>I18N_CRYPTOOL_DIALOGLANGUAGE_TITLE</name>
     <message>
-        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="97"/>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="105"/>
         <source>I18N_CRYPTOOL_DIALOGLANGUAGE_TITLE</source>
         <translation>Sprache</translation>
     </message>
 </context>
 <context>
-    <name>I18N_CRYPTOOL_MAINWINDOW_MENUHELP</name>
+    <name>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKI</name>
     <message>
         <location filename="../../../Sources/QCrypToolTranslation.cpp" line="84"/>
+        <source>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKI</source>
+        <translation>Digitale Signaturen/PKI</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONCREATESIGNATURE</name>
+    <message>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="88"/>
+        <source>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONCREATESIGNATURE</source>
+        <translation>Signatur erzeugen</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONEXTRACTSIGNATURE</name>
+    <message>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="90"/>
+        <source>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONEXTRACTSIGNATURE</source>
+        <translation>Signatur extrahieren</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONSIGNATUREDEMONSTRATION</name>
+    <message>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="91"/>
+        <source>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONSIGNATUREDEMONSTRATION</source>
+        <translation>Signatur-Demo</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONVERIFYSIGNATURE</name>
+    <message>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="89"/>
+        <source>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONVERIFYSIGNATURE</source>
+        <translation>Signatur verifizieren</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKI</name>
+    <message>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="85"/>
+        <source>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKI</source>
+        <translation>PKI</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKIACTIONCREATEIMPORTKEYS</name>
+    <message>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="86"/>
+        <source>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKIACTIONCREATEIMPORTKEYS</source>
+        <translation>Schlüssel erzeugen/importieren</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKIACTIONDISPLAYEXPORTKEYS</name>
+    <message>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="87"/>
+        <source>I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKIACTIONDISPLAYEXPORTKEYS</source>
+        <translation>Schlüssel anzeigen/exportieren</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_CRYPTOOL_MAINWINDOW_MENUHELP</name>
+    <message>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="92"/>
         <source>I18N_CRYPTOOL_MAINWINDOW_MENUHELP</source>
         <translation>Hilfe</translation>
     </message>
@@ -52,7 +116,7 @@
 <context>
     <name>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONABOUTQCRYPTOOL</name>
     <message>
-        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="91"/>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="99"/>
         <source>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONABOUTQCRYPTOOL</source>
         <translation>Über QCrypTool</translation>
     </message>
@@ -60,7 +124,7 @@
 <context>
     <name>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONCTBOOK</name>
     <message>
-        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="89"/>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="97"/>
         <source>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONCTBOOK</source>
         <translation>CT-Buch</translation>
     </message>
@@ -68,7 +132,7 @@
 <context>
     <name>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONINDEX</name>
     <message>
-        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="86"/>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="94"/>
         <source>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONINDEX</source>
         <translation>Index</translation>
     </message>
@@ -76,7 +140,7 @@
 <context>
     <name>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONPRESENTATION</name>
     <message>
-        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="90"/>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="98"/>
         <source>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONPRESENTATION</source>
         <translation>Präsentation</translation>
     </message>
@@ -84,7 +148,7 @@
 <context>
     <name>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONREADME</name>
     <message>
-        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="88"/>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="96"/>
         <source>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONREADME</source>
         <translation>Readme</translation>
     </message>
@@ -92,7 +156,7 @@
 <context>
     <name>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONSCENARIOSTUTORIALS</name>
     <message>
-        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="87"/>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="95"/>
         <source>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONSCENARIOSTUTORIALS</source>
         <translation>Szenarien (Tutorials)</translation>
     </message>
@@ -100,7 +164,7 @@
 <context>
     <name>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONSTARTINGPAGE</name>
     <message>
-        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="85"/>
+        <location filename="../../../Sources/QCrypToolTranslation.cpp" line="93"/>
         <source>I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONSTARTINGPAGE</source>
         <translation>Startseite</translation>
     </message>
