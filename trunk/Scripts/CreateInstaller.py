@@ -59,7 +59,11 @@ def updateInstallerConfigFile():
     with open(installerConfigFileOriginal, "rt") as fin:
         with open(installerConfigFileTemp, "wt") as fout:
             for line in fin:
+                line = line.replace("<Name>QCrypTool</Name>", "<Name>" + applicationName + " " + applicationVersion + "</Name>")
                 line = line.replace("<Version>0.0.0</Version>", "<Version>" + applicationVersion + "</Version>")
+                line = line.replace("<Title>QCrypTool</Name>", "<Name>" + applicationName + " " + applicationVersion + "</Title>")
+                line = line.replace("<StartMenuDir>QCrypTool</StartMenuDir>", "<StartMenuDir>" + applicationName + "-" + applicationVersion + "</StartMenuDir>")
+                line = line.replace("<TargetDir>@HomeDir@/QCrypTool</TargetDir>", "<TargetDir>@HomeDir@/" + applicationName + "-" + applicationVersion + "</TargetDir>")
                 fout.write(line)
     shutil.move(installerConfigFileTemp, installerConfigFileOriginal)
 	
