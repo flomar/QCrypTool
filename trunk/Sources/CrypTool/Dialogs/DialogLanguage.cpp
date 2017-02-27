@@ -23,8 +23,8 @@ namespace QCrypTool {
             }
 
             void DialogLanguage::initializeData() {
-                setWindowTitle(trStr(I18N_CRYPTOOL_DIALOG_LANGUAGE_TITLE));
-                m_ui->DialogLanguageLabelDescription->setText(trStr(I18N_CRYPTOOL_DIALOG_LANGUAGE_LABEL_DESCRIPTION));
+                setWindowTitle(trStr(I18N_CRYPTOOL_DIALOGLANGUAGE_TITLE));
+                m_ui->DialogLanguageLabelDescription->setText(trStr(I18N_CRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION));
                 m_ui->DialogLanguageComboxBoxLanguage->clear();
                 const QVector<QString> languages = Translation::instance().getLanguages();
                 foreach(const QString language, languages) {

@@ -35,7 +35,14 @@ namespace QCrypTool {
         void MainWindow::slotChangedLanguage() {
             setWindowTitle(QString("%1 %2").arg(getApplicationName()).arg(getApplicationVersion()));
             // TODO/FIXME: add more translations
-            m_ui->MenuHelp->setTitle(trStr(I18N_CRYPTOOL_MAIN_WINDOW_MENU_HELP));
+            m_ui->MenuHelp->setTitle(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELP));
+            m_ui->MenuHelpActionStartingPage->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONSTARTINGPAGE));
+            m_ui->MenuHelpActionIndex->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONINDEX));
+            m_ui->MenuHelpActionScenariosTutorials->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONSCENARIOSTUTORIALS));
+            m_ui->MenuHelpActionReadme->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONREADME));
+            m_ui->MenuHelpActionCTBook->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONCTBOOK));
+            m_ui->MenuHelpActionPresentation->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONPRESENTATION));
+            m_ui->MenuHelpActionAboutCrypTool->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONABOUTCRYPTOOL));
         }
 
         void MainWindow::slotTriggeredMenuIndividualProceduresMenuHashActionMD4() {

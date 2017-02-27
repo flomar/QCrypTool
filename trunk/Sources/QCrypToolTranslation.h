@@ -47,18 +47,25 @@ namespace QCrypTool {
     extern const char *I18N_GENERIC_OK;
     extern const char *I18N_GENERIC_CANCEL;
     extern const char *I18N_GENERIC_CLOSE;
-    extern const char *I18N_GENERIC_LANGUAGE_MISSING;
-    extern const char *I18N_GENERIC_LANGUAGE_NOT_INTEGRATED;
+    extern const char *I18N_GENERIC_LANGUAGEMISSING;
+    extern const char *I18N_GENERIC_LANGUAGENOTINTEGRATED;
     extern const char *I18N_GENERIC_ENGLISH;
     extern const char *I18N_GENERIC_GERMAN;
 
     // CrypTool main window translations
-    extern const char *I18N_CRYPTOOL_MAIN_WINDOW_MENU_HELP;
+    extern const char *I18N_CRYPTOOL_MAINWINDOW_MENUHELP;
+    extern const char *I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONSTARTINGPAGE;
+    extern const char *I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONINDEX;
+    extern const char *I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONSCENARIOSTUTORIALS;
+    extern const char *I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONREADME;
+    extern const char *I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONCTBOOK;
+    extern const char *I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONPRESENTATION;
+    extern const char *I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONABOUTCRYPTOOL;
 
     // CrypTool dialog translations
-    extern const char *I18N_CRYPTOOL_DIALOG_ABOUT_TITLE;
-    extern const char *I18N_CRYPTOOL_DIALOG_LANGUAGE_TITLE;
-    extern const char *I18N_CRYPTOOL_DIALOG_LANGUAGE_LABEL_DESCRIPTION;
+    extern const char *I18N_CRYPTOOL_DIALOGABOUT_TITLE;
+    extern const char *I18N_CRYPTOOL_DIALOGLANGUAGE_TITLE;
+    extern const char *I18N_CRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION;
 
 }
 
