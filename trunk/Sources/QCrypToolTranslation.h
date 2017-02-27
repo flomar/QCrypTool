@@ -16,11 +16,10 @@ namespace QCrypTool {
         static Translation &instance();
     public:
         void initializeLanguages();
-    public:
         void setLanguage(const QString &_language);
     public:
-        const QVector<QString> &getLanguages() const { return m_vectorLanguages; }
-        const QString &getLanguage() const { return m_language; }
+        QVector<QString> getLanguages() const;
+        QString getLanguage() const;
     public:
         QString getLanguageTranslated(const QString &_languageUntranslated) const;
         QString getLanguageUntranslated(const QString &_languageTranslated) const;
@@ -29,11 +28,7 @@ namespace QCrypTool {
     signals:
         void signalChangedLanguage();
     private:
-        QVector<QString> getVectorAvailableQmFileNames() const;
-        void updateLanguageTranslations();
-    private:
         QTranslator m_translator;
-        QVector<QString> m_vectorLanguages;
         QMap<QString, QString> m_mapLanguageTranslations;
         QString m_language;
     };
@@ -47,8 +42,6 @@ namespace QCrypTool {
     extern const char *I18N_GENERIC_OK;
     extern const char *I18N_GENERIC_CANCEL;
     extern const char *I18N_GENERIC_CLOSE;
-    extern const char *I18N_GENERIC_LANGUAGEMISSING;
-    extern const char *I18N_GENERIC_LANGUAGENOTINTEGRATED;
     extern const char *I18N_GENERIC_ENGLISH;
     extern const char *I18N_GENERIC_GERMAN;
 

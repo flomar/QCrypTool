@@ -23,54 +23,33 @@ namespace QCrypTool {
     }
 
     void Translation::initializeLanguages() {
-        m_vectorLanguages.clear();
-        QRegExp regExpAvailableQmFileName("^.*QCrypTool(.*)\\.qm$");
-        QVector<QString> vectorAvailableQmFileNames = getVectorAvailableQmFileNames();
-        foreach(const QString availableQmFileName, vectorAvailableQmFileNames) {
-            if(regExpAvailableQmFileName.indexIn(availableQmFileName) != -1) {
-                m_vectorLanguages.append(regExpAvailableQmFileName.cap(1));
-            }
-        }
-        // ATTENTION: Here we make sure the languages provided to the
-        // Translation module have been indeed properly integrated.
-        // Whenever a non-standed language (i.e. not English or German)
-        // is added, this code section needs to be adapted accordingly.
-        // Also, don't forget to update the "updateLanguageTranslations"
-        // function below.
-        const QVector<QString> vectorLanguages = m_vectorLanguages;
-        m_vectorLanguages.clear();
-        foreach(const QString language, vectorLanguages) {
-            if(language == "English") {
-                m_vectorLanguages.append(language);
-            }
-            else if(language == "German") {
-                m_vectorLanguages.append(language);
-            }
-            else {
-                const QString message = QString(trStr(I18N_GENERIC_LANGUAGENOTINTEGRATED)).arg(language);
-                QMessageBox messageBox(QMessageBox::Warning, getApplicationName(), message);
-                messageBox.exec();
-            }
-        }
-        // check for default languages
-        if(!m_vectorLanguages.contains("English") || !m_vectorLanguages.contains("German")) {
-            const QString message = QString(trStr(I18N_GENERIC_LANGUAGEMISSING));
-            QMessageBox messageBox(QMessageBox::Warning, getApplicationName(), message);
-            messageBox.exec();
-        }
-        // by default we always go with "English"
-        setLanguage("English");
+        // ATTENTION: Here we make sure all languages are mapped to their
+        // proper translations. This is required for the langauge selection
+        // dialog to work as intended. Whenever a non-standard language
+        // (i.e. other languages than English and German) are added, this
+        // code section needs to be adapted accordingly.
+        m_mapLanguageTranslations.clear();
+        m_mapLanguageTranslations.insert("English", trStr(I18N_GENERIC_ENGLISH));
+        m_mapLanguageTranslations.insert("German", trStr(I18N_GENERIC_GERMAN));
     }
 
     void Translation::setLanguage(const QString &_language) {
-        if(m_vectorLanguages.contains(_language)) {
-            const QString pathToQmFile = QString("translations/QCrypTool%1.qm").arg(_language);
-            if(m_translator.load(pathToQmFile)) {
+        initializeLanguages();
+        if(m_mapLanguageTranslations.contains(_language)) {
+            if(m_translator.load(QString(":/QCrypTool/Translations/QCrypTool%1.qm").arg(_language))) {
                 m_language = _language;
-                updateLanguageTranslations();
+                initializeLanguages();
                 emit signalChangedLanguage();
             }
         }
+    }
+
+    QVector<QString> Translation::getLanguages() const {
+        return m_mapLanguageTranslations.keys().toVector();
+    }
+
+    QString Translation::getLanguage() const {
+        return m_language;
     }
 
     QString Translation::getLanguageTranslated(const QString &_languageUntranslated) const {
@@ -92,44 +71,12 @@ namespace QCrypTool {
         return m_translator.translate(_identifier.toLatin1(), _identifier.toLatin1());
     }
 
-    QVector<QString> Translation::getVectorAvailableQmFileNames() const {
-        QVector<QString> vectorAvailableQmFileNames;
-        QDirIterator dirIterator("translations");
-        while(dirIterator.hasNext()) {
-            dirIterator.next();
-            if(!QFileInfo(dirIterator.filePath()).isFile()) continue;
-            if(QFileInfo(dirIterator.fileName()).suffix() != "qm") continue;
-            if(!dirIterator.fileName().startsWith("QCrypTool")) continue;
-            vectorAvailableQmFileNames.append(dirIterator.filePath());
-        }
-        return vectorAvailableQmFileNames;
-    }
-
-    void Translation::updateLanguageTranslations() {
-        m_mapLanguageTranslations.clear();
-        foreach(const QString language, m_vectorLanguages) {
-            if(language == "English") {
-                m_mapLanguageTranslations.insert(language, trStr(I18N_GENERIC_ENGLISH));
-            }
-            else if(language == "German") {
-                m_mapLanguageTranslations.insert(language, trStr(I18N_GENERIC_GERMAN));
-            }
-            else {
-                const QString message = QString(trStr(I18N_GENERIC_LANGUAGENOTINTEGRATED)).arg(language);
-                QMessageBox messageBox(QMessageBox::Warning, getApplicationName(), message);
-                messageBox.exec();
-            }
-        }
-    }
-
     // generic translations
     const char *I18N_GENERIC_YES = QT_TRANSLATE_NOOP("I18N_GENERIC_YES", "I18N_GENERIC_YES");
     const char *I18N_GENERIC_NO = QT_TRANSLATE_NOOP("I18N_GENERIC_NO", "I18N_GENERIC_NO");
     const char *I18N_GENERIC_OK = QT_TRANSLATE_NOOP("I18N_GENERIC_OK", "I18N_GENERIC_OK");
     const char *I18N_GENERIC_CANCEL = QT_TRANSLATE_NOOP("I18N_GENERIC_CANCEL", "I18N_GENERIC_CANCEL");
     const char *I18N_GENERIC_CLOSE = QT_TRANSLATE_NOOP("I18N_GENERIC_CLOSE", "I18N_GENERIC_CLOSE");
-    const char *I18N_GENERIC_LANGUAGEMISSING = QT_TRANSLATE_NOOP("I18N_GENERIC_LANGUAGEMISSING", "I18N_GENERIC_LANGUAGEMISSING");
-    const char *I18N_GENERIC_LANGUAGENOTINTEGRATED = QT_TRANSLATE_NOOP("I18N_GENERIC_LANGUAGENOTINTEGRATED", "I18N_GENERIC_LANGUAGENOTINTEGRATED");
     const char *I18N_GENERIC_ENGLISH = QT_TRANSLATE_NOOP("I18N_GENERIC_ENGLISH", "I18N_GENERIC_ENGLISH");
     const char *I18N_GENERIC_GERMAN = QT_TRANSLATE_NOOP("I18N_GENERIC_GERMAN", "I18N_GENERIC_GERMAN");
 

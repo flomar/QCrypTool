@@ -15,7 +15,7 @@ namespace QCrypTool {
         }
 
         int Application::exec() {
-            QCrypTool::Translation::instance().initializeLanguages();
+            QCrypTool::Translation::instance().setLanguage("English");
             return QApplication::exec();
         }
 
