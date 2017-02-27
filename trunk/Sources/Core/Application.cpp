@@ -5,9 +5,9 @@
 namespace QCrypTool {
     namespace Core {
 
-        Application::Application(int &_argc, char **_argv) :
+        Application::Application(int &_argc, char **_argv, const QIcon &_icon) :
             QApplication(_argc, _argv) {
-
+            setWindowIcon(_icon);
         }
 
         Application::~Application() {
@@ -15,6 +15,7 @@ namespace QCrypTool {
         }
 
         int Application::exec() {
+            // TODO/FIXME: set language depending on locale
             QCrypTool::Translation::instance().setLanguage("English");
             return QApplication::exec();
         }

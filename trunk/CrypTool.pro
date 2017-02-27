@@ -63,15 +63,24 @@ Resources/CrypTool/Dialogs/DialogLanguage.ui
 
 # Linux-specific
 unix:!macx {
-
+# OpenSSL
+# TODO/FIXME
+# Linux Icon (KDE/GNOME)
+# TODO/FIXME
 }
 # MacOS-specific
 macx: {
-
+# OpenSSL
+# TODO/FIXME
+# MacOS Icon
+# TODO/FIXME
 }
-# Win-specific
+# Windows-specific
 win32: {
+# OpenSSL
 INCLUDEPATH += $$PWD/External/Windows/OpenSSL/include
 LIBS += -L$$PWD/External/Windows/OpenSSL/lib -llibcrypto
 LIBS += -L$$PWD/External/Windows/OpenSSL/lib -llibssl
+# Windows Icon
+RC_FILE = Resources/QCrypTool/Icons/QCrypToolLogo.rc
 }

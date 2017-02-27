@@ -12,7 +12,7 @@ namespace QCrypTool {
         class Application : public QApplication {
             Q_OBJECT
         public:
-            Application(int &_argc, char **_argv);
+            Application(int &_argc, char **_argv, const QIcon &_icon);
             virtual ~Application();
         public:
             int exec();
