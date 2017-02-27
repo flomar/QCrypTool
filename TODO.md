@@ -4,6 +4,7 @@ This document contains the most important TODOs for the project.
 
 ## Known Bugs
 
+- The installer needs a lot of work (see BE 2017-02-27 1755): For example, the installer adheres to the OS system locale while QCrypTool itself doesn't, it always starts in English.
 - ~~The "UpdateBuildInformation.py" script doesn't seem to do its job, just check out the main window title which should display the current version number. The "CreateInstaller.py" script does correctly process and display the current version though.~~
 
 ## Short-Term Roadmap
