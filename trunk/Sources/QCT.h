@@ -31,6 +31,7 @@
 #include <QPixmap>
 #include <QIcon>
 #include <QImage>
+#include <QWhatsThis>
 
 namespace QCT {
 

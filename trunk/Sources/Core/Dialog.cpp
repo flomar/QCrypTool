@@ -43,6 +43,7 @@ namespace QCT {
             }
             // signal mouse clicks on "?" to the help system
             if(_event->type() == QEvent::EnterWhatsThisMode) {
+                QWhatsThis::leaveWhatsThisMode();
                 emit signalRequestContextHelp(objectName());
                 return true;
             }
