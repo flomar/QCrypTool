@@ -2,7 +2,7 @@
 
 #include <Core/Cryptography/CryptographyCertificates.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
         namespace Cryptography {
             namespace Certificates {

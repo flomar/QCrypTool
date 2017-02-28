@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/QCT"/>
+    <qresource prefix="/QCT/Fonts">
+        <file alias="Arial.ttf">QCT/Fonts/Arial.ttf</file>
+        <file alias="Courier.ttf">QCT/Fonts/Courier.ttf</file>
+    </qresource>
+    <qresource prefix="/QCT/Images">
+        <file alias="QCTLogo.svg">QCT/Images/QCTLogo.svg</file>
+    </qresource>
+    <qresource prefix="/QCT/Translations">
+    	<file alias="QCTEnglish.qm">QCT/Translations/QCTEnglish.qm</file>
+	<file alias="QCTGerman.qm">QCT/Translations/QCTGerman.qm</file>
+    </qresource>
+</RCC>

@@ -1,11 +1,11 @@
 // HelpSystem.h
 
-#ifndef _QCRYPTOOL_CORE_HELPSYSTEM_H_
-#define _QCRYPTOOL_CORE_HELPSYSTEM_H_
+#ifndef _QCT_CORE_HELPSYSTEM_H_
+#define _QCT_CORE_HELPSYSTEM_H_
 
-#include <QCrypTool.h>
+#include <QCT.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
 
         // This singleton class implements the context-sensitive help system

@@ -1,11 +1,11 @@
 // CryptographyOpenSSL.h
 
-#ifndef _QCRYPTOOL_CORE_CRYPTOGRAPHY_CRYPTOGRAPHYOPENSSL_H_
-#define _QCRYPTOOL_CORE_CRYPTOGRAPHY_CRYPTOGRAPHYOPENSSL_H_
+#ifndef _QCT_CORE_CRYPTOGRAPHY_CRYPTOGRAPHYOPENSSL_H_
+#define _QCT_CORE_CRYPTOGRAPHY_CRYPTOGRAPHYOPENSSL_H_
 
-#include <QCrypTool.h>
+#include <QCT.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
         namespace Cryptography {
             namespace OpenSSL {

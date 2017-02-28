@@ -1,14 +1,14 @@
 // Dialog.h
 
-#ifndef _QCRYPTOOL_CORE_DIALOG_H_
-#define _QCRYPTOOL_CORE_DIALOG_H_
+#ifndef _QCT_CORE_DIALOG_H_
+#define _QCT_CORE_DIALOG_H_
 
-#include <QCrypTool.h>
-#include <QCrypToolTranslation.h>
+#include <QCT.h>
+#include <QCTTranslation.h>
 
 #include <Core/Utilities.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
 
         // This is the base class for all dialogs used throughout QCrypTool.

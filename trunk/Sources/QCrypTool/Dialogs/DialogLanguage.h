@@ -1,17 +1,17 @@
 // DialogLanguage.h
 
-#ifndef _QCRYPTOOL_CRYPTOOL_DIALOGS_DIALOGLANGUAGE_H_
-#define _QCRYPTOOL_CRYPTOOL_DIALOGS_DIALOGLANGUAGE_H_
+#ifndef _QCT_QCRYPTOOL_DIALOGS_DIALOGLANGUAGE_H_
+#define _QCT_QCRYPTOOL_DIALOGS_DIALOGLANGUAGE_H_
 
-#include <CrypTool/CrypTool.h>
+#include <QCrypTool/QCrypTool.h>
 #include <Core/Dialog.h>
 
 namespace Ui {
     class DialogLanguage;
 }
 
-namespace QCrypTool {
-    namespace CrypTool {
+namespace QCT {
+    namespace QCrypTool {
         namespace Dialogs {
 
             class DialogLanguage : public Core::Dialog {

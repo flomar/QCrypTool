@@ -1,13 +1,13 @@
 // CryptographyHash.h
 
-#ifndef _QCRYPTOOL_CORE_CRYPTOGRAPHY_CRYPTOGRAPHYHASH_H_
-#define _QCRYPTOOL_CORE_CRYPTOGRAPHY_CRYPTOGRAPHYHASH_H_
+#ifndef _QCT_CORE_CRYPTOGRAPHY_CRYPTOGRAPHYHASH_H_
+#define _QCT_CORE_CRYPTOGRAPHY_CRYPTOGRAPHYHASH_H_
 
-#include <QCrypTool.h>
+#include <QCT.h>
 
 #include <Core/Cryptography/CryptographyOpenSSL.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
         namespace Cryptography {
             namespace Hash {

@@ -1,17 +1,17 @@
-// CrypToolMainWindow.h
+// QCrypToolMainWindow.h
 
-#ifndef _QCRYPTOOL_CRYPTOOL_CRYPTOOLMAINWINDOW_H_
-#define _QCRYPTOOL_CRYPTOOL_CRYPTOOLMAINWINDOW_H_
+#ifndef _QCT_QCRYPTOOL_QCRYPTOOLMAINWINDOW_H_
+#define _QCT_QCRYPTOOL_QCRYPTOOLMAINWINDOW_H_
 
-#include <CrypTool/CrypTool.h>
+#include <QCrypTool/QCrypTool.h>
 #include <Core/MainWindow.h>
 
 namespace Ui {
-    class CrypToolMainWindow;
+    class QCrypToolMainWindow;
 }
 
-namespace QCrypTool {
-    namespace CrypTool {
+namespace QCT {
+    namespace QCrypTool {
 
         class MainWindow : public Core::MainWindow {
             Q_OBJECT
@@ -42,7 +42,7 @@ namespace QCrypTool {
         private slots:
             void slotTriggeredMenuHelpActionAboutQCrypTool();
         private:
-            Ui::CrypToolMainWindow *m_ui;
+            Ui::QCrypToolMainWindow *m_ui;
         };
 
     }

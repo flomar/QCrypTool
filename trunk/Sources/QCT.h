@@ -1,7 +1,7 @@
-// QCrypTool.h
+// QCT.h
 
-#ifndef _QCRYPTOOL_QCRYPTOOL_H_
-#define _QCRYPTOOL_QCRYPTOOL_H_
+#ifndef _QCT_QCT_H_
+#define _QCT_QCT_H_
 
 #include <QDebug>
 #include <QSharedPointer>
@@ -19,6 +19,7 @@
 #include <QSet>
 #include <QDateTime>
 #include <QRegExp>
+#include <QLocale>
 #include <QTranslator>
 #include <QMessageBox>
 #include <QFile>
@@ -31,11 +32,11 @@
 #include <QIcon>
 #include <QImage>
 
-namespace QCrypTool {
+namespace QCT {
 
-    QString getApplicationName();
-    QString getApplicationVersion();
-    QString getApplicationCopyright();
+    QString getProjectName();
+    QString getProjectVersion();
+    QString getProjectCopyright();
 
 }
 

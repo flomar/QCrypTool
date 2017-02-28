@@ -20,7 +20,7 @@ QTINSTALLERFRAMEWORKDIR = os.environ.get("QTINSTALLERFRAMEWORKDIR")
 QTINSTALLATIONDIR = os.environ.get("QTINSTALLATIONDIR")
 BUILDDIR = os.environ.get("BUILDDIR")
 
-applicationName, applicationVersion, applicationCopyright = ModuleVersionInformation.getApplicationNameAndVersionAndCopyright()
+projectName, projectVersion, projectCopyright = ModuleVersionInformation.getProjectNameAndVersionAndCopyright()
 
 DATE = time.strftime("%Y-%m-%d")
 
@@ -59,11 +59,11 @@ def updateInstallerConfigFile():
     with open(installerConfigFileOriginal, "rt") as fin:
         with open(installerConfigFileTemp, "wt") as fout:
             for line in fin:
-                line = line.replace("<Name>QCrypTool</Name>", "<Name>" + applicationName + " " + applicationVersion + "</Name>")
-                line = line.replace("<Version>0.0.0</Version>", "<Version>" + applicationVersion + "</Version>")
-                line = line.replace("<Title>QCrypTool</Name>", "<Name>" + applicationName + " " + applicationVersion + "</Title>")
-                line = line.replace("<StartMenuDir>QCrypTool</StartMenuDir>", "<StartMenuDir>" + applicationName + "-" + applicationVersion + "</StartMenuDir>")
-                line = line.replace("<TargetDir>@HomeDir@/QCrypTool</TargetDir>", "<TargetDir>@HomeDir@/" + applicationName + "-" + applicationVersion + "</TargetDir>")
+                line = line.replace("<Name>QCrypTool</Name>", "<Name>" + projectName + " " + projectVersion + "</Name>")
+                line = line.replace("<Version>0.0.0</Version>", "<Version>" + projectVersion + "</Version>")
+                line = line.replace("<Title>QCrypTool</Name>", "<Name>" + projectName + " " + projectVersion + "</Title>")
+                line = line.replace("<StartMenuDir>QCrypTool</StartMenuDir>", "<StartMenuDir>" + projectName + "-" + projectVersion + "</StartMenuDir>")
+                line = line.replace("<TargetDir>@HomeDir@/QCrypTool</TargetDir>", "<TargetDir>@HomeDir@/" + projectName + "-" + projectVersion + "</TargetDir>")
                 fout.write(line)
     shutil.move(installerConfigFileTemp, installerConfigFileOriginal)
 	
@@ -71,7 +71,7 @@ def updateInstallerPackageFile():
     with open(installerPackageFileOriginal, "rt") as fin:
         with open(installerPackageFileTemp, "wt") as fout:
             for line in fin:
-                line = line.replace("<Version>0.0.0</Version>", "<Version>" + applicationVersion + "</Version>")
+                line = line.replace("<Version>0.0.0</Version>", "<Version>" + projectVersion + "</Version>")
                 line = line.replace("<ReleaseDate>0000-00-00</ReleaseDate>", "<ReleaseDate>" + DATE + "</ReleaseDate>")
                 fout.write(line)
     shutil.move(installerPackageFileTemp, installerPackageFileOriginal)
@@ -89,12 +89,12 @@ def createInstaller():
         print("TODO/FIXME: createInstaller for MacOS")
     # Windows-specific
     if platform == "win32":
-        shutil.copyfile(BUILDDIR + "/CrypTool/release/CrypTool.exe", installerPackageDataDir + "/CrypTool.exe")
+        shutil.copyfile(BUILDDIR + "/QCrypTool/release/QCrypTool.exe", installerPackageDataDir + "/QCrypTool.exe")
         shutil.copyfile(SCRIPTDIR + "/../External/Windows/OpenSSL/bin/libcrypto-1_1-x64.dll", installerPackageDataDir + "/libcrypto-1_1-x64.dll")
         shutil.copyfile(SCRIPTDIR + "/../External/Windows/OpenSSL/bin/libssl-1_1-x64.dll", installerPackageDataDir + "/libssl-1_1-x64.dll")
-        command = QTINSTALLATIONDIR + "/bin/windeployqt.exe" + " " + installerPackageDataDir + "/CrypTool.exe"
+        command = QTINSTALLATIONDIR + "/bin/windeployqt.exe" + " " + installerPackageDataDir + "/QCrypTool.exe"
         os.system(command)
-        command = QTINSTALLERFRAMEWORKDIR + "/bin/binarycreator.exe -c " + installerConfigFileOriginal + " -p " + SCRIPTDIR + "/../Installer/packages " + SCRIPTDIR + "/../Installer/SetupQCrypTool-" + applicationVersion + ".exe"
+        command = QTINSTALLERFRAMEWORKDIR + "/bin/binarycreator.exe -c " + installerConfigFileOriginal + " -p " + SCRIPTDIR + "/../Installer/packages " + SCRIPTDIR + "/../Installer/SetupQCrypTool-" + projectVersion + ".exe"
         os.system(command)
     # clean up
     if os.path.isdir(installerPackageDataDir):

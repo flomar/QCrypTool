@@ -45,7 +45,7 @@
    <item>
     <layout class="QHBoxLayout" name="DialogAboutHorizontalLayoutLogo">
      <item>
-      <widget class="QLabel" name="DialogAboutLabelApplicationLogo">
+      <widget class="QLabel" name="DialogAboutLabelProjectLogo">
        <property name="minimumSize">
         <size>
          <width>64</width>
@@ -78,7 +78,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="DialogAboutLabelApplicationNameAndVersion">
+    <widget class="QLabel" name="DialogAboutLabelProjectNameAndVersion">
      <property name="font">
       <font>
        <pointsize>24</pointsize>
@@ -102,7 +102,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="DialogAboutLabelApplicationInformation">
+    <widget class="QLabel" name="DialogAboutLabelProjectInformation">
      <property name="text">
       <string>QCrypTool is fork of CrypTool 1 geared towards platform independency.&lt;br&gt;Please visit http://www.cryptool.org for information on the original project.</string>
      </property>
@@ -121,7 +121,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="DialogAboutLabelApplicationRepositoryInformation">
+    <widget class="QLabel" name="DialogAboutLabelProjectRepositoryInformation">
      <property name="font">
       <font>
        <weight>75</weight>
@@ -146,7 +146,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="DialogAboutLabelApplicationLicensingInformation">
+    <widget class="QLabel" name="DialogAboutLabelProjectLicensingInformation">
      <property name="text">
       <string>QCrypTool is licensed under the LGPLv3.</string>
      </property>
@@ -165,7 +165,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="DialogAboutLabelApplicationCopyrightInformation">
+    <widget class="QLabel" name="DialogAboutLabelProjectCopyrightInformation">
      <property name="text">
       <string>(C) 2017 CrypTool Team</string>
      </property>

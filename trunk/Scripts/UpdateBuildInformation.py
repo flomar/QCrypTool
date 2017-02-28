@@ -15,9 +15,9 @@ import ModuleVersionInformation
 
 SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
 
-pathQCrypToolCppOriginal = SCRIPTDIR + "/../Sources/QCrypTool.cpp"
-pathQCrypToolCppBackup = pathQCrypToolCppOriginal +  ".backup"
-pathQCrypToolCppTemp = pathQCrypToolCppOriginal + ".temp"
+pathQCTCppOriginal = SCRIPTDIR + "/../Sources/QCT.cpp"
+pathQCTCppBackup = pathQCTCppOriginal +  ".backup"
+pathQCTCppTemp = pathQCTCppOriginal + ".temp"
 
 def getOperationMode():
     operationMode = None
@@ -26,19 +26,19 @@ def getOperationMode():
     return operationMode
 
 def executePREBUILD():
-    applicationName, applicationVersion, applicationCopyright = ModuleVersionInformation.getApplicationNameAndVersionAndCopyright()
-    shutil.copyfile(pathQCrypToolCppOriginal, pathQCrypToolCppBackup)
-    with open(pathQCrypToolCppOriginal, "rt") as fin:
-        with open(pathQCrypToolCppTemp, "wt") as fout:
+    projectName, projectVersion, projectCopyright = ModuleVersionInformation.getProjectNameAndVersionAndCopyright()
+    shutil.copyfile(pathQCTCppOriginal, pathQCTCppBackup)
+    with open(pathQCTCppOriginal, "rt") as fin:
+        with open(pathQCTCppTemp, "wt") as fout:
             for line in fin:
-                line = line.replace("[QCRYPTOOL_APPLICATION_NAME]", applicationName)
-                line = line.replace("[QCRYPTOOL_APPLICATION_VERSION]", applicationVersion)
-                line = line.replace("[QCRYPTOOL_APPLICATION_COPYRIGHT]", applicationCopyright)
+                line = line.replace("[QCT_PROJECT_NAME]", projectName)
+                line = line.replace("[QCT_PROJECT_VERSION]", projectVersion)
+                line = line.replace("[QCT_PROJECT_COPYRIGHT]", projectCopyright)
                 fout.write(line)
-    shutil.move(pathQCrypToolCppTemp, pathQCrypToolCppOriginal)
+    shutil.move(pathQCTCppTemp, pathQCTCppOriginal)
 
 def executePOSTBUILD():
-    shutil.move(pathQCrypToolCppBackup, pathQCrypToolCppOriginal)
+    shutil.move(pathQCTCppBackup, pathQCTCppOriginal)
 
 def main():
     operationMode = getOperationMode()

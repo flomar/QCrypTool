@@ -3,7 +3,7 @@
 #include <Core/Dialog.h>
 #include <Core/HelpSystem.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
 
         Dialog::Dialog(QWidget *_parent, const Qt::WindowFlags _flags) :

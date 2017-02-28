@@ -2,7 +2,7 @@
 
 #include <Core/Utilities/UtilitiesGraphics.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
         namespace Utilities {
             namespace Graphics {

@@ -1,17 +1,17 @@
-// CrypToolMainWindow.cpp
+// QCrypToolMainWindow.cpp
 
-#include <CrypTool/CrypToolMainWindow.h>
-#include <ui_CrypToolMainWindow.h>
+#include <QCrypTool/QCrypToolMainWindow.h>
+#include <ui_QCrypToolMainWindow.h>
 
-#include <CrypTool/Dialogs/DialogLanguage.h>
-#include <CrypTool/Dialogs/DialogAbout.h>
+#include <QCrypTool/Dialogs/DialogLanguage.h>
+#include <QCrypTool/Dialogs/DialogAbout.h>
 
-namespace QCrypTool {
-    namespace CrypTool {
+namespace QCT {
+    namespace QCrypTool {
 
         MainWindow::MainWindow(QWidget *_parent, const Qt::WindowFlags _flags) :
             Core::MainWindow(_parent, _flags),
-            m_ui(new Ui::CrypToolMainWindow) {
+            m_ui(new Ui::QCrypToolMainWindow) {
             m_ui->setupUi(this);
             m_ui->menuBar->setNativeMenuBar(false);
         }
@@ -39,24 +39,24 @@ namespace QCrypTool {
         }
 
         void MainWindow::slotChangedLanguage() {
-            setWindowTitle(QString("%1 %2").arg(getApplicationName()).arg(getApplicationVersion()));
+            setWindowTitle(QString("%1 %2").arg(getProjectName()).arg(getProjectVersion()));
             // TODO/FIXME: add more translations
-            m_ui->MenuDigitalSignaturesPKI->setTitle(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKI));
-            m_ui->MenuDigitalSignaturesPKIMenuPKI->setTitle(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKI));
-            m_ui->MenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKIACTIONCREATEIMPORTKEYS));
-            m_ui->MenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKIACTIONDISPLAYEXPORTKEYS));
-            m_ui->MenuDigitalSignaturesPKIActionCreateSignature->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONCREATESIGNATURE));
-            m_ui->MenuDigitalSignaturesPKIActionVerifySignature->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONVERIFYSIGNATURE));
-            m_ui->MenuDigitalSignaturesPKIActionExtractSignature->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONEXTRACTSIGNATURE));
-            m_ui->MenuDigitalSignaturesPKIActionSignatureDemonstration->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONSIGNATUREDEMONSTRATION));
-            m_ui->MenuHelp->setTitle(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELP));
-            m_ui->MenuHelpActionStartingPage->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONSTARTINGPAGE));
-            m_ui->MenuHelpActionIndex->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONINDEX));
-            m_ui->MenuHelpActionScenariosTutorials->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONSCENARIOSTUTORIALS));
-            m_ui->MenuHelpActionReadme->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONREADME));
-            m_ui->MenuHelpActionCTBook->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONCTBOOK));
-            m_ui->MenuHelpActionPresentation->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONPRESENTATION));
-            m_ui->MenuHelpActionAboutQCrypTool->setText(trStr(I18N_CRYPTOOL_MAINWINDOW_MENUHELPACTIONABOUTQCRYPTOOL));
+            m_ui->MenuDigitalSignaturesPKI->setTitle(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKI));
+            m_ui->MenuDigitalSignaturesPKIMenuPKI->setTitle(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKI));
+            m_ui->MenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKIACTIONCREATEIMPORTKEYS));
+            m_ui->MenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKIACTIONDISPLAYEXPORTKEYS));
+            m_ui->MenuDigitalSignaturesPKIActionCreateSignature->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONCREATESIGNATURE));
+            m_ui->MenuDigitalSignaturesPKIActionVerifySignature->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONVERIFYSIGNATURE));
+            m_ui->MenuDigitalSignaturesPKIActionExtractSignature->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONEXTRACTSIGNATURE));
+            m_ui->MenuDigitalSignaturesPKIActionSignatureDemonstration->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONSIGNATUREDEMONSTRATION));
+            m_ui->MenuHelp->setTitle(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELP));
+            m_ui->MenuHelpActionStartingPage->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONSTARTINGPAGE));
+            m_ui->MenuHelpActionIndex->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONINDEX));
+            m_ui->MenuHelpActionScenariosTutorials->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONSCENARIOSTUTORIALS));
+            m_ui->MenuHelpActionReadme->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONREADME));
+            m_ui->MenuHelpActionCTBook->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONCTBOOK));
+            m_ui->MenuHelpActionPresentation->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONPRESENTATION));
+            m_ui->MenuHelpActionAboutQCrypTool->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONABOUTQCRYPTOOL));
         }
 
         void MainWindow::slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys() {

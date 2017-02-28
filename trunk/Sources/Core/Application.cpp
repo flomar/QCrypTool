@@ -2,7 +2,7 @@
 
 #include <Core/Application.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
 
         Application::Application(int &_argc, char **_argv, const QString &_pathIconSvg, const QSize &_sizeIconSvg) :
@@ -15,8 +15,7 @@ namespace QCrypTool {
         }
 
         int Application::exec() {
-            // TODO/FIXME: set language depending on locale
-            QCrypTool::Translation::instance().setLanguage("English");
+            QCT::Translation::instance().setLanguage();
             return QApplication::exec();
         }
 

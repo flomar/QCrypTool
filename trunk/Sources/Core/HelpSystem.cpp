@@ -2,7 +2,7 @@
 
 #include <Core/HelpSystem.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
 
         HelpSystem::HelpSystem(QObject *_parent) :

@@ -1,10 +1,10 @@
 // DialogLanguage.cpp
 
-#include <CrypTool/Dialogs/DialogLanguage.h>
+#include <QCrypTool/Dialogs/DialogLanguage.h>
 #include <ui_DialogLanguage.h>
 
-namespace QCrypTool {
-    namespace CrypTool {
+namespace QCT {
+    namespace QCrypTool {
         namespace Dialogs {
 
             DialogLanguage::DialogLanguage(QWidget *_parent, Qt::WindowFlags _flags) :
@@ -23,8 +23,8 @@ namespace QCrypTool {
             }
 
             void DialogLanguage::initializeData() {
-                setWindowTitle(trStr(I18N_CRYPTOOL_DIALOGLANGUAGE_TITLE));
-                m_ui->DialogLanguageLabelDescription->setText(trStr(I18N_CRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION));
+                setWindowTitle(trStr(I18N_QCRYPTOOL_DIALOGLANGUAGE_TITLE));
+                m_ui->DialogLanguageLabelDescription->setText(trStr(I18N_QCRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION));
                 m_ui->DialogLanguageComboxBoxLanguage->clear();
                 const QVector<QString> languages = Translation::instance().getLanguages();
                 foreach(const QString language, languages) {

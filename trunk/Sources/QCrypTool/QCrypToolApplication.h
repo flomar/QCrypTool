@@ -1,13 +1,13 @@
-// CrypToolApplication.h
+// QCrypToolApplication.h
 
-#ifndef _QCRYPTOOL_CRYPTOOL_APPLICATION_H_
-#define _QCRYPTOOL_CRYPTOOL_APPLICATION_H_
+#ifndef _QCT_QCRYPTOOL_QCRYPTOOLAPPLICATION_H_
+#define _QCT_QCRYPTOOL_QCRYPTOOLAPPLICATION_H_
 
-#include <CrypTool/CrypTool.h>
+#include <QCrypTool/QCrypTool.h>
 #include <Core/Application.h>
 
-namespace QCrypTool {
-    namespace CrypTool {
+namespace QCT {
+    namespace QCrypTool {
 
         class Application : public Core::Application {
             Q_OBJECT

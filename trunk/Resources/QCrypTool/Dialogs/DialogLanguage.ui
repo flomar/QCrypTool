@@ -44,7 +44,7 @@
    <item>
     <widget class="QLabel" name="DialogLanguageLabelDescription">
      <property name="text">
-      <string>Here you can change the language of the CrypTool user interface.</string>
+      <string>Here you can change the language of the QCrypTool user interface.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

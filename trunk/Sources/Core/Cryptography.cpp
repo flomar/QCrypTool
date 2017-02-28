@@ -2,7 +2,7 @@
 
 #include <Core/Cryptography.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
         namespace Cryptography {
 

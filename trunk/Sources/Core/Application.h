@@ -1,14 +1,14 @@
 // Application.h
 
-#ifndef _QCRYPTOOL_CORE_APPLICATION_H_
-#define _QCRYPTOOL_CORE_APPLICATION_H_
+#ifndef _QCT_CORE_APPLICATION_H_
+#define _QCT_CORE_APPLICATION_H_
 
-#include <QCrypTool.h>
-#include <QCrypToolTranslation.h>
+#include <QCT.h>
+#include <QCTTranslation.h>
 
 #include <Core/Utilities.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
 
         class Application : public QApplication {

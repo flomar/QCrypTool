@@ -2,7 +2,7 @@
 
 #include <Core/Cryptography/CryptographySymmetric.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
         namespace Cryptography {
             namespace Symmetric {

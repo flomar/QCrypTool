@@ -1,14 +1,3 @@
 <RCC>
     <qresource prefix="/QCrypTool"/>
-    <qresource prefix="/QCrypTool/Fonts">
-        <file alias="Arial.ttf">QCrypTool/Fonts/Arial.ttf</file>
-        <file alias="Courier.ttf">QCrypTool/Fonts/Courier.ttf</file>
-    </qresource>
-    <qresource prefix="/QCrypTool/Images">
-        <file alias="QCrypToolLogo.svg">QCrypTool/Images/QCrypToolLogo.svg</file>
-    </qresource>
-    <qresource prefix="/QCrypTool/Translations">
-    	<file alias="QCrypToolEnglish.qm">QCrypTool/Translations/QCrypToolEnglish.qm</file>
-	<file alias="QCrypToolGerman.qm">QCrypTool/Translations/QCrypToolGerman.qm</file>
-    </qresource>
 </RCC>

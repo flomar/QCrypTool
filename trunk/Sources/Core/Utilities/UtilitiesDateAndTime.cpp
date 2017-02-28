@@ -2,7 +2,7 @@
 
 #include <Core/Utilities/UtilitiesDateAndTime.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
         namespace Utilities {
             namespace DateAndTime {

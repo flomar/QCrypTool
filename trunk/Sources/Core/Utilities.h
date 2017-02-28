@@ -1,14 +1,14 @@
 // Utilities.h
 
-#ifndef _QCRYPTOOL_CORE_UTILITIES_H_
-#define _QCRYPTOOL_CORE_UTILITIES_H_
+#ifndef _QCT_CORE_UTILITIES_H_
+#define _QCT_CORE_UTILITIES_H_
 
-#include <QCrypTool.h>
+#include <QCT.h>
 
 #include <Core/Utilities/UtilitiesDateAndTime.h>
 #include <Core/Utilities/UtilitiesGraphics.h>
 
-namespace QCrypTool {
+namespace QCT {
     namespace Core {
         namespace Utilities {
 

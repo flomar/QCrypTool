@@ -1,4 +1,4 @@
-# CrypTool.pro
+# QCrypTool.pro
 
 QT += core gui svg widgets
 
@@ -8,11 +8,11 @@ TEMPLATE = app
 
 INCLUDEPATH += Sources $$OUT_PWD
 
-TARGET = CrypTool
+TARGET = QCrypTool
 
 HEADERS += \
-Sources/QCrypTool.h \
-Sources/QCrypToolTranslation.h \
+Sources/QCT.h \
+Sources/QCTTranslation.h \
 Sources/Core/Application.h \
 Sources/Core/MainWindow.h \
 Sources/Core/Dialog.h \
@@ -26,15 +26,15 @@ Sources/Core/Cryptography/CryptographyHash.h \
 Sources/Core/Cryptography/CryptographySymmetric.h \
 Sources/Core/Cryptography/CryptographyAsymmetric.h \
 Sources/Core/Cryptography/CryptographyCertificates.h \
-Sources/CrypTool/CrypTool.h \
-Sources/CrypTool/CrypToolApplication.h \
-Sources/CrypTool/CrypToolMainWindow.h \
-Sources/CrypTool/Dialogs/DialogAbout.h \
-Sources/CrypTool/Dialogs/DialogLanguage.h
+Sources/QCrypTool/QCrypTool.h \
+Sources/QCrypTool/QCrypToolApplication.h \
+Sources/QCrypTool/QCrypToolMainWindow.h \
+Sources/QCrypTool/Dialogs/DialogAbout.h \
+Sources/QCrypTool/Dialogs/DialogLanguage.h
 
 SOURCES += \
-Sources/QCrypTool.cpp \
-Sources/QCrypToolTranslation.cpp \
+Sources/QCT.cpp \
+Sources/QCTTranslation.cpp \
 Sources/Core/Application.cpp \
 Sources/Core/MainWindow.cpp \
 Sources/Core/Dialog.cpp \
@@ -48,20 +48,20 @@ Sources/Core/Cryptography/CryptographyHash.cpp \
 Sources/Core/Cryptography/CryptographySymmetric.cpp \
 Sources/Core/Cryptography/CryptographyAsymmetric.cpp \
 Sources/Core/Cryptography/CryptographyCertificates.cpp \
-Sources/CrypTool/CrypTool.cpp \
-Sources/CrypTool/CrypToolApplication.cpp \
-Sources/CrypTool/CrypToolMainWindow.cpp \
-Sources/CrypTool/Dialogs/DialogAbout.cpp \
-Sources/CrypTool/Dialogs/DialogLanguage.cpp
+Sources/QCrypTool/QCrypTool.cpp \
+Sources/QCrypTool/QCrypToolApplication.cpp \
+Sources/QCrypTool/QCrypToolMainWindow.cpp \
+Sources/QCrypTool/Dialogs/DialogAbout.cpp \
+Sources/QCrypTool/Dialogs/DialogLanguage.cpp
 
 RESOURCES += \
-Resources/QCrypTool.qrc \
-Resources/CrypTool.qrc
+Resources/QCT.qrc \
+Resources/QCrypTool.qrc
 
 FORMS += \
-Resources/CrypTool/CrypToolMainWindow.ui \
-Resources/CrypTool/Dialogs/DialogAbout.ui \
-Resources/CrypTool/Dialogs/DialogLanguage.ui
+Resources/QCrypTool/QCrypToolMainWindow.ui \
+Resources/QCrypTool/Dialogs/DialogAbout.ui \
+Resources/QCrypTool/Dialogs/DialogLanguage.ui
 
 # Linux-specific
 unix:!macx {
@@ -84,5 +84,5 @@ INCLUDEPATH += $$PWD/External/Windows/OpenSSL/include
 LIBS += -L$$PWD/External/Windows/OpenSSL/lib -llibcrypto
 LIBS += -L$$PWD/External/Windows/OpenSSL/lib -llibssl
 # Windows Icon
-RC_FILE = Resources/QCrypTool/Icons/QCrypToolLogo.rc
+RC_FILE = Resources/QCT/Icons/QCTLogo.rc
 }

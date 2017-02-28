@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CrypToolMainWindow</class>
- <widget class="QMainWindow" name="CrypToolMainWindow">
+ <class>QCrypToolMainWindow</class>
+ <widget class="QMainWindow" name="QCrypToolMainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,7 +10,7 @@
     <height>768</height>
    </rect>
   </property>
-  <property name="CrypToolMainWindow" stdset="0">
+  <property name="QCrypToolMainWindow" stdset="0">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
