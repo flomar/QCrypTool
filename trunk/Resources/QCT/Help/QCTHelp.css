@@ -1,0 +1,13 @@
+/* QCTHelp.css */
+
+h1 {color:red;font-family:Arial;bold;font-size:20pt;}
+h2 {font-family:Arial;bold;font-size:18pt;}
+h3 {font-family:Arial;bold;font-size:14pt;}
+h4 {font-family:Arial;bold;font-size:12pt;}
+
+p {font-family:Arial;font-size:11pt;}
+
+a:link{color:#0000FF;}
+a:visited{color:#000080;}
+a:active{color:#008000;}
+a.filelink{text-decoration:underline;color:#00FF00;cursor:hand;}

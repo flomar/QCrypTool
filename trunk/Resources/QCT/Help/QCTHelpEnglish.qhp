@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QtHelpProject version="1.0">
+    <namespace>com.CrypToolTeam.QCrypTool</namespace>
+    <virtualFolder>English</virtualFolder>
+    <filterSection>
+        <toc>
+            <section title="QCrypTool Basics">
+                <section title="QCrypTool Introduction" ref="English/QCrypToolIntroduction.html"/>
+                <section title="QCrypTool Help System" ref="English/QCrypToolHelpSystem.html"/>
+                <section title="QCrypTool and Cryptology" ref="English/QCrypToolDevelopment.html"/>
+            </section>
+            <section title="QCrypTool Functionality">
+                <section title="Foo" ref="doc.html#chapter1"/>
+                <section title="Bar" ref="doc.html#chapter1"/>
+            </section>
+        </toc>
+        <files>
+            <file>QCTHelp.css</file>
+            <file>English/*.html</file>
+        </files>
+    </filterSection>
+</QtHelpProject>
