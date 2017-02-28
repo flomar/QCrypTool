@@ -41,6 +41,11 @@ namespace QCT {
                     }
                 }
             }
+            // signal mouse clicks on "?" to the help system
+            if(_event->type() == QEvent::EnterWhatsThisMode) {
+                emit signalRequestContextHelp(objectName());
+                return true;
+            }
             return QObject::eventFilter(_object, _event);
         }
 
