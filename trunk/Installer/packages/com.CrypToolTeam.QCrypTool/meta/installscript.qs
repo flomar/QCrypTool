@@ -1,14 +1,45 @@
 // installscript.qs
 
 function Component() {
-
+    installer.installationFinished.connect(this, Component.prototype.installationFinishedPageIsShown);
+    installer.finishButtonClicked.connect(this, Component.prototype.installationFinished);
 }
 
 Component.prototype.createOperations = function() {
-    // call default implementation
     component.createOperations();
-    // populate start menu on Windows
-    if (systemInfo.productType === "windows") {
-        component.addOperation("CreateShortcut", "@TargetDir@/CrypTool.exe", "@StartMenuDir@/CrypTool.lnk", "workingDirectory=@TargetDir@");
+    try {
+        if(installer.isInstaller()) {
+            if(systemInfo.productType === "windows") {
+                component.addOperation("CreateShortcut", "@TargetDir@/CrypTool.exe", "@StartMenuDir@/CrypTool.lnk", "workingDirectory=@TargetDir@");
+            }
+        }
+    }
+    catch(e) {
+        console.log(e);
+    }
+}
+
+Component.prototype.installationFinishedPageIsShown = function() {
+    try {
+        if(installer.isInstaller() && installer.status == QInstaller.Success) {
+            installer.addWizardPageItem(component, "LaunchQCrypToolForm", QInstaller.InstallationFinished);
+        }
+    }
+    catch(e) {
+        console.log(e);
+    }
+}
+
+Component.prototype.installationFinished = function() {
+    try {
+        if(installer.isInstaller() && installer.status == QInstaller.Success) {
+            var isLaunchQCrypToolCheckBoxChecked = component.userInterface("LaunchQCrypToolForm").LaunchQCrypToolCheckBox.checked;
+            if(isLaunchQCrypToolCheckBoxChecked) {
+                QDesktopServices.openUrl("file:///" + installer.value("TargetDir") + "/CrypTool.exe");
+            }
+        }
+    }
+    catch(e) {
+        console.log(e);
     }
 }

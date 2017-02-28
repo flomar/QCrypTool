@@ -1,12 +1,22 @@
 // controlscript.qs
 
 function Controller() {
-    installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
+    try {
+        installer.setDefaultPageVisible(QInstaller.ComponentSelection, false);
+    }
+    catch(e) {
+        console.log(e);
+    }
 }
 
 Controller.prototype.LicenseAgreementPageCallback = function() {
-    var widget = gui.currentPageWidget();
-    if(widget != null) {
-        widget.AcceptLicenseRadioButton.checked = true;
+    try {
+        var widget = gui.currentPageWidget();
+        if(widget != null) {
+            widget.AcceptLicenseRadioButton.checked = true;
+        }
+    }
+    catch(e) {
+        console.log(e);
     }
 }

@@ -9,4 +9,7 @@
     </Licenses>
     <Default>true</Default>
     <Script>installscript.qs</Script>
+    <UserInterfaces>
+        <UserInterface>LaunchQCrypToolForm.ui</UserInterface>
+    </UserInterfaces>
 </Package>
