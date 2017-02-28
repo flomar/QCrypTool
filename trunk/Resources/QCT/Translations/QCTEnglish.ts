@@ -62,7 +62,7 @@
     <message>
         <location filename="../../../Sources/QCTTranslation.cpp" line="103"/>
         <source>I18N_QCRYPTOOL_DIALOGABOUT_PROJECTINFORMATION</source>
-        <translation>QCrypTool is a fork of CrypTool 1 geared towards platform independency.&lt;br&gt;Please visit http://www.cryptool.org for information on the original project.</translation>
+        <translation>QCrypTool is a fork of CrypTool 1 geared towards platform independency. Please visit http://www.cryptool.org for information on the original project.</translation>
     </message>
 </context>
 <context>
