@@ -8,8 +8,6 @@
 import os
 import sys
 import shutil
-import subprocess
-import re
 import time
 
 import ModuleVersionInformation
