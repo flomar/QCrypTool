@@ -7,6 +7,7 @@
 
 import os
 import sys
+import glob
 import shutil
 import time
 
@@ -112,10 +113,15 @@ def createInstaller():
         print("TODO/FIXME: createInstaller for MacOS")
     # Windows-specific
     if platform == "win32":
-        shutil.copyfile(buildDir + "/QCrypTool/release/QCrypTool.exe", installerPackageDataDir + "/QCrypTool.exe")
-        shutil.copyfile(scriptDir + "/../External/Windows/OpenSSL/bin/libcrypto-1_1-x64.dll", installerPackageDataDir + "/libcrypto-1_1-x64.dll")
-        shutil.copyfile(scriptDir + "/../External/Windows/OpenSSL/bin/libssl-1_1-x64.dll", installerPackageDataDir + "/libssl-1_1-x64.dll")
+        shutil.copy(buildDir + "/QCrypTool/release/QCrypTool.exe", installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/bin/assistant.exe", installerPackageDataDir)
+        for file in glob.glob(scriptDir + "/../External/Windows/OpenSSL/bin/*.dll"):
+            shutil.copy(file, installerPackageDataDir)
+        for file in glob.glob(scriptDir + "/../Resources/QCT/Help/*.qhc"):
+            shutil.copy(file, installerPackageDataDir)
         command = qtInstallationDir + "/bin/windeployqt.exe" + " " + installerPackageDataDir + "/QCrypTool.exe"
+        os.system(command)
+        command = qtInstallationDir + "/bin/windeployqt.exe" + " " + installerPackageDataDir + "/assistant.exe"
         os.system(command)
         command = qtInstallerFrameworkDir + "/bin/binarycreator.exe -c " + installerConfigFileOriginal + " -p " + scriptDir + "/../Installer/packages " + scriptDir + "/../Installer/SetupQCrypTool-" + projectVersion + ".exe"
         os.system(command)

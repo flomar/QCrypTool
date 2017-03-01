@@ -3,7 +3,7 @@
     <DisplayName>QCrypTool</DisplayName>
     <Description>Install QCrypTool.</Description>
     <Version>0.0.00</Version>
-    <ReleaseDate>2017-02-28</ReleaseDate>
+    <ReleaseDate>0000-00-00</ReleaseDate>
     <Licenses>
         <License name="LGPL3" file="LICENSE" />
     </Licenses>
