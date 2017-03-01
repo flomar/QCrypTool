@@ -13,9 +13,9 @@ import os
 import re
 import subprocess
 
-SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
+scriptDir = os.path.dirname(os.path.realpath(__file__))
 
-pathVersionFile = SCRIPTDIR + "/../../VERSION"
+pathVersionFile = scriptDir + "/../../VERSION"
 
 def getProjectNameAndVersionAndCopyright():
     projectName, projectVersion, projectCopyright = _getProjectNameAndVersionAndCopyright()
@@ -26,6 +26,7 @@ def getProjectNameAndVersionAndCopyright():
         return projectName, projectVersion + "." + projectGitRevision, projectCopyright
 
 def _getProjectNameAndVersionAndCopyright():
+    global pathVersionFile
     projectName = ""
     projectVersion = ""
     projectCopyright = ""
@@ -46,8 +47,9 @@ def _getProjectNameAndVersionAndCopyright():
     return projectName, projectVersion, projectCopyright
 
 def _getProjectGitRevision():
+    global scriptDir
     projectGitRevision = ""
-    process = subprocess.Popen(["git", "log"], cwd=SCRIPTDIR + "/..", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    process = subprocess.Popen(["git", "log"], cwd=scriptDir + "/..", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
     stdout = stdout.splitlines()
     stderr = stderr.splitlines()

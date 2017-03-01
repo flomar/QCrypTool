@@ -13,9 +13,9 @@ import re
 
 import ModuleVersionInformation
 
-SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
+scriptDir = os.path.dirname(os.path.realpath(__file__))
 
-pathQCTCppOriginal = SCRIPTDIR + "/../Sources/QCT.cpp"
+pathQCTCppOriginal = scriptDir + "/../Sources/QCT.cpp"
 pathQCTCppBackup = pathQCTCppOriginal +  ".backup"
 pathQCTCppTemp = pathQCTCppOriginal + ".temp"
 
@@ -26,6 +26,9 @@ def getOperationMode():
     return operationMode
 
 def executePREBUILD():
+    global pathQCTCppOriginal
+    global pathQCTCppBackup
+    global pathQCTCppTemp
     projectName, projectVersion, projectCopyright = ModuleVersionInformation.getProjectNameAndVersionAndCopyright()
     shutil.copyfile(pathQCTCppOriginal, pathQCTCppBackup)
     with open(pathQCTCppOriginal, "rt") as fin:
@@ -38,6 +41,8 @@ def executePREBUILD():
     shutil.move(pathQCTCppTemp, pathQCTCppOriginal)
 
 def executePOSTBUILD():
+    global pathQCTCppOriginal
+    global pathQCTCppBackup
     shutil.move(pathQCTCppBackup, pathQCTCppOriginal)
 
 def main():

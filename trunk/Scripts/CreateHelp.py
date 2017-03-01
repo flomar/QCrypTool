@@ -11,6 +11,8 @@ scriptDir = os.path.dirname(os.path.realpath(__file__))
 
 qtInstallationDir = os.environ.get("QTINSTALLATIONDIR")
 
+helpDir = scriptDir + "/../Resources/QCT/Help"
+
 supportedLanguages = [ "English", "German" ]
 language = None
 
@@ -33,30 +35,28 @@ def createHelp():
     invokeCollectionGenerator()
 
 def invokeHelpGenerator():
-    global scriptDir
     global qtInstallationDir
+    global helpDir
     global language
-    command = qtInstallationDir + "/bin/qhelpgenerator.exe"
-    arguments = scriptDir + "/../Resources/QCT/Help/QCTHelp" + language + ".qhp"
-    process = subprocess.Popen([command, arguments], cwd=scriptDir + "/../Resources/QCT/Help", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    command = qtInstallationDir + "/bin/qhelpgenerator"
+    arguments = helpDir + "/QCTHelp" + language + ".qhp"
+    process = subprocess.Popen([command, arguments], cwd=helpDir, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
     stdout = stdout.splitlines()
     stderr = stderr.splitlines()
 
 def invokeCollectionGenerator():
-    global scriptDir
     global qtInstallationDir
+    global helpDir
     global language
-    command = qtInstallationDir + "/bin/qcollectiongenerator.exe"
-    arguments = scriptDir + "/../Resources/QCT/Help/QCTHelp" + language + ".qhcp"
-    process = subprocess.Popen([command, arguments], cwd=scriptDir + "/../Resources/QCT/Help", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    command = qtInstallationDir + "/bin/qcollectiongenerator"
+    arguments = helpDir + "/QCTHelp" + language + ".qhcp"
+    process = subprocess.Popen([command, arguments], cwd=helpDir, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = process.communicate()
     stdout = stdout.splitlines()
     stderr = stderr.splitlines()
 
 def main():
-    global scriptDir
-    global qtInstallationDir
     global supportedLanguages
     global language
     if not checkEnvironment():

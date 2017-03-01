@@ -7,11 +7,7 @@
             <section title="QCrypTool Basics">
                 <section title="QCrypTool Introduction" ref="English/QCrypToolIntroduction.html"/>
                 <section title="QCrypTool Help System" ref="English/QCrypToolHelpSystem.html"/>
-                <section title="QCrypTool and Cryptology" ref="English/QCrypToolDevelopment.html"/>
-            </section>
-            <section title="QCrypTool Functionality">
-                <section title="Foo" ref="doc.html#chapter1"/>
-                <section title="Bar" ref="doc.html#chapter1"/>
+                <section title="QCrypTool Development" ref="English/QCrypToolDevelopment.html"/>
             </section>
         </toc>
         <files>

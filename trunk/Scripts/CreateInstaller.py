@@ -12,48 +12,62 @@ import time
 
 import ModuleVersionInformation
 
-SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
+scriptDir = os.path.dirname(os.path.realpath(__file__))
 
-QTINSTALLERFRAMEWORKDIR = os.environ.get("QTINSTALLERFRAMEWORKDIR")
-QTINSTALLATIONDIR = os.environ.get("QTINSTALLATIONDIR")
-BUILDDIR = os.environ.get("BUILDDIR")
+qtInstallerFrameworkDir = os.environ.get("QTINSTALLERFRAMEWORKDIR")
+qtInstallationDir = os.environ.get("QTINSTALLATIONDIR")
+buildDir = os.environ.get("BUILDDIR")
 
 projectName, projectVersion, projectCopyright = ModuleVersionInformation.getProjectNameAndVersionAndCopyright()
 
-DATE = time.strftime("%Y-%m-%d")
-
 installerPackageName = "com.CrypToolTeam.QCrypTool"
 
-installerConfigFileOriginal = SCRIPTDIR + "/../Installer/config/config.xml"
+installerConfigFileOriginal = scriptDir + "/../Installer/config/config.xml"
 installerConfigFileBackup = installerConfigFileOriginal + ".backup"
 installerConfigFileTemp = installerConfigFileOriginal + ".temp"
 
-installerPackageFileOriginal = SCRIPTDIR + "/../Installer/packages/" + installerPackageName + "/meta/package.xml"
+installerPackageFileOriginal = scriptDir + "/../Installer/packages/" + installerPackageName + "/meta/package.xml"
 installerPackageFileBackup = installerPackageFileOriginal + ".backup"
 installerPackageFileTemp = installerPackageFileOriginal + ".temp"
 
-installerPackageDataDir = SCRIPTDIR + "/../Installer/packages/" + installerPackageName + "/data"
+installerPackageDataDir = scriptDir + "/../Installer/packages/" + installerPackageName + "/data"
 
 def checkEnvironment():
-    if QTINSTALLERFRAMEWORKDIR == None:
+    global qtInstallerFrameworkDir
+    global qtInstallationDir
+    global buildDir
+    if qtInstallerFrameworkDir == None:
         return False
-    if QTINSTALLATIONDIR == None:
+    if qtInstallationDir == None:
         return False
-    if BUILDDIR == None:
+    if buildDir == None:
         return False
     return True
 	
 def pushInstallerEnvironment():
+    global installerConfigFileOriginal
+    global installerConfigFileBackup
+    global installerPackageFileOriginal
+    global installerPackageFileBackup
     shutil.copyfile(installerConfigFileOriginal, installerConfigFileBackup)
     shutil.copyfile(installerPackageFileOriginal, installerPackageFileBackup)
 
 def popInstallerEnvironment():
+    global installerConfigFileOriginal
+    global installerConfigFileBackup
+    global installerPackageFileOriginal
+    global installerPackageFileBackup
     shutil.copyfile(installerConfigFileBackup, installerConfigFileOriginal)
     shutil.copyfile(installerPackageFileBackup, installerPackageFileOriginal)
     os.remove(installerConfigFileBackup)
     os.remove(installerPackageFileBackup)
 
 def updateInstallerConfigFile():
+    global projectName
+    global projectVersion
+    global projectCopyright
+    global installerConfigFileOriginal
+    global installerConfigFileTemp
     with open(installerConfigFileOriginal, "rt") as fin:
         with open(installerConfigFileTemp, "wt") as fout:
             for line in fin:
@@ -66,15 +80,26 @@ def updateInstallerConfigFile():
     shutil.move(installerConfigFileTemp, installerConfigFileOriginal)
 	
 def updateInstallerPackageFile():
+    global projectName
+    global projectVersion
+    global projectCopyright
+    global installerPackageFileOriginal
+    global installerPackageFileTemp
     with open(installerPackageFileOriginal, "rt") as fin:
         with open(installerPackageFileTemp, "wt") as fout:
             for line in fin:
                 line = line.replace("<Version>0.0.0</Version>", "<Version>" + projectVersion + "</Version>")
-                line = line.replace("<ReleaseDate>0000-00-00</ReleaseDate>", "<ReleaseDate>" + DATE + "</ReleaseDate>")
+                line = line.replace("<ReleaseDate>0000-00-00</ReleaseDate>", "<ReleaseDate>" + time.strftime("%Y-%m-%d") + "</ReleaseDate>")
                 fout.write(line)
     shutil.move(installerPackageFileTemp, installerPackageFileOriginal)
 
 def createInstaller():
+    global scriptDir
+    global projectName
+    global projectVersion
+    global projectCopyright
+    global installerConfigFileOriginal
+    global installerPackageDataDir
     if os.path.isdir(installerPackageDataDir):
         shutil.rmtree(installerPackageDataDir)
     os.makedirs(installerPackageDataDir)
@@ -87,12 +112,12 @@ def createInstaller():
         print("TODO/FIXME: createInstaller for MacOS")
     # Windows-specific
     if platform == "win32":
-        shutil.copyfile(BUILDDIR + "/QCrypTool/release/QCrypTool.exe", installerPackageDataDir + "/QCrypTool.exe")
-        shutil.copyfile(SCRIPTDIR + "/../External/Windows/OpenSSL/bin/libcrypto-1_1-x64.dll", installerPackageDataDir + "/libcrypto-1_1-x64.dll")
-        shutil.copyfile(SCRIPTDIR + "/../External/Windows/OpenSSL/bin/libssl-1_1-x64.dll", installerPackageDataDir + "/libssl-1_1-x64.dll")
-        command = QTINSTALLATIONDIR + "/bin/windeployqt.exe" + " " + installerPackageDataDir + "/QCrypTool.exe"
+        shutil.copyfile(buildDir + "/QCrypTool/release/QCrypTool.exe", installerPackageDataDir + "/QCrypTool.exe")
+        shutil.copyfile(scriptDir + "/../External/Windows/OpenSSL/bin/libcrypto-1_1-x64.dll", installerPackageDataDir + "/libcrypto-1_1-x64.dll")
+        shutil.copyfile(scriptDir + "/../External/Windows/OpenSSL/bin/libssl-1_1-x64.dll", installerPackageDataDir + "/libssl-1_1-x64.dll")
+        command = qtInstallationDir + "/bin/windeployqt.exe" + " " + installerPackageDataDir + "/QCrypTool.exe"
         os.system(command)
-        command = QTINSTALLERFRAMEWORKDIR + "/bin/binarycreator.exe -c " + installerConfigFileOriginal + " -p " + SCRIPTDIR + "/../Installer/packages " + SCRIPTDIR + "/../Installer/SetupQCrypTool-" + projectVersion + ".exe"
+        command = qtInstallerFrameworkDir + "/bin/binarycreator.exe -c " + installerConfigFileOriginal + " -p " + scriptDir + "/../Installer/packages " + scriptDir + "/../Installer/SetupQCrypTool-" + projectVersion + ".exe"
         os.system(command)
     # clean up
     if os.path.isdir(installerPackageDataDir):
