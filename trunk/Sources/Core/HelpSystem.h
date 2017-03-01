@@ -21,6 +21,10 @@ namespace QCT {
             static HelpSystem &instance();
         private slots:
             void slotRequestContextHelp(const QString &_identifierContextHelp);
+        private slots:
+            void slotProcessAssistantFinished(const int _exitCode, const QProcess::ExitStatus _exitStatus);
+        private:
+            QSharedPointer<QProcess> m_processAssistant;
         };
 
     }

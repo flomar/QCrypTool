@@ -32,6 +32,8 @@
 #include <QIcon>
 #include <QImage>
 #include <QWhatsThis>
+#include <QProcess>
+#include <QThread>
 
 namespace QCT {
 
