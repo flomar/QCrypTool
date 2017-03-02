@@ -115,6 +115,19 @@ def createInstaller():
         # TODO/FIXME: copy files to "installerPackageDataDir/platforms"
         print("TODO/FIXME: implement Linux-specific code")
         # TODO/FIXME: copy files to "installerPackageDataDir"
+        for file in glob.glob(scriptDir + "/../External/Linux/OpenSSL/lib/*.so.1.1"):
+            shutil.copy(file, installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/lib/libQt5Sql.so.5", installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/lib/libQt5Network.so.5", installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/lib/libQt5PrintSupport.so.5", installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/lib/libQt5Gui.so.5", installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/lib/libQt5Core.so.5", installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/lib/libQt5Widgets.so.5", installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/lib/libQt5Help.so.5", installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/lib/libicui18n.so.56", installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/lib/libicuuc.so.56", installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/lib/libicudata.so.56", installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/lib/libQt5CLucene.so.5", installerPackageDataDir)
         command = qtInstallerFrameworkDir + "/bin/binarycreator -c " + installerConfigFileOriginal + " -p " + scriptDir + "/../Installer/packages " + scriptDir + "/../Installer/SetupQCrypTool-" + projectVersion + ".run"
         os.system(command)
     # MacOS-specific
