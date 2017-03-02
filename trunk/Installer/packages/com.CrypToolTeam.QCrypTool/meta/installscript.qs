@@ -42,7 +42,7 @@ Component.prototype.installationFinished = function() {
             var isLaunchQCrypToolCheckBoxChecked = component.userInterface("LaunchQCrypToolForm").LaunchQCrypToolCheckBox.checked;
             if(isLaunchQCrypToolCheckBoxChecked) {
                 if(systemInfo.kernelType === "linux") {
-                    QDesktopServices.openUrl("file:///" + installer.value("TargetDir") + "/QCrypTool");
+                    QDesktopServices.openUrl("file:///" + installer.value("TargetDir") + "/QCrypTool.sh");
                 }
                 if(systemInfo.productType === "macos") {
 

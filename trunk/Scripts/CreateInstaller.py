@@ -107,6 +107,7 @@ def createInstaller():
     # Linux-specific
     if sys.platform == "linux" or sys.platform == "linux2":
         shutil.copy(buildDir + "/QCrypTool/release/QCrypTool", installerPackageDataDir)
+        shutil.copy(scriptDir + "/../Installer/Scripts/Linux/QCrypTool.sh", installerPackageDataDir)
         shutil.copy(qtInstallationDir + "/bin/assistant", installerPackageDataDir)
         for file in glob.glob(scriptDir + "/../Resources/QCT/Help/*.qch"):
             shutil.copy(file, installerPackageDataDir)
