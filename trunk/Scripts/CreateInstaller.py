@@ -108,6 +108,8 @@ def createInstaller():
     if sys.platform == "linux" or sys.platform == "linux2":
         shutil.copy(buildDir + "/QCrypTool/release/QCrypTool", installerPackageDataDir)
         shutil.copy(qtInstallationDir + "/bin/assistant", installerPackageDataDir)
+        for file in glob.glob(scriptDir + "/../Resources/QCT/Help/*.qch"):
+            shutil.copy(file, installerPackageDataDir)
         for file in glob.glob(scriptDir + "/../Resources/QCT/Help/*.qhc"):
             shutil.copy(file, installerPackageDataDir)
         os.makedirs(installerPackageDataDir + "/platforms")
@@ -138,6 +140,8 @@ def createInstaller():
         shutil.copy(buildDir + "/QCrypTool/release/QCrypTool.exe", installerPackageDataDir)
         shutil.copy(qtInstallationDir + "/bin/assistant.exe", installerPackageDataDir)
         for file in glob.glob(scriptDir + "/../External/Windows/OpenSSL/bin/*.dll"):
+            shutil.copy(file, installerPackageDataDir)
+        for file in glob.glob(scriptDir + "/../Resources/QCT/Help/*.qch"):
             shutil.copy(file, installerPackageDataDir)
         for file in glob.glob(scriptDir + "/../Resources/QCT/Help/*.qhc"):
             shutil.copy(file, installerPackageDataDir)
