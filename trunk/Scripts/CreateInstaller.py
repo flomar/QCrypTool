@@ -104,15 +104,14 @@ def createInstaller():
     if os.path.isdir(installerPackageDataDir):
         shutil.rmtree(installerPackageDataDir)
     os.makedirs(installerPackageDataDir)
-    platform = sys.platform
     # Linux-specific
-    if platform == "linux" or platform == "linux2":
-        print("TODO/FIXME: createInstaller for Linux")
+    if sys.platform == "linux" or sys.platform == "linux2":
+        print("TODO/FIXME: implement Linux-specific code")
     # MacOS-specific
-    if platform == "darwin":
-        print("TODO/FIXME: createInstaller for MacOS")
+    if sys.platform == "darwin":
+        print("TODO/FIXME: implement MacOS-specific code")
     # Windows-specific
-    if platform == "win32":
+    if sys.platform == "win32":
         shutil.copy(buildDir + "/QCrypTool/release/QCrypTool.exe", installerPackageDataDir)
         shutil.copy(qtInstallationDir + "/bin/assistant.exe", installerPackageDataDir)
         for file in glob.glob(scriptDir + "/../External/Windows/OpenSSL/bin/*.dll"):
