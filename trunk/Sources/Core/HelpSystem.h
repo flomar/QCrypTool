@@ -4,6 +4,7 @@
 #define _QCT_CORE_HELPSYSTEM_H_
 
 #include <QCT.h>
+#include <QCTTranslation.h>
 
 namespace QCT {
     namespace Core {
@@ -23,6 +24,8 @@ namespace QCT {
             void slotRequestContextHelp(const QString &_identifierContextHelp);
         private slots:
             void slotProcessAssistantFinished(const int _exitCode, const QProcess::ExitStatus _exitStatus);
+        private:
+            bool doesCollectionFileExist(const QString &_language) const;
         private:
             QSharedPointer<QProcess> m_processAssistant;
         };
