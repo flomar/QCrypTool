@@ -9,6 +9,12 @@ Component.prototype.createOperations = function() {
     component.createOperations();
     try {
         if(installer.isInstaller()) {
+            if(systemInfo.kernelType === "linux") {
+
+            }
+            if(systemInfo.productType === "macos") {
+
+            }
             if(systemInfo.productType === "windows") {
                 component.addOperation("CreateShortcut", "@TargetDir@/QCrypTool.exe", "@StartMenuDir@/QCrypTool.lnk", "workingDirectory=@TargetDir@");
             }
@@ -35,7 +41,15 @@ Component.prototype.installationFinished = function() {
         if(installer.isInstaller() && installer.status == QInstaller.Success) {
             var isLaunchQCrypToolCheckBoxChecked = component.userInterface("LaunchQCrypToolForm").LaunchQCrypToolCheckBox.checked;
             if(isLaunchQCrypToolCheckBoxChecked) {
-                QDesktopServices.openUrl("file:///" + installer.value("TargetDir") + "/QCrypTool.exe");
+                if(systemInfo.kernelType === "linux") {
+                    QDesktopServices.openUrl("file:///" + installer.value("TargetDir") + "/QCrypTool");
+                }
+                if(systemInfo.productType === "macos") {
+
+                }
+                if(systemInfo.productType === "windows") {
+                    QDesktopServices.openUrl("file:///" + installer.value("TargetDir") + "/QCrypTool.exe");
+                }
             }
         }
     }
