@@ -106,7 +106,17 @@ def createInstaller():
     os.makedirs(installerPackageDataDir)
     # Linux-specific
     if sys.platform == "linux" or sys.platform == "linux2":
+        shutil.copy(buildDir + "/QCrypTool/release/QCrypTool", installerPackageDataDir)
+        shutil.copy(qtInstallationDir + "/bin/assistant", installerPackageDataDir)
+        for file in glob.glob(scriptDir + "/../Resources/QCT/Help/*.qhc"):
+            shutil.copy(file, installerPackageDataDir)
+        os.makedirs(installerPackageDataDir + "/platforms")
         print("TODO/FIXME: implement Linux-specific code")
+        # TODO/FIXME: copy files to "installerPackageDataDir/platforms"
+        print("TODO/FIXME: implement Linux-specific code")
+        # TODO/FIXME: copy files to "installerPackageDataDir"
+        command = qtInstallerFrameworkDir + "/bin/binarycreator -c " + installerConfigFileOriginal + " -p " + scriptDir + "/../Installer/packages " + scriptDir + "/../Installer/SetupQCrypTool-" + projectVersion + ".run"
+        os.system(command)
     # MacOS-specific
     if sys.platform == "darwin":
         print("TODO/FIXME: implement MacOS-specific code")
