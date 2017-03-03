@@ -26,6 +26,8 @@ namespace QCT {
             installEventFilterForMenusAndActions();
             // initialize derived class
             initializeSignalsAndSlots();
+            slotChangedLanguage();
+            slotChangedScaling();
             // invoke base class implementation
             QMainWindow::show();
         }
