@@ -22,6 +22,7 @@ namespace QCT {
             virtual void initializeSignalsAndSlots();
         protected slots:
             virtual void slotChangedLanguage();
+            virtual void slotChangedScaling();
         private slots:
             void slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys();
             void slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys();

@@ -31,6 +31,7 @@ namespace QCT {
             bool eventFilter(QObject *_object, QEvent *_event);
         protected slots:
             virtual void slotChangedLanguage() = 0;
+            virtual void slotChangedScaling() = 0;
         signals:
             void signalRequestContextHelp(const QString &_identifierContextHelp);
         private:

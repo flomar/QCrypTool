@@ -64,6 +64,21 @@ namespace QCT {
             m_ui->MenuHelpActionAboutQCrypTool->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONABOUTQCRYPTOOL));
         }
 
+        void MainWindow::slotChangedScaling() {
+            if(menuBar()) {
+                const QFont font = Core::ScalingSystem::instance().getFont(Core::ScalingSystem::FONT_TYPE_NORMAL_M);
+                menuBar()->setFont(font);
+                QList<QMenu*> menus = menuBar()->findChildren<QMenu*>();
+                foreach(QMenu *menu, menus) {
+                    menu->setFont(font);
+                    QList<QAction*> actions = menu->actions();
+                    foreach(QAction *action, actions) {
+                        action->setFont(font);
+                    }
+                }
+            }
+        }
+
         void MainWindow::slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys() {
             Core::Utilities::MessageBoxes::execMessageBoxInformation("TODO/FIXME: MainWindow::slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys()");
         }

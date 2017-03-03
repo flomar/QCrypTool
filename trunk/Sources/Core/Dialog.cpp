@@ -1,7 +1,6 @@
 // Dialog.cpp
 
 #include <Core/Dialog.h>
-#include <Core/HelpSystem.h>
 
 namespace QCT {
     namespace Core {
@@ -22,9 +21,9 @@ namespace QCT {
         int Dialog::exec() {
             // make dialogs non-resizable
             setFixedSize(size());
-            // initialize signals and slots in derived class
+            // initialize derived class
             initializeSignalsAndSlots();
-            // initialize data in derived class
+            initializeScaling();
             initializeData();
             // invoke base class implementation
             return QDialog::exec();

@@ -22,6 +22,11 @@ namespace QCT {
                 connect(m_ui->DialogLanguagePushButtonOK, SIGNAL(clicked()), this, SLOT(slotClickedDialogLanguagePushButtonOK()));
             }
 
+            void DialogLanguage::initializeScaling() {
+                const float scaling = Core::ScalingSystem::instance().getScaling();
+                setFixedSize(size() * scaling);
+            }
+
             void DialogLanguage::initializeData() {
                 setWindowTitle(trStr(I18N_QCRYPTOOL_DIALOGLANGUAGE_TITLE));
                 m_ui->DialogLanguageLabelDescription->setText(trStr(I18N_QCRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION));

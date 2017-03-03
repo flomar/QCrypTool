@@ -12,7 +12,7 @@ namespace QCT {
     namespace Core {
 
         // This singleton class is responsible for the application-wide
-        // GUI scale and for providing the corresponding fonts.
+        // GUI scaling and for providing the corresponding fonts.
         class ScalingSystem : public QObject {
             Q_OBJECT
         protected:
@@ -21,39 +21,40 @@ namespace QCT {
         public:
             static ScalingSystem &instance();
         public:
-            void setScale(const float _scale, const bool _override = false);
+            void initializeFonts();
         public:
-            float getScaleMinimum() const { return m_scaleMinimum; }
-            float getScaleMaximum() const { return m_scaleMaximum; }
-            float getScale() const { return m_scale; }
+            void setScaling(const float _scaling, const bool _override = false);
+        public:
+            float getScalingMinimum() const { return m_scalingMinimum; }
+            float getScalingMaximum() const { return m_scalingMaximum; }
+            float getScaling() const { return m_scaling; }
         signals:
-            void signalChangedScale();
+            void signalChangedScaling();
+        private:
+            const float m_scalingMinimum;
+            const float m_scalingMaximum;
+            float m_scaling;
         public:
-            const QFont &getFontNormalXS() const { return fontNormalXS; }
-            const QFont &getFontNormalS() const { return fontNormalS; }
-            const QFont &getFontNormalM() const { return fontNormalM; }
-            const QFont &getFontNormalL() const { return fontNormalL; }
-            const QFont &getFontNormalXL() const { return fontNormalXL; }
-            const QFont &getFontMonospaceXS() const { return fontMonospaceXS; }
-            const QFont &getFontMonospaceS() const { return fontMonospaceS; }
-            const QFont &getFontMonospaceM() const { return fontMonospaceM; }
-            const QFont &getFontMonospaceL() const { return fontMonospaceL; }
-            const QFont &getFontMonospaceXL() const { return fontMonospaceXL; }
+            enum FontType {
+                FONT_TYPE_NULL,
+                FONT_TYPE_NORMAL_XS,
+                FONT_TYPE_NORMAL_S,
+                FONT_TYPE_NORMAL_M,
+                FONT_TYPE_NORMAL_L,
+                FONT_TYPE_NORMAL_XL,
+                FONT_TYPE_MONOSPACE_XS,
+                FONT_TYPE_MONOSPACE_S,
+                FONT_TYPE_MONOSPACE_M,
+                FONT_TYPE_MONOSPACE_L,
+                FONT_TYPE_MONOSPACE_XL
+            };
+        public:
+            const QFont &getFont(const FontType _fontType = FONT_TYPE_NORMAL_M) const;
         private:
-            const float m_scaleMinimum;
-            const float m_scaleMaximum;
-            float m_scale;
+            void updateFonts();
         private:
-            QFont fontNormalXS;
-            QFont fontNormalS;
-            QFont fontNormalM;
-            QFont fontNormalL;
-            QFont fontNormalXL;
-            QFont fontMonospaceXS;
-            QFont fontMonospaceS;
-            QFont fontMonospaceM;
-            QFont fontMonospaceL;
-            QFont fontMonospaceXL;
+            typedef QSharedPointer<QFont> SharedPointerFont;
+            QMap<FontType, SharedPointerFont> mapFonts;
         };
 
     }

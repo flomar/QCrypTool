@@ -21,6 +21,11 @@ namespace QCT {
                 connect(m_ui->DialogAboutPushButtonClose, SIGNAL(clicked()), this, SLOT(slotClickedDialogAboutPushButtonClose()));
             }
 
+            void DialogAbout::initializeScaling() {
+                const float scaling = Core::ScalingSystem::instance().getScaling();
+                setFixedSize(size() * scaling);
+            }
+
             void DialogAbout::initializeData() {
                 setWindowTitle(trStr(I18N_QCRYPTOOL_DIALOGABOUT_TITLE));
                 m_ui->DialogAboutLabelProjectLogo->setPixmap(Core::Utilities::Graphics::getPixmapFromSvg(":/QCT/Images/QCTLogo.svg", m_ui->DialogAboutLabelProjectLogo->size()));

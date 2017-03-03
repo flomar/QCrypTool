@@ -16,6 +16,7 @@ namespace QCT {
 
         int Application::exec() {
             QCT::Translation::instance().setLanguage();
+            ScalingSystem::instance().initializeFonts();
             return QApplication::exec();
         }
 

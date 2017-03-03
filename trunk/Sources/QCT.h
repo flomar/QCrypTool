@@ -34,6 +34,8 @@
 #include <QWhatsThis>
 #include <QProcess>
 #include <QThread>
+#include <QFont>
+#include <QFontDatabase>
 
 namespace QCT {
 

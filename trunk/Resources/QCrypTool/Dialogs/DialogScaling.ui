@@ -59,7 +59,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QDoubleSpinBox" name="DialogScalingDoubleSpinBoxScale"/>
+    <widget class="QDoubleSpinBox" name="DialogScalingDoubleSpinBoxScaling"/>
    </item>
    <item>
     <spacer name="DialogScalingVerticalSpacer1">

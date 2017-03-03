@@ -1,30 +1,27 @@
 // MainWindow.cpp
 
 #include <Core/MainWindow.h>
-#include <Core/HelpSystem.h>
 
 namespace QCT {
     namespace Core {
 
         MainWindow::MainWindow(QWidget *_parent, const Qt::WindowFlags _flags) :
             QMainWindow(_parent, _flags) {
-            // register with help system
             connect(this, SIGNAL(signalRequestContextHelp(QString)), &HelpSystem::instance(), SLOT(slotRequestContextHelp(QString)));
-            // connect with translator
             connect(&Translation::instance(), SIGNAL(signalChangedLanguage()), this, SLOT(slotChangedLanguage()));
+            connect(&ScalingSystem::instance(), SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));
         }
 
         MainWindow::~MainWindow() {
-            // unregister with help system
             disconnect(this, SIGNAL(signalRequestContextHelp(QString)), &HelpSystem::instance(), SLOT(slotRequestContextHelp(QString)));
-            // disconnect with translator
             disconnect(&Translation::instance(), SIGNAL(signalChangedLanguage()), this, SLOT(slotChangedLanguage()));
+            disconnect(&ScalingSystem::instance(), SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));
         }
 
         void MainWindow::show() {
             // install event filters for menus and actions
             installEventFilterForMenusAndActions();
-            // initialize signals and slots in derived class
+            // initialize derived class
             initializeSignalsAndSlots();
             // invoke base class implementation
             QMainWindow::show();

@@ -26,6 +26,7 @@ namespace QCT {
             virtual int exec();
         protected slots:
             virtual void initializeSignalsAndSlots() = 0;
+            virtual void initializeScaling() = 0;
             virtual void initializeData() = 0;
         protected:
             bool eventFilter(QObject *_object, QEvent *_event);
