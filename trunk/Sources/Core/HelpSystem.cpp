@@ -37,13 +37,9 @@ namespace QCT {
                     return;
                 }
             }
-            // TODO/FIXME: the code below is *NOT* working on Linux,
-            // the assistant freezes and is not responsive at all
-#if 0
             QByteArray byteArray;
             byteArray.append(QString("setSource qthelp://com.CrypToolTeam.QCrypTool/%1/%1/%2.html\n").arg(language).arg(_identifierContextHelp));
             m_processAssistant->write(byteArray);
-#endif
         }
 
         void HelpSystem::slotProcessAssistantFinished(const int _exitCode, const QProcess::ExitStatus _exitStatus) {
@@ -81,9 +77,9 @@ namespace QCT {
             connect(m_processAssistant.data(), SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(slotProcessAssistantFinished(int,QProcess::ExitStatus)));
             m_processAssistant->setWorkingDirectory(qApp->applicationDirPath());
             QList<QString> arguments;
-            arguments << QString("-enableRemoteControl");
             arguments << QString("-collectionFile");
             arguments << QString("QCTHelp%1.qhc").arg(_language);
+            arguments << QString("-enableRemoteControl");
             m_processAssistant->start(Core::Utilities::PlatformCode::Generic::getAssistantExecutable(), arguments);
             if(!m_processAssistant->waitForStarted()) {
                 m_processAssistant.clear();
