@@ -41,7 +41,7 @@ namespace QCT {
                 namespace Windowing {
 
 #ifdef Q_OS_LINUX
-                    Window findWindow(Display *_display, const Atom _atom, Window _window, const qint64 _processIdentifier) {
+                    Window findWindow(Display *_display, const Atom _atom, const Window _window, const qint64 _processIdentifier) {
                         Atom atom = 0;
                         int format = 0;
                         unsigned long items = 0;
@@ -69,6 +69,18 @@ namespace QCT {
                         }
                         return 0;
                     }
+
+                    void raiseWindow(Display *_display, const Window _windowRoot, Window _window) {
+                        XEvent event;
+                        event.type = ClientMessage;
+                        event.xclient.display = _display;
+                        event.xclient.window = _window;
+                        event.xclient.message_type = XInternAtom(_display, "_NET_ACTIVE_WINDOW", 0);
+                        event.xclient.format = 32;
+                        event.xclient.data.l[0] = 2L;
+                        event.xclient.data.l[1] = CurrentTime;
+                        XSendEvent(_display, _windowRoot, 0, SubstructureNotifyMask | SubstructureRedirectMask, &event);
+                    }
 #endif
 #ifdef Q_OS_MAC
 
@@ -92,14 +104,27 @@ namespace QCT {
                     bool bringWindowToFront(const qint64 _processIdentifier) {
 #ifdef Q_OS_LINUX
                         Display *display = XOpenDisplay(0);
-                        Atom atom = XInternAtom(display, "_NET_WM_PID", 1);
-                        Window idWindowRoot = XDefaultRootWindow(display);
-                        if(!display || !atom || !idWindowRoot) {
+                        if(!display) {
                             return false;
                         }
-                        Window idWindow = findWindow(display, atom, idWindowRoot, _processIdentifier);
-
-                        Core::Utilities::MessageBoxes::execMessageBoxCritical(QString("X11 Window Identifier: %1").arg(idWindow));
+                        Atom atom = XInternAtom(display, "_NET_WM_PID", 1);
+                        if(!atom) {
+                            XCloseDisplay(display);
+                            return false;
+                        }
+                        Window windowRoot = XDefaultRootWindow(display);
+                        if(!windowRoot) {
+                            XCloseDisplay(display);
+                            return false;
+                        }
+                        Window window = findWindow(display, atom, windowRoot, _processIdentifier);
+                        if(!window) {
+                            XCloseDisplay(display);
+                            return false;
+                        }
+                        raiseWindow(display, windowRoot, window);
+                        XCloseDisplay(display);
+                        return true;
 #endif
 #ifdef Q_OS_MAC
                         // TODO/FIXME
