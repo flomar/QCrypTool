@@ -23,12 +23,14 @@ namespace QCT {
 
             void DialogAbout::initializeVisuals() {
                 m_ui->DialogAboutLabelProjectLogo->setFixedSize(m_ui->DialogAboutLabelProjectLogo->size() * m_scalingSystem.getScaling());
-                m_scalingSystem.setFont<QLabel>(m_ui->DialogAboutLabelProjectNameAndVersion, ScalingSystem::FONT_TYPE_NORMAL_XL);
-                m_scalingSystem.setFont<QLabel>(m_ui->DialogAboutLabelProjectInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
-                m_scalingSystem.setFont<QLabel>(m_ui->DialogAboutLabelProjectRepositoryInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
-                m_scalingSystem.setBold<QLabel>(m_ui->DialogAboutLabelProjectRepositoryInformation, true);
-                m_scalingSystem.setFont<QLabel>(m_ui->DialogAboutLabelProjectLicensingInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
-                m_scalingSystem.setFont<QLabel>(m_ui->DialogAboutLabelProjectCopyrightInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogAboutLabelProjectNameAndVersion, ScalingSystem::FONT_TYPE_NORMAL_XL);
+                m_scalingSystem.setBold(m_ui->DialogAboutLabelProjectNameAndVersion, true);
+                m_scalingSystem.setFont(m_ui->DialogAboutLabelProjectInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogAboutLabelProjectRepositoryInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setBold(m_ui->DialogAboutLabelProjectRepositoryInformation, true);
+                m_scalingSystem.setFont(m_ui->DialogAboutLabelProjectLicensingInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogAboutLabelProjectCopyrightInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogAboutPushButtonClose, ScalingSystem::FONT_TYPE_NORMAL_M);
             }
 
             void DialogAbout::initializeData() {

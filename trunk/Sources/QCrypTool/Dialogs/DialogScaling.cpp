@@ -23,7 +23,10 @@ namespace QCT {
             }
 
             void DialogScaling::initializeVisuals() {
-
+                m_scalingSystem.setFont(m_ui->DialogScalingLabelDescription, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogScalingDoubleSpinBoxScaling, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogScalingPushButtonCancel, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogScalingPushButtonOK, ScalingSystem::FONT_TYPE_NORMAL_M);
             }
 
             void DialogScaling::initializeData() {

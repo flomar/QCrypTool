@@ -66,13 +66,13 @@ namespace QCT {
 
         void MainWindow::slotChangedScaling() {
             if(menuBar()) {
-                m_scalingSystem.setFont<QMenuBar>(menuBar(), ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(menuBar(), ScalingSystem::FONT_TYPE_NORMAL_M);
                 QList<QMenu*> menus = menuBar()->findChildren<QMenu*>();
                 foreach(QMenu *menu, menus) {
-                    m_scalingSystem.setFont<QMenu>(menu, ScalingSystem::FONT_TYPE_NORMAL_M);
+                    m_scalingSystem.setFont(menu, ScalingSystem::FONT_TYPE_NORMAL_M);
                     QList<QAction*> actions = menu->actions();
                     foreach(QAction *action, actions) {
-                        m_scalingSystem.setFont<QAction>(action, ScalingSystem::FONT_TYPE_NORMAL_M);
+                        m_scalingSystem.setFont(action, ScalingSystem::FONT_TYPE_NORMAL_M);
                     }
                 }
             }
