@@ -17,6 +17,7 @@ Sources/Core/Application.h \
 Sources/Core/MainWindow.h \
 Sources/Core/Dialog.h \
 Sources/Core/HelpSystem.h \
+Sources/Core/ScalingSystem.h \
 Sources/Core/Utilities.h \
 Sources/Core/Utilities/UtilitiesDateAndTime.h \
 Sources/Core/Utilities/UtilitiesGraphics.h \
@@ -31,8 +32,9 @@ Sources/Core/Cryptography/CryptographyCertificates.h \
 Sources/QCrypTool/QCrypTool.h \
 Sources/QCrypTool/QCrypToolApplication.h \
 Sources/QCrypTool/QCrypToolMainWindow.h \
-Sources/QCrypTool/Dialogs/DialogAbout.h \
-Sources/QCrypTool/Dialogs/DialogLanguage.h
+Sources/QCrypTool/Dialogs/DialogLanguage.h \
+Sources/QCrypTool/Dialogs/DialogScaling.h \
+Sources/QCrypTool/Dialogs/DialogAbout.h
 
 SOURCES += \
 Sources/QCT.cpp \
@@ -41,6 +43,7 @@ Sources/Core/Application.cpp \
 Sources/Core/MainWindow.cpp \
 Sources/Core/Dialog.cpp \
 Sources/Core/HelpSystem.cpp \
+Sources/Core/ScalingSystem.cpp \
 Sources/Core/Utilities.cpp \
 Sources/Core/Utilities/UtilitiesDateAndTime.cpp \
 Sources/Core/Utilities/UtilitiesGraphics.cpp \
@@ -55,8 +58,9 @@ Sources/Core/Cryptography/CryptographyCertificates.cpp \
 Sources/QCrypTool/QCrypTool.cpp \
 Sources/QCrypTool/QCrypToolApplication.cpp \
 Sources/QCrypTool/QCrypToolMainWindow.cpp \
-Sources/QCrypTool/Dialogs/DialogAbout.cpp \
-Sources/QCrypTool/Dialogs/DialogLanguage.cpp
+Sources/QCrypTool/Dialogs/DialogLanguage.cpp \
+Sources/QCrypTool/Dialogs/DialogScaling.cpp \
+Sources/QCrypTool/Dialogs/DialogAbout.cpp
 
 RESOURCES += \
 Resources/QCT.qrc \
@@ -64,8 +68,9 @@ Resources/QCrypTool.qrc
 
 FORMS += \
 Resources/QCrypTool/QCrypToolMainWindow.ui \
-Resources/QCrypTool/Dialogs/DialogAbout.ui \
-Resources/QCrypTool/Dialogs/DialogLanguage.ui
+Resources/QCrypTool/Dialogs/DialogLanguage.ui \
+Resources/QCrypTool/Dialogs/DialogScaling.ui \
+Resources/QCrypTool/Dialogs/DialogAbout.ui
 
 # Linux-specific
 unix:!macx {

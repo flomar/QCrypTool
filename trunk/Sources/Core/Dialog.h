@@ -6,6 +6,8 @@
 #include <QCT.h>
 #include <QCTTranslation.h>
 
+#include <Core/HelpSystem.h>
+#include <Core/ScalingSystem.h>
 #include <Core/Utilities.h>
 
 namespace QCT {

@@ -39,6 +39,7 @@ namespace QCT {
             void slotTriggeredMenuIndividualProceduresMenuHashActionRIPEMD160();
         private slots:
             void slotTriggeredMenuOptionsActionLanguage();
+            void slotTriggeredMenuOptionsActionScaling();
         private slots:
             void slotTriggeredMenuHelpActionAboutQCrypTool();
         private:

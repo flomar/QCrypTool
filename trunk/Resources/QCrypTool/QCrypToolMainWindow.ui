@@ -41,7 +41,7 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>21</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="MenuFile">
@@ -111,6 +111,7 @@
      <string>Options</string>
     </property>
     <addaction name="MenuOptionsActionLanguage"/>
+    <addaction name="MenuOptionsActionScaling"/>
    </widget>
    <widget class="QMenu" name="MenuWindow">
     <property name="title">
@@ -246,6 +247,11 @@
   <action name="MenuDigitalSignaturesPKIActionSignatureDemonstration">
    <property name="text">
     <string>Signature Demonstration</string>
+   </property>
+  </action>
+  <action name="MenuOptionsActionScaling">
+   <property name="text">
+    <string>Scaling</string>
    </property>
   </action>
  </widget>

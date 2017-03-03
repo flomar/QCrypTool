@@ -4,6 +4,7 @@
 #include <ui_QCrypToolMainWindow.h>
 
 #include <QCrypTool/Dialogs/DialogLanguage.h>
+#include <QCrypTool/Dialogs/DialogScaling.h>
 #include <QCrypTool/Dialogs/DialogAbout.h>
 
 namespace QCT {
@@ -35,6 +36,7 @@ namespace QCT {
             connect(m_ui->MenuIndividualProceduresMenuHashActionSHA512, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuIndividualProceduresMenuHashActionSHA512()));
             connect(m_ui->MenuIndividualProceduresMenuHashActionRIPEMD160, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuIndividualProceduresMenuHashActionRIPEMD160()));
             connect(m_ui->MenuOptionsActionLanguage, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuOptionsActionLanguage()));
+            connect(m_ui->MenuOptionsActionScaling, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuOptionsActionScaling()));
             connect(m_ui->MenuHelpActionAboutQCrypTool, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuHelpActionAboutQCrypTool()));
         }
 
@@ -49,6 +51,9 @@ namespace QCT {
             m_ui->MenuDigitalSignaturesPKIActionVerifySignature->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONVERIFYSIGNATURE));
             m_ui->MenuDigitalSignaturesPKIActionExtractSignature->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONEXTRACTSIGNATURE));
             m_ui->MenuDigitalSignaturesPKIActionSignatureDemonstration->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONSIGNATUREDEMONSTRATION));
+            m_ui->MenuOptions->setTitle(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUOPTIONS));
+            m_ui->MenuOptionsActionLanguage->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUOPTIONSACTIONLANGUAGE));
+            m_ui->MenuOptionsActionScaling->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUOPTIONSACTIONSCALING));
             m_ui->MenuHelp->setTitle(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELP));
             m_ui->MenuHelpActionStartingPage->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONSTARTINGPAGE));
             m_ui->MenuHelpActionIndex->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONINDEX));
@@ -114,6 +119,11 @@ namespace QCT {
         void MainWindow::slotTriggeredMenuOptionsActionLanguage() {
             Dialogs::DialogLanguage dialogLanguage;
             dialogLanguage.exec();
+        }
+
+        void MainWindow::slotTriggeredMenuOptionsActionScaling() {
+            Dialogs::DialogScaling dialogScaling;
+            dialogScaling.exec();
         }
 
         void MainWindow::slotTriggeredMenuHelpActionAboutQCrypTool() {
