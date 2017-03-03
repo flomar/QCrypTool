@@ -34,6 +34,8 @@ namespace QCT {
                 namespace Window {
 
 #ifdef Q_OS_WIN
+                    static bool resultBringChildProcessWindowToTop = false;
+
                     static BOOL CALLBACK bringChildProcessWindowToTop(HWND _hwnd, LPARAM _lparam) {
                         DWORD processIdentifier = *(DWORD*)(_lparam);
                         DWORD windowProcessIdentifier = NULL;
@@ -41,9 +43,10 @@ namespace QCT {
                         if(windowProcessIdentifier == processIdentifier) {
                             SwitchToThisWindow(_hwnd, TRUE);
                             SetForegroundWindow(_hwnd);
-                            return TRUE;
+                            resultBringChildProcessWindowToTop = true;
+                            return FALSE;
                         }
-                        return FALSE;
+                        return TRUE;
                     }
 #endif
                     bool bringWindowToFront(const qint64 _processIdentifier) {
@@ -54,8 +57,10 @@ namespace QCT {
                         // TODO/FIXME
 #endif
 #ifdef Q_OS_WIN
+                        resultBringChildProcessWindowToTop = false;
                         DWORD childProcessIdentifier = (DWORD)(_processIdentifier);
-                        return (bool)(EnumWindows(bringChildProcessWindowToTop, (LPARAM)(&childProcessIdentifier)));
+                        EnumWindows(bringChildProcessWindowToTop, (LPARAM)(&childProcessIdentifier));
+                        return resultBringChildProcessWindowToTop;
 #endif
                         MessageBoxes::execMessageBoxWarning("TODO/FIXME: implement platform-specific code (bringWindowToFront)");
                         return false;
