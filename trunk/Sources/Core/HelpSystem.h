@@ -6,6 +6,8 @@
 #include <QCT.h>
 #include <QCTTranslation.h>
 
+#include <Core/Utilities.h>
+
 namespace QCT {
     namespace Core {
 
@@ -25,7 +27,9 @@ namespace QCT {
         private slots:
             void slotProcessAssistantFinished(const int _exitCode, const QProcess::ExitStatus _exitStatus);
         private:
+            QString getHelpLanguage() const;
             bool doesCollectionFileExist(const QString &_language) const;
+            bool startProcessAssistant(const QString &_language);
         private:
             QSharedPointer<QProcess> m_processAssistant;
         };

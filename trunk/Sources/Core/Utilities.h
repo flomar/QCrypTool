@@ -7,6 +7,8 @@
 
 #include <Core/Utilities/UtilitiesDateAndTime.h>
 #include <Core/Utilities/UtilitiesGraphics.h>
+#include <Core/Utilities/UtilitiesMessageBoxes.h>
+#include <Core/Utilities/UtilitiesPlatformCode.h>
 
 namespace QCT {
     namespace Core {
