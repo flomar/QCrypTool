@@ -1,28 +1,28 @@
-// QCTTranslation.cpp
+// QCTTranslationSystem.cpp
 
-#include <QCTTranslation.h>
+#include <QCTTranslationSystem.h>
 
 // ATTENTION: If we're using only the "<file.h>" pattern above, for some reason
 // the "lupdate" command complains about unknown classes/namespaces.
-#include "QCTTranslation.h"
+#include "QCTTranslationSystem.h"
 
 namespace QCT {
 
-    Translation::Translation(QObject *_parent) :
+    TranslationSystem::TranslationSystem(QObject *_parent) :
         QObject(_parent) {
 
     }
 
-    Translation::~Translation() {
+    TranslationSystem::~TranslationSystem() {
 
     }
 
-    Translation &Translation::instance() {
-        static Translation translation;
-        return translation;
+    TranslationSystem &TranslationSystem::instance() {
+        static TranslationSystem translationSystem;
+        return translationSystem;
     }
 
-    void Translation::initializeLanguages() {
+    void TranslationSystem::initializeLanguages() {
         // ATTENTION: Here we make sure all languages are mapped to their
         // proper translations. This is required for the langauge selection
         // dialog to work as intended. Whenever a non-standard language
@@ -34,7 +34,7 @@ namespace QCT {
         m_mapLanguageTranslations.insert("German", trStr(I18N_GENERIC_GERMAN));
     }
 
-    void Translation::setLanguage(const QString &_language) {
+    void TranslationSystem::setLanguage(const QString &_language) {
         initializeLanguages();
         const QString locale = QLocale::system().name();
         QString language = _language;
@@ -55,19 +55,19 @@ namespace QCT {
         }
     }
 
-    QVector<QString> Translation::getLanguages() const {
+    QVector<QString> TranslationSystem::getLanguages() const {
         return m_mapLanguageTranslations.keys().toVector();
     }
 
-    QString Translation::getLanguage() const {
+    QString TranslationSystem::getLanguage() const {
         return m_language;
     }
 
-    QString Translation::getLanguageTranslated(const QString &_languageUntranslated) const {
+    QString TranslationSystem::getLanguageTranslated(const QString &_languageUntranslated) const {
         return m_mapLanguageTranslations.value(_languageUntranslated, "[LANGUAGE]");
     }
 
-    QString Translation::getLanguageUntranslated(const QString &_languageTranslated) const {
+    QString TranslationSystem::getLanguageUntranslated(const QString &_languageTranslated) const {
         QString languageUntranslated = "[LANGUAGE]";
         foreach(const QString language, m_mapLanguageTranslations.keys()) {
             const QString languageTranslated = m_mapLanguageTranslations.value(language);
@@ -78,7 +78,7 @@ namespace QCT {
         return languageUntranslated;
     }
 
-    QString Translation::getString(const QString &_identifier) const {
+    QString TranslationSystem::getString(const QString &_identifier) const {
         return m_translator.translate(_identifier.toLatin1(), _identifier.toLatin1());
     }
 

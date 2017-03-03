@@ -21,7 +21,7 @@ namespace QCT {
                 virtual ~DialogAbout();
             protected:
                 virtual void initializeSignalsAndSlots();
-                virtual void initializeScaling();
+                virtual void initializeVisuals();
                 virtual void initializeData();
             private:
                 Ui::DialogAbout *m_ui;

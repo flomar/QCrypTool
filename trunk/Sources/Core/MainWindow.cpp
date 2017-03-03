@@ -6,16 +6,19 @@ namespace QCT {
     namespace Core {
 
         MainWindow::MainWindow(QWidget *_parent, const Qt::WindowFlags _flags) :
-            QMainWindow(_parent, _flags) {
-            connect(this, SIGNAL(signalRequestContextHelp(QString)), &HelpSystem::instance(), SLOT(slotRequestContextHelp(QString)));
-            connect(&Translation::instance(), SIGNAL(signalChangedLanguage()), this, SLOT(slotChangedLanguage()));
-            connect(&ScalingSystem::instance(), SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));
+            QMainWindow(_parent, _flags),
+            m_helpSystem(HelpSystem::instance()),
+            m_scalingSystem(ScalingSystem::instance()),
+            m_translationSystem(TranslationSystem::instance()) {
+            connect(this, SIGNAL(signalRequestContextHelp(QString)), &m_helpSystem, SLOT(slotRequestContextHelp(QString)));
+            connect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));
+            connect(&m_translationSystem, SIGNAL(signalChangedLanguage()), this, SLOT(slotChangedLanguage()));
         }
 
         MainWindow::~MainWindow() {
-            disconnect(this, SIGNAL(signalRequestContextHelp(QString)), &HelpSystem::instance(), SLOT(slotRequestContextHelp(QString)));
-            disconnect(&Translation::instance(), SIGNAL(signalChangedLanguage()), this, SLOT(slotChangedLanguage()));
-            disconnect(&ScalingSystem::instance(), SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));
+            disconnect(this, SIGNAL(signalRequestContextHelp(QString)), &m_helpSystem, SLOT(slotRequestContextHelp(QString)));
+            disconnect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));
+            disconnect(&m_translationSystem, SIGNAL(signalChangedLanguage()), this, SLOT(slotChangedLanguage()));
         }
 
         void MainWindow::show() {

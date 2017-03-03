@@ -22,18 +22,17 @@ namespace QCT {
                 connect(m_ui->DialogScalingPushButtonOK, SIGNAL(clicked()), this, SLOT(slotClickedDialogScalingPushButtonOK()));
             }
 
-            void DialogScaling::initializeScaling() {
-                const float scaling = Core::ScalingSystem::instance().getScaling();
-                setFixedSize(size() * scaling);
+            void DialogScaling::initializeVisuals() {
+
             }
 
             void DialogScaling::initializeData() {
                 setWindowTitle(trStr(I18N_QCRYPTOOL_DIALOGSCALING_TITLE));
-                m_ui->DialogScalingLabelDescription->setText(trStr(I18N_QCRYPTOOL_DIALOGSCALING_LABELDESCRIPTION).arg(Core::ScalingSystem::instance().getScalingMinimum()).arg(Core::ScalingSystem::instance().getScalingMaximum()));
-                m_ui->DialogScalingDoubleSpinBoxScaling->setMinimum(Core::ScalingSystem::instance().getScalingMinimum());
-                m_ui->DialogScalingDoubleSpinBoxScaling->setMaximum(Core::ScalingSystem::instance().getScalingMaximum());
-                m_ui->DialogScalingDoubleSpinBoxScaling->setValue((double)(Core::ScalingSystem::instance().getScaling()));
-                m_ui->DialogScalingDoubleSpinBoxScaling->setSingleStep(0.1);
+                m_ui->DialogScalingLabelDescription->setText(trStr(I18N_QCRYPTOOL_DIALOGSCALING_LABELDESCRIPTION));
+                m_ui->DialogScalingDoubleSpinBoxScaling->setMinimum(m_scalingSystem.getScalingMinimum());
+                m_ui->DialogScalingDoubleSpinBoxScaling->setMaximum(m_scalingSystem.getScalingMaximum());
+                m_ui->DialogScalingDoubleSpinBoxScaling->setValue((double)(m_scalingSystem.getScaling()));
+                m_ui->DialogScalingDoubleSpinBoxScaling->setSingleStep(0.05);
                 m_ui->DialogScalingPushButtonCancel->setText(trStr(I18N_GENERIC_CANCEL));
                 m_ui->DialogScalingPushButtonOK->setText(trStr(I18N_GENERIC_OK));
             }
@@ -43,7 +42,7 @@ namespace QCT {
             }
 
             void DialogScaling::slotClickedDialogScalingPushButtonOK() {
-                Core::ScalingSystem::instance().setScaling((float)(m_ui->DialogScalingDoubleSpinBoxScaling->value()));
+                m_scalingSystem.setScaling((float)(m_ui->DialogScalingDoubleSpinBoxScaling->value()));
                 done(QDialog::Accepted);
             }
 

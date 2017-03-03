@@ -6,7 +6,10 @@ namespace QCT {
     namespace Core {
 
         Application::Application(int &_argc, char **_argv, const QString &_pathIconSvg, const QSize &_sizeIconSvg) :
-            QApplication(_argc, _argv) {
+            QApplication(_argc, _argv),
+            m_helpSystem(HelpSystem::instance()),
+            m_scalingSystem(ScalingSystem::instance()),
+            m_translationSystem(TranslationSystem::instance()) {
             setWindowIcon(Core::Utilities::Graphics::getIconFromSvg(_pathIconSvg, _sizeIconSvg));
         }
 
@@ -15,8 +18,8 @@ namespace QCT {
         }
 
         int Application::exec() {
-            QCT::Translation::instance().setLanguage();
-            ScalingSystem::instance().initializeFonts();
+            m_scalingSystem.initializeFonts();
+            m_translationSystem.setLanguage();
             return QApplication::exec();
         }
 

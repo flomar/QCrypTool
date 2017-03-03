@@ -1,19 +1,19 @@
-// QCTTranslation.h
+// QCTTranslationSystem.h
 
-#ifndef _QCT_QCTTRANSLATION_H_
-#define _QCT_QCTTRANSLATION_H_
+#ifndef _QCT_QCTTRANSLATIONSYSTEM_H_
+#define _QCT_QCTTRANSLATIONSYSTEM_H_
 
 #include <QCT.h>
 
 namespace QCT {
 
-    class Translation : public QObject {
+    class TranslationSystem : public QObject {
         Q_OBJECT
     protected:
-        Translation(QObject *_parent = 0);
-        virtual ~Translation();
+        TranslationSystem(QObject *_parent = 0);
+        virtual ~TranslationSystem();
     public:
-        static Translation &instance();
+        static TranslationSystem &instance();
     public:
         void initializeLanguages();
         // If this function is invoked without a parameter, the function
@@ -36,7 +36,7 @@ namespace QCT {
     };
 
     #define trStrQuoted(ID) #ID
-    #define trStr(ID) Translation::instance().getString(trStrQuoted(ID))
+    #define trStr(ID) TranslationSystem::instance().getString(trStrQuoted(ID))
 
     // generic translations
     extern const char *I18N_GENERIC_YES;

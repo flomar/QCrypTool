@@ -12,12 +12,12 @@ TARGET = QCrypTool
 
 HEADERS += \
 Sources/QCT.h \
-Sources/QCTTranslation.h \
+Sources/QCTHelpSystem.h \
+Sources/QCTScalingSystem.h \
+Sources/QCTTranslationSystem.h \
 Sources/Core/Application.h \
 Sources/Core/MainWindow.h \
 Sources/Core/Dialog.h \
-Sources/Core/HelpSystem.h \
-Sources/Core/ScalingSystem.h \
 Sources/Core/Utilities.h \
 Sources/Core/Utilities/UtilitiesDateAndTime.h \
 Sources/Core/Utilities/UtilitiesGraphics.h \
@@ -38,12 +38,12 @@ Sources/QCrypTool/Dialogs/DialogAbout.h
 
 SOURCES += \
 Sources/QCT.cpp \
-Sources/QCTTranslation.cpp \
+Sources/QCTHelpSystem.cpp \
+Sources/QCTScalingSystem.cpp \
+Sources/QCTTranslationSystem.cpp \
 Sources/Core/Application.cpp \
 Sources/Core/MainWindow.cpp \
 Sources/Core/Dialog.cpp \
-Sources/Core/HelpSystem.cpp \
-Sources/Core/ScalingSystem.cpp \
 Sources/Core/Utilities.cpp \
 Sources/Core/Utilities/UtilitiesDateAndTime.cpp \
 Sources/Core/Utilities/UtilitiesGraphics.cpp \

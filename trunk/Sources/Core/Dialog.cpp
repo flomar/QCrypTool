@@ -6,24 +6,24 @@ namespace QCT {
     namespace Core {
 
         Dialog::Dialog(QWidget *_parent, const Qt::WindowFlags _flags) :
-            QDialog(_parent, _flags) {
-            // install event filter
+            QDialog(_parent, _flags),
+            m_helpSystem(HelpSystem::instance()),
+            m_scalingSystem(ScalingSystem::instance()),
+            m_translationSystem(TranslationSystem::instance()) {
             installEventFilter(this);
-            // register with help system
-            connect(this, SIGNAL(signalRequestContextHelp(QString)), &HelpSystem::instance(), SLOT(slotRequestContextHelp(QString)));
+            connect(this, SIGNAL(signalRequestContextHelp(QString)), &m_helpSystem, SLOT(slotRequestContextHelp(QString)));
         }
 
         Dialog::~Dialog() {
-            // unregister with help system
-            disconnect(this, SIGNAL(signalRequestContextHelp(QString)), &HelpSystem::instance(), SLOT(slotRequestContextHelp(QString)));
+            disconnect(this, SIGNAL(signalRequestContextHelp(QString)), &m_helpSystem, SLOT(slotRequestContextHelp(QString)));
         }
 
         int Dialog::exec() {
-            // make dialogs non-resizable
-            setFixedSize(size());
+            // make dialogs adhere to the application-wide scaling factor
+            setFixedSize(size() * m_scalingSystem.getScaling());
             // initialize derived class
             initializeSignalsAndSlots();
-            initializeScaling();
+            initializeVisuals();
             initializeData();
             // invoke base class implementation
             return QDialog::exec();

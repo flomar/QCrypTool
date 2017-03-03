@@ -22,21 +22,20 @@ namespace QCT {
                 connect(m_ui->DialogLanguagePushButtonOK, SIGNAL(clicked()), this, SLOT(slotClickedDialogLanguagePushButtonOK()));
             }
 
-            void DialogLanguage::initializeScaling() {
-                const float scaling = Core::ScalingSystem::instance().getScaling();
-                setFixedSize(size() * scaling);
+            void DialogLanguage::initializeVisuals() {
+
             }
 
             void DialogLanguage::initializeData() {
                 setWindowTitle(trStr(I18N_QCRYPTOOL_DIALOGLANGUAGE_TITLE));
                 m_ui->DialogLanguageLabelDescription->setText(trStr(I18N_QCRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION));
                 m_ui->DialogLanguageComboxBoxLanguage->clear();
-                const QVector<QString> languages = Translation::instance().getLanguages();
+                const QVector<QString> languages = m_translationSystem.getLanguages();
                 foreach(const QString language, languages) {
-                    const QString languageTranslated = Translation::instance().getLanguageTranslated(language);
+                    const QString languageTranslated = m_translationSystem.getLanguageTranslated(language);
                     m_ui->DialogLanguageComboxBoxLanguage->addItem(languageTranslated);
                 }
-                m_ui->DialogLanguageComboxBoxLanguage->setCurrentText(Translation::instance().getLanguageTranslated(Translation::instance().getLanguage()));
+                m_ui->DialogLanguageComboxBoxLanguage->setCurrentText(m_translationSystem.getLanguageTranslated(m_translationSystem.getLanguage()));
                 m_ui->DialogLanguagePushButtonCancel->setText(trStr(I18N_GENERIC_CANCEL));
                 m_ui->DialogLanguagePushButtonOK->setText(trStr(I18N_GENERIC_OK));
             }
@@ -46,7 +45,7 @@ namespace QCT {
             }
 
             void DialogLanguage::slotClickedDialogLanguagePushButtonOK() {
-                Translation::instance().setLanguage(Translation::instance().getLanguageUntranslated(m_ui->DialogLanguageComboxBoxLanguage->currentText()));
+                m_translationSystem.setLanguage(m_translationSystem.getLanguageUntranslated(m_ui->DialogLanguageComboxBoxLanguage->currentText()));
                 done(QDialog::Accepted);
             }
 

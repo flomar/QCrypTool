@@ -4,20 +4,15 @@
 #define _QCT_CORE_MAINWINDOW_H_
 
 #include <QCT.h>
-#include <QCTTranslation.h>
+#include <QCTHelpSystem.h>
+#include <QCTScalingSystem.h>
+#include <QCTTranslationSystem.h>
 
-#include <Core/HelpSystem.h>
-#include <Core/ScalingSystem.h>
 #include <Core/Utilities.h>
 
 namespace QCT {
     namespace Core {
 
-        // This is the base class for all main windows used throughout
-        // QCrypTool. Each main window implicitly registers/unregisters
-        // itself with the help system. Note that, for the context help
-        // to work properly, each menu and action within the main window
-        // needs to have a unique object name.
         class MainWindow : public QMainWindow {
             Q_OBJECT
         protected:
@@ -36,6 +31,10 @@ namespace QCT {
             void signalRequestContextHelp(const QString &_identifierContextHelp);
         private:
             void installEventFilterForMenusAndActions();
+        protected:
+            HelpSystem &m_helpSystem;
+            ScalingSystem &m_scalingSystem;
+            TranslationSystem &m_translationSystem;
         };
 
     }

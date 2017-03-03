@@ -21,9 +21,14 @@ namespace QCT {
                 connect(m_ui->DialogAboutPushButtonClose, SIGNAL(clicked()), this, SLOT(slotClickedDialogAboutPushButtonClose()));
             }
 
-            void DialogAbout::initializeScaling() {
-                const float scaling = Core::ScalingSystem::instance().getScaling();
-                setFixedSize(size() * scaling);
+            void DialogAbout::initializeVisuals() {
+                m_ui->DialogAboutLabelProjectLogo->setFixedSize(m_ui->DialogAboutLabelProjectLogo->size() * m_scalingSystem.getScaling());
+                m_scalingSystem.setFont<QLabel>(m_ui->DialogAboutLabelProjectNameAndVersion, ScalingSystem::FONT_TYPE_NORMAL_XL);
+                m_scalingSystem.setFont<QLabel>(m_ui->DialogAboutLabelProjectInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont<QLabel>(m_ui->DialogAboutLabelProjectRepositoryInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setBold<QLabel>(m_ui->DialogAboutLabelProjectRepositoryInformation, true);
+                m_scalingSystem.setFont<QLabel>(m_ui->DialogAboutLabelProjectLicensingInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont<QLabel>(m_ui->DialogAboutLabelProjectCopyrightInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
             }
 
             void DialogAbout::initializeData() {
