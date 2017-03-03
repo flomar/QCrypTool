@@ -32,7 +32,7 @@ namespace QCT {
                 }
             }
             else {
-                if(!Core::Utilities::PlatformCode::Window::bringWindowToFront(m_processAssistant->processId())) {
+                if(!Core::Utilities::PlatformCode::Windowing::bringWindowToFront(m_processAssistant->processId())) {
                     Core::Utilities::MessageBoxes::execMessageBoxWarning("TODO/FIXME: cannot bring assistant to front");
                     return;
                 }

@@ -16,7 +16,7 @@ namespace QCT {
 
                 }
 
-                namespace Window {
+                namespace Windowing {
 
                     bool bringWindowToFront(const qint64 _processIdentifier);
 
