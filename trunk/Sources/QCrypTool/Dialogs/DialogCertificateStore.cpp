@@ -22,6 +22,7 @@ namespace QCT {
             }
 
             void DialogCertificateStore::initializeVisuals() {
+                m_scalingSystem.setFont(m_ui->DialogCertificateStorePushButtonClose, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFixedHeight(m_ui->DialogCertificateStorePushButtonClose);
             }
 
