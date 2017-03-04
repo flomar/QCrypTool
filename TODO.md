@@ -9,6 +9,10 @@ This document contains the most important TODOs for the project.
 - QCrypTool context help is based on QtAssistant.
 - The platform-dependent code has been abstracted into one single file in the Utilities module.
 
+## Urgent Issues
+
+- Implement "CertificateStore" functionality. This way we'll have a vertical prototype to test the OpenSSL abstraction layer.
+
 ## Known Bugs
 
 - ~~The installer needs a lot of work (see BE 2017-02-27 1755): For example, the installer adheres to the OS system locale while QCrypTool itself doesn't, it always starts in English.~~
