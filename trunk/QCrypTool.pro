@@ -32,6 +32,7 @@ Sources/Core/Cryptography/CryptographyCertificates.h \
 Sources/QCrypTool/QCrypTool.h \
 Sources/QCrypTool/QCrypToolApplication.h \
 Sources/QCrypTool/QCrypToolMainWindow.h \
+Sources/QCrypTool/Dialogs/DialogCertificateStore.h \
 Sources/QCrypTool/Dialogs/DialogLanguage.h \
 Sources/QCrypTool/Dialogs/DialogScaling.h \
 Sources/QCrypTool/Dialogs/DialogAboutQCrypTool.h
@@ -58,6 +59,7 @@ Sources/Core/Cryptography/CryptographyCertificates.cpp \
 Sources/QCrypTool/QCrypTool.cpp \
 Sources/QCrypTool/QCrypToolApplication.cpp \
 Sources/QCrypTool/QCrypToolMainWindow.cpp \
+Sources/QCrypTool/Dialogs/DialogCertificateStore.cpp \
 Sources/QCrypTool/Dialogs/DialogLanguage.cpp \
 Sources/QCrypTool/Dialogs/DialogScaling.cpp \
 Sources/QCrypTool/Dialogs/DialogAboutQCrypTool.cpp
@@ -68,6 +70,7 @@ Resources/QCrypTool.qrc
 
 FORMS += \
 Resources/QCrypTool/QCrypToolMainWindow.ui \
+Resources/QCrypTool/Dialogs/DialogCertificateStore.ui \
 Resources/QCrypTool/Dialogs/DialogLanguage.ui \
 Resources/QCrypTool/Dialogs/DialogScaling.ui \
 Resources/QCrypTool/Dialogs/DialogAboutQCrypTool.ui

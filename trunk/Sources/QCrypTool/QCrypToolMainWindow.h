@@ -24,8 +24,7 @@ namespace QCT {
             virtual void slotChangedLanguage();
             virtual void slotChangedScaling();
         private slots:
-            void slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys();
-            void slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys();
+            void slotTriggeredMenuDigitalSignaturesPKIActionCertificateStore();
             void slotTriggeredMenuDigitalSignaturesPKIActionCreateSignature();
             void slotTriggeredMenuDigitalSignaturesPKIActionVerifySignature();
             void slotTriggeredMenuDigitalSignaturesPKIActionExtractSignature();

@@ -3,6 +3,7 @@
 #include <QCrypTool/QCrypToolMainWindow.h>
 #include <ui_QCrypToolMainWindow.h>
 
+#include <QCrypTool/Dialogs/DialogCertificateStore.h>
 #include <QCrypTool/Dialogs/DialogLanguage.h>
 #include <QCrypTool/Dialogs/DialogScaling.h>
 #include <QCrypTool/Dialogs/DialogAboutQCrypTool.h>
@@ -78,12 +79,9 @@ namespace QCT {
             }
         }
 
-        void MainWindow::slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys() {
-            Core::Utilities::MessageBoxes::execMessageBoxInformation("TODO/FIXME: MainWindow::slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys()");
-        }
-
-        void MainWindow::slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys() {
-            Core::Utilities::MessageBoxes::execMessageBoxInformation("TODO/FIXME: MainWindow::slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys()");
+        void MainWindow::slotTriggeredMenuDigitalSignaturesPKIActionCertificateStore() {
+            Dialogs::DialogCertificateStore dialogCertificateStore;
+            dialogCertificateStore.exec();
         }
 
         void MainWindow::slotTriggeredMenuDigitalSignaturesPKIActionCreateSignature() {
