@@ -41,7 +41,7 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>24</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="MenuFile">
@@ -68,14 +68,7 @@
     <property name="title">
      <string>Digital Signatures/PKI</string>
     </property>
-    <widget class="QMenu" name="MenuDigitalSignaturesPKIMenuPKI">
-     <property name="title">
-      <string>PKI</string>
-     </property>
-     <addaction name="MenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys"/>
-     <addaction name="MenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys"/>
-    </widget>
-    <addaction name="MenuDigitalSignaturesPKIMenuPKI"/>
+    <addaction name="MenuDigitalSignaturesPKIActionCertificateStore"/>
     <addaction name="separator"/>
     <addaction name="MenuDigitalSignaturesPKIActionCreateSignature"/>
     <addaction name="MenuDigitalSignaturesPKIActionVerifySignature"/>
@@ -219,16 +212,6 @@
     <string>RIPEMD160</string>
    </property>
   </action>
-  <action name="MenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys">
-   <property name="text">
-    <string>Create/Import Keys</string>
-   </property>
-  </action>
-  <action name="MenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys">
-   <property name="text">
-    <string>Display/Export Keys</string>
-   </property>
-  </action>
   <action name="MenuDigitalSignaturesPKIActionCreateSignature">
    <property name="text">
     <string>Create Signature</string>
@@ -252,6 +235,11 @@
   <action name="MenuOptionsActionScaling">
    <property name="text">
     <string>Scaling</string>
+   </property>
+  </action>
+  <action name="MenuDigitalSignaturesPKIActionCertificateStore">
+   <property name="text">
+    <string>Certificate Store</string>
    </property>
   </action>
  </widget>

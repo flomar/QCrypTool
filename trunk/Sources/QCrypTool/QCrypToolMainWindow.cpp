@@ -23,8 +23,7 @@ namespace QCT {
         }
 
         void MainWindow::initializeSignalsAndSlots() {
-            connect(m_ui->MenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys()));
-            connect(m_ui->MenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys()));
+            connect(m_ui->MenuDigitalSignaturesPKIActionCertificateStore, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuDigitalSignaturesPKIActionCertificateStore()));
             connect(m_ui->MenuDigitalSignaturesPKIActionCreateSignature, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuDigitalSignaturesPKIActionCreateSignature()));
             connect(m_ui->MenuDigitalSignaturesPKIActionVerifySignature, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuDigitalSignaturesPKIActionVerifySignature()));
             connect(m_ui->MenuDigitalSignaturesPKIActionExtractSignature, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuDigitalSignaturesPKIActionExtractSignature()));
@@ -45,9 +44,7 @@ namespace QCT {
             setWindowTitle(QString("%1 %2").arg(getProjectName()).arg(getProjectVersion()));
             // TODO/FIXME: add more translations
             m_ui->MenuDigitalSignaturesPKI->setTitle(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKI));
-            m_ui->MenuDigitalSignaturesPKIMenuPKI->setTitle(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKI));
-            m_ui->MenuDigitalSignaturesPKIMenuPKIActionCreateImportKeys->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKIACTIONCREATEIMPORTKEYS));
-            m_ui->MenuDigitalSignaturesPKIMenuPKIActionDisplayExportKeys->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIMENUPKIACTIONDISPLAYEXPORTKEYS));
+            m_ui->MenuDigitalSignaturesPKIActionCertificateStore->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONCERTIFICATESTORE));
             m_ui->MenuDigitalSignaturesPKIActionCreateSignature->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONCREATESIGNATURE));
             m_ui->MenuDigitalSignaturesPKIActionVerifySignature->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONVERIFYSIGNATURE));
             m_ui->MenuDigitalSignaturesPKIActionExtractSignature->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONEXTRACTSIGNATURE));
