@@ -22,7 +22,7 @@ namespace QCT {
             }
 
             void DialogAbout::initializeVisuals() {
-                m_ui->DialogAboutLabelProjectLogo->setFixedSize(m_ui->DialogAboutLabelProjectLogo->size() * m_scalingSystem.getScaling());
+                m_scalingSystem.setFixedSize(m_ui->DialogAboutLabelProjectLogo);
                 m_scalingSystem.setFont(m_ui->DialogAboutLabelProjectNameAndVersion, ScalingSystem::FONT_TYPE_NORMAL_XL);
                 m_scalingSystem.setBold(m_ui->DialogAboutLabelProjectNameAndVersion, true);
                 m_scalingSystem.setFont(m_ui->DialogAboutLabelProjectInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
@@ -31,6 +31,7 @@ namespace QCT {
                 m_scalingSystem.setFont(m_ui->DialogAboutLabelProjectLicensingInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFont(m_ui->DialogAboutLabelProjectCopyrightInformation, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFont(m_ui->DialogAboutPushButtonClose, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFixedHeight(m_ui->DialogAboutPushButtonClose);
             }
 
             void DialogAbout::initializeData() {

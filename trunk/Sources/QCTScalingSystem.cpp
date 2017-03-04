@@ -51,4 +51,9 @@ namespace QCT {
         }
     }
 
+    void ScalingSystem::setScalingPercentage(const int _scalingPercentage, const bool _override) {
+        const float scaling = (float)(_scalingPercentage) / 100.0;
+        setScaling(scaling, _override);
+    }
+
 }

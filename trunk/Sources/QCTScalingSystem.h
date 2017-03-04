@@ -22,10 +22,14 @@ namespace QCT {
         void initializeFonts();
     public:
         void setScaling(const float _scaling, const bool _override = false);
+        void setScalingPercentage(const int _scalingPercentage, const bool _override = false);
     public:
         float getScalingMinimum() const { return m_scalingMinimum; }
         float getScalingMaximum() const { return m_scalingMaximum; }
         float getScaling() const { return m_scaling; }
+        int getScalingPercentageMinimum() const { return (int)(m_scalingMinimum * 100); }
+        int getScalingPercentageMaximum() const { return (int)(m_scalingMaximum * 100); }
+        int getScalingPercentage() const { return (int)(m_scaling * 100); }
     signals:
         void signalChangedScaling();
     private:
@@ -125,6 +129,24 @@ namespace QCT {
             QFont font = _object->font();
             font.setUnderline(_underline);
             _object->setFont(font);
+        }
+        template<class T>
+        void setFixedWidth(T *_object) {
+            if(!_object) return;
+            const QSize baseSize = _object->baseSize();
+            _object->setFixedWidth(baseSize.width() * m_scaling);
+        }
+        template<class T>
+        void setFixedHeight(T *_object) {
+            if(!_object) return;
+            const QSize baseSize = _object->baseSize();
+            _object->setFixedHeight(baseSize.height() * m_scaling);
+        }
+        template<class T>
+        void setFixedSize(T *_object) {
+            if(!_object) return;
+            const QSize baseSize = _object->baseSize();
+            _object->setFixedSize(baseSize * m_scaling);
         }
     };
 

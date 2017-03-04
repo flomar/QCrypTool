@@ -24,18 +24,21 @@ namespace QCT {
 
             void DialogScaling::initializeVisuals() {
                 m_scalingSystem.setFont(m_ui->DialogScalingLabelDescription, ScalingSystem::FONT_TYPE_NORMAL_M);
-                m_scalingSystem.setFont(m_ui->DialogScalingDoubleSpinBoxScaling, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogScalingSpinBoxScaling, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFont(m_ui->DialogScalingPushButtonCancel, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFont(m_ui->DialogScalingPushButtonOK, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFixedSize(m_ui->DialogScalingPushButtonCancel);
+                m_scalingSystem.setFixedSize(m_ui->DialogScalingPushButtonOK);
             }
 
             void DialogScaling::initializeData() {
                 setWindowTitle(trStr(I18N_QCRYPTOOL_DIALOGSCALING_TITLE));
                 m_ui->DialogScalingLabelDescription->setText(trStr(I18N_QCRYPTOOL_DIALOGSCALING_LABELDESCRIPTION));
-                m_ui->DialogScalingDoubleSpinBoxScaling->setMinimum(m_scalingSystem.getScalingMinimum());
-                m_ui->DialogScalingDoubleSpinBoxScaling->setMaximum(m_scalingSystem.getScalingMaximum());
-                m_ui->DialogScalingDoubleSpinBoxScaling->setValue((double)(m_scalingSystem.getScaling()));
-                m_ui->DialogScalingDoubleSpinBoxScaling->setSingleStep(0.05);
+                m_ui->DialogScalingSpinBoxScaling->setMinimum(m_scalingSystem.getScalingPercentageMinimum());
+                m_ui->DialogScalingSpinBoxScaling->setMaximum(m_scalingSystem.getScalingPercentageMaximum());
+                m_ui->DialogScalingSpinBoxScaling->setValue((m_scalingSystem.getScalingPercentage()));
+                m_ui->DialogScalingSpinBoxScaling->setSingleStep(5);
+                m_ui->DialogScalingSpinBoxScaling->setSuffix("%");
                 m_ui->DialogScalingPushButtonCancel->setText(trStr(I18N_GENERIC_CANCEL));
                 m_ui->DialogScalingPushButtonOK->setText(trStr(I18N_GENERIC_OK));
             }
@@ -45,7 +48,7 @@ namespace QCT {
             }
 
             void DialogScaling::slotClickedDialogScalingPushButtonOK() {
-                m_scalingSystem.setScaling((float)(m_ui->DialogScalingDoubleSpinBoxScaling->value()));
+                m_scalingSystem.setScalingPercentage(m_ui->DialogScalingSpinBoxScaling->value());
                 done(QDialog::Accepted);
             }
 
