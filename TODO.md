@@ -5,8 +5,8 @@ This document contains the most important TODOs for the project.
 ## Overall Status (March 2017)
 
 - QCrypTool can be built and installed under Linux and Windows (TODO: MacOS).
-- QCrypTool supports application-wide and platform-independent scaling system.
-- QCrypTool context help is based on QtAssistant.
+- QCrypTool supports an application-wide and platform-independent scaling system.
+- QCrypTool context help is based on QtAssistant, QCrypTool internationalization is based on QtLinguist (English and German for now).
 - The platform-dependent code has been abstracted into one single file in the Utilities module.
 
 ## Urgent Issues
