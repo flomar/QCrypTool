@@ -19,6 +19,15 @@ namespace QCT {
         virtual ~DatabaseSystem();
     public:
         static DatabaseSystem &instance();
+    public:
+        void initializeDatabases();
+    private:
+        const QString m_pathDatabases;
+        const QString m_pathDatabaseQCrypToolSettings;
+        const QString m_pathDatabaseQCrypToolCertificateStore;
+    private:
+        QSqlDatabase m_databaseQCrypToolSettings;
+        QSqlDatabase m_databaseQCrypToolCertificateStore;
     };
 
 }

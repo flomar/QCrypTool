@@ -1,6 +1,6 @@
 # QCrypTool.pro
 
-QT += core gui svg widgets
+QT += core gui sql svg widgets
 
 CONFIG += c++11
 

@@ -36,6 +36,9 @@
 #include <QThread>
 #include <QFont>
 #include <QFontDatabase>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlRelationalTableModel>
 
 namespace QCT {
 

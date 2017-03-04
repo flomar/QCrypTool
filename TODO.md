@@ -7,10 +7,12 @@ This document contains the most important TODOs for the project.
 - QCrypTool can be built and installed under Linux and Windows (TODO: MacOS).
 - QCrypTool supports an application-wide and platform-independent scaling system.
 - QCrypTool context help is based on QtAssistant, QCrypTool internationalization is based on QtLinguist (English and German for now).
+- QCrypTool stores its application data in several QSQLITE databases located in the "$HOME/.QCrypToolDatabases" directory.
 - The platform-dependent code has been abstracted into one single file in the Utilities module.
 
 ## Urgent Issues
 
+- Implement "QCTDatabaseSystem" as a prerequisite for the "CertificateStore" implementation.
 - Implement "CertificateStore" functionality. This way we'll have a vertical prototype to test the OpenSSL abstraction layer.
 
 ## Known Bugs
