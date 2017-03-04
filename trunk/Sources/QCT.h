@@ -17,6 +17,8 @@
 #include <QVector>
 #include <QMap>
 #include <QSet>
+#include <QVariant>
+#include <QVariantMap>
 #include <QDateTime>
 #include <QRegExp>
 #include <QLocale>
@@ -38,6 +40,10 @@
 #include <QFontDatabase>
 #include <QSqlDatabase>
 #include <QSqlError>
+#include <QSqlQuery>
+#include <QSqlRecord>
+#include <QSqlIndex>
+#include <QSqlField>
 #include <QSqlRelationalTableModel>
 
 namespace QCT {

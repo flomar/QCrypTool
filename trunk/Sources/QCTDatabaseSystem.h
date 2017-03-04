@@ -10,8 +10,11 @@
 namespace QCT {
 
     // This singleton class provides an interface to the underlying
-    // SQLITE databases for the QCrypTool settings and the QCrypTool
-    // certificate store.
+    // QCrypTool SQLITE database. It offers a range of static functions
+    // with generic functionality. NOTE: For this class to work properly,
+    // all tables in the database must feature an "Identifier" field as
+    // primary key. Furthermore, these methods mainly work on QVariantMap.
+    // This is very slow data structure, but it's very easy to use.
     class DatabaseSystem : public QObject {
         Q_OBJECT
     protected:
@@ -20,14 +23,32 @@ namespace QCT {
     public:
         static DatabaseSystem &instance();
     public:
-        void initializeDatabases();
+        void initializeDatabase();
+    public:
+        static bool checkTable(const QString &_table);
+        static bool checkQuery(const QSqlQuery &_query);
+        static QSet<qint64> getIdentifiers(const QString &_table);
+        static qint64 getSmallestAvailableIdentifier(const QString &_table);
+        static QVariantMap getRecord(const QString &_table, const QString &_what, const QString &_where);
+        static QVector<QVariantMap> getRecords(const QString &_table, const QList<QString> &_listFields = QList<QString>());
+        static QVector<QVariantMap> getRecords(const QString &_table, const QString &_what, const QString &_where);
+        static qint64 insertRecord(const QString &_table, const QVariantMap &_record);
+        static qint64 updateRecord(const QString &_table, const QVariantMap &_record);
+        static qint64 removeRecord(const QString &_table, const QVariantMap &_record);
+        static bool removeRecords(const QString &_table, const QString &_where);
     private:
-        const QString m_pathDatabases;
-        const QString m_pathDatabaseQCrypToolSettings;
-        const QString m_pathDatabaseQCrypToolCertificateStore;
-    private:
-        QSqlDatabase m_databaseQCrypToolSettings;
-        QSqlDatabase m_databaseQCrypToolCertificateStore;
+        const QString m_pathDatabase;
+        QSqlDatabase m_database;
+    };
+
+    // This is a convenience class: It provides a range of static functions
+    // operating on the DatabaseSystem class. In contrast to the functions
+    // of the DatabaseSystem class, the functions in this class serve a
+    // concrete purpose in various parts of QCrypTool.
+    class DatabaseInterface : public QObject {
+        Q_OBJECT
+    public:
+        // TODO/FIXME
     };
 
 }

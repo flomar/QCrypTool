@@ -5,6 +5,7 @@
 
 #include <QCT.h>
 
+#include <Core/Utilities/UtilitiesConversion.h>
 #include <Core/Utilities/UtilitiesDateAndTime.h>
 #include <Core/Utilities/UtilitiesGraphics.h>
 #include <Core/Utilities/UtilitiesMessageBoxes.h>

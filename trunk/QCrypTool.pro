@@ -20,6 +20,7 @@ Sources/Core/Application.h \
 Sources/Core/MainWindow.h \
 Sources/Core/Dialog.h \
 Sources/Core/Utilities.h \
+Sources/Core/Utilities/UtilitiesConversion.h \
 Sources/Core/Utilities/UtilitiesDateAndTime.h \
 Sources/Core/Utilities/UtilitiesGraphics.h \
 Sources/Core/Utilities/UtilitiesMessageBoxes.h \
@@ -48,6 +49,7 @@ Sources/Core/Application.cpp \
 Sources/Core/MainWindow.cpp \
 Sources/Core/Dialog.cpp \
 Sources/Core/Utilities.cpp \
+Sources/Core/Utilities/UtilitiesConversion.cpp \
 Sources/Core/Utilities/UtilitiesDateAndTime.cpp \
 Sources/Core/Utilities/UtilitiesGraphics.cpp \
 Sources/Core/Utilities/UtilitiesMessageBoxes.cpp \
