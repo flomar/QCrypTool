@@ -22,6 +22,20 @@ namespace QCT {
             }
 
             void DialogCertificateStore::initializeVisuals() {
+                m_scalingSystem.setFont(m_ui->DialogCertificateStoreTableViewCertificates, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogCertificateStoreCheckBoxShowRSACertificates, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogCertificateStoreCheckBoxShowDSACertificates, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogCertificateStoreCheckBoxShowECCCertificates, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogCertificateStorePushButtonCreateCertificate, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFixedHeight(m_ui->DialogCertificateStorePushButtonCreateCertificate);
+                m_scalingSystem.setFont(m_ui->DialogCertificateStorePushButtonImportCertificate, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFixedHeight(m_ui->DialogCertificateStorePushButtonImportCertificate);
+                m_scalingSystem.setFont(m_ui->DialogCertificateStorePushButtonDisplayCertificate, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFixedHeight(m_ui->DialogCertificateStorePushButtonDisplayCertificate);
+                m_scalingSystem.setFont(m_ui->DialogCertificateStorePushButtonExportCertificate, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFixedHeight(m_ui->DialogCertificateStorePushButtonExportCertificate);
+                m_scalingSystem.setFont(m_ui->DialogCertificateStorePushButtonDeleteCertificate, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFixedHeight(m_ui->DialogCertificateStorePushButtonDeleteCertificate);
                 m_scalingSystem.setFont(m_ui->DialogCertificateStorePushButtonClose, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFixedHeight(m_ui->DialogCertificateStorePushButtonClose);
             }

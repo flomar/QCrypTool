@@ -60,7 +60,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTINFORMATION</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="120"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="128"/>
         <source>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTINFORMATION</source>
         <translation>QCrypTool is a fork of CrypTool 1 geared towards platform independency. Please visit http://www.cryptool.org for information on the original project.</translation>
     </message>
@@ -68,7 +68,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTLICENSINGINFORMATION</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="121"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="129"/>
         <source>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTLICENSINGINFORMATION</source>
         <translation>QCrypTool is licensed under the LGPLv3.</translation>
     </message>
@@ -76,9 +76,73 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_TITLE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="119"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="127"/>
         <source>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_TITLE</source>
         <translation>About QCrypTool</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWDSACERTIFICATES</name>
+    <message>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="116"/>
+        <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWDSACERTIFICATES</source>
+        <translation>Show DSA certificates</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWECCCERTIFICATES</name>
+    <message>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="117"/>
+        <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWECCCERTIFICATES</source>
+        <translation>Show ECC certificates</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWRSACERTIFICATES</name>
+    <message>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="115"/>
+        <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWRSACERTIFICATES</source>
+        <translation>Show RSA certificates</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONCREATECERTIFICATE</name>
+    <message>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="118"/>
+        <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONCREATECERTIFICATE</source>
+        <translation>Create Certificate</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONDELETECERTIFICATE</name>
+    <message>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="122"/>
+        <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONDELETECERTIFICATE</source>
+        <translation>Delete Certificate</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONDISPLAYCERTIFICATE</name>
+    <message>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="120"/>
+        <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONDISPLAYCERTIFICATE</source>
+        <translation>Display Certificate</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONEXPORTCERTIFICATE</name>
+    <message>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="121"/>
+        <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONEXPORTCERTIFICATE</source>
+        <translation>Export Certificate</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONIMPORTCERTIFICATE</name>
+    <message>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="119"/>
+        <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONIMPORTCERTIFICATE</source>
+        <translation>Import Certificate</translation>
     </message>
 </context>
 <context>
@@ -92,7 +156,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="116"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="124"/>
         <source>I18N_QCRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION</source>
         <translation>Here you can change the language of the QCrypTool user interface.&lt;br&gt;&lt;br&gt;The language will be changed as soon as you click OK, you don&apos;t need to restart QCrypTool.</translation>
     </message>
@@ -100,7 +164,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGLANGUAGE_TITLE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="115"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="123"/>
         <source>I18N_QCRYPTOOL_DIALOGLANGUAGE_TITLE</source>
         <translation>Language</translation>
     </message>
@@ -108,7 +172,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGSCALING_LABELDESCRIPTION</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="118"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="126"/>
         <source>I18N_QCRYPTOOL_DIALOGSCALING_LABELDESCRIPTION</source>
         <translation>Here you can change the scaling of the QCrypTool user interface.</translation>
     </message>
@@ -116,7 +180,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGSCALING_TITLE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="117"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="125"/>
         <source>I18N_QCRYPTOOL_DIALOGSCALING_TITLE</source>
         <translation>Scaling</translation>
     </message>
