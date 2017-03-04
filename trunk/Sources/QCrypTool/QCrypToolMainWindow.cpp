@@ -5,7 +5,7 @@
 
 #include <QCrypTool/Dialogs/DialogLanguage.h>
 #include <QCrypTool/Dialogs/DialogScaling.h>
-#include <QCrypTool/Dialogs/DialogAbout.h>
+#include <QCrypTool/Dialogs/DialogAboutQCrypTool.h>
 
 namespace QCT {
     namespace QCrypTool {
@@ -141,8 +141,8 @@ namespace QCT {
         }
 
         void MainWindow::slotTriggeredMenuHelpActionAboutQCrypTool() {
-            Dialogs::DialogAbout dialogAbout;
-            dialogAbout.exec();
+            Dialogs::DialogAboutQCrypTool dialogAboutQCrypTool;
+            dialogAboutQCrypTool.exec();
         }
 
     }

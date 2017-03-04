@@ -4,7 +4,7 @@
     <virtualFolder>German</virtualFolder>
     <filterSection>
         <toc>
-            <section title="QCrypTool-Grundlagen">
+            <section title="QCrypTool-Grundlagen" ref="German/QCrypToolBasics.html">
                 <section title="QCrypTool-Einleitung" ref="German/QCrypToolIntroduction.html"/>
                 <section title="QCrypTool-Hilfesystem" ref="German/QCrypToolHelpSystem.html"/>
                 <section title="QCrypTool-Entwicklung" ref="German/QCrypToolDevelopment.html"/>

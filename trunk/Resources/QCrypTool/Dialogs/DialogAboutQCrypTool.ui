@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DialogAbout</class>
- <widget class="QDialog" name="DialogAbout">
+ <class>DialogAboutQCrypTool</class>
+ <widget class="QDialog" name="DialogAboutQCrypTool">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>DialogAbout</string>
+   <string>DialogAboutQCrypTool</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -30,7 +30,7 @@
     <number>10</number>
    </property>
    <item>
-    <spacer name="DialogAboutVerticalSpacer1">
+    <spacer name="DialogAboutQCrypToolVerticalSpacer1">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
@@ -43,9 +43,9 @@
     </spacer>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="DialogAboutHorizontalLayoutLogo">
+    <layout class="QHBoxLayout" name="DialogAboutQCrypToolHorizontalLayoutLogo">
      <item>
-      <widget class="QLabel" name="DialogAboutLabelProjectLogo">
+      <widget class="QLabel" name="DialogAboutQCrypToolLabelProjectLogo">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -84,7 +84,7 @@
     </layout>
    </item>
    <item>
-    <widget class="QLabel" name="DialogAboutLabelProjectNameAndVersion">
+    <widget class="QLabel" name="DialogAboutQCrypToolLabelProjectNameAndVersion">
      <property name="font">
       <font>
        <pointsize>24</pointsize>
@@ -108,7 +108,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="DialogAboutLabelProjectInformation">
+    <widget class="QLabel" name="DialogAboutQCrypToolLabelProjectInformation">
      <property name="text">
       <string>QCrypTool is fork of CrypTool 1 geared towards platform independency.&lt;br&gt;Please visit http://www.cryptool.org for information on the original project.</string>
      </property>
@@ -127,7 +127,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="DialogAboutLabelProjectRepositoryInformation">
+    <widget class="QLabel" name="DialogAboutQCrypToolLabelProjectRepositoryInformation">
      <property name="font">
       <font>
        <weight>75</weight>
@@ -152,7 +152,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="DialogAboutLabelProjectLicensingInformation">
+    <widget class="QLabel" name="DialogAboutQCrypToolLabelProjectLicensingInformation">
      <property name="text">
       <string>QCrypTool is licensed under the LGPLv3.</string>
      </property>
@@ -171,7 +171,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="DialogAboutLabelProjectCopyrightInformation">
+    <widget class="QLabel" name="DialogAboutQCrypToolLabelProjectCopyrightInformation">
      <property name="text">
       <string>(C) 2017 CrypTool Team</string>
      </property>
@@ -190,7 +190,7 @@
     </widget>
    </item>
    <item>
-    <spacer name="DialogAboutVerticalSpacer2">
+    <spacer name="DialogAboutQCrypToolVerticalSpacer2">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
@@ -203,12 +203,12 @@
     </spacer>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="DialogAboutHorizontalLayoutButtons">
+    <layout class="QHBoxLayout" name="DialogAboutQCrypToolHorizontalLayoutButtons">
      <property name="spacing">
       <number>0</number>
      </property>
      <item>
-      <widget class="QPushButton" name="DialogAboutPushButtonClose">
+      <widget class="QPushButton" name="DialogAboutQCrypToolPushButtonClose">
        <property name="minimumSize">
         <size>
          <width>0</width>

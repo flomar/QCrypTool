@@ -58,26 +58,26 @@
     </message>
 </context>
 <context>
-    <name>I18N_QCRYPTOOL_DIALOGABOUT_PROJECTINFORMATION</name>
+    <name>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTINFORMATION</name>
     <message>
         <location filename="../../../Sources/QCTTranslationSystem.cpp" line="121"/>
-        <source>I18N_QCRYPTOOL_DIALOGABOUT_PROJECTINFORMATION</source>
+        <source>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTINFORMATION</source>
         <translation>QCrypTool is a fork of CrypTool 1 geared towards platform independency. Please visit http://www.cryptool.org for information on the original project.</translation>
     </message>
 </context>
 <context>
-    <name>I18N_QCRYPTOOL_DIALOGABOUT_PROJECTLICENSINGINFORMATION</name>
+    <name>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTLICENSINGINFORMATION</name>
     <message>
         <location filename="../../../Sources/QCTTranslationSystem.cpp" line="122"/>
-        <source>I18N_QCRYPTOOL_DIALOGABOUT_PROJECTLICENSINGINFORMATION</source>
+        <source>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTLICENSINGINFORMATION</source>
         <translation>QCrypTool is licensed under the LGPLv3.</translation>
     </message>
 </context>
 <context>
-    <name>I18N_QCRYPTOOL_DIALOGABOUT_TITLE</name>
+    <name>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_TITLE</name>
     <message>
         <location filename="../../../Sources/QCTTranslationSystem.cpp" line="120"/>
-        <source>I18N_QCRYPTOOL_DIALOGABOUT_TITLE</source>
+        <source>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_TITLE</source>
         <translation>About QCrypTool</translation>
     </message>
 </context>
