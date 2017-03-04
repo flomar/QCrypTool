@@ -30,17 +30,99 @@
     <number>10</number>
    </property>
    <item>
-    <spacer name="DialogCertificateStoreVerticalSpacer1">
+    <widget class="QTableView" name="DialogCertificateStoreTableViewCertificates">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="DialogCertificateStoreVerticalLayoutFilter">
+     <item>
+      <widget class="QCheckBox" name="DialogCertificateStoreShowRSACertificates">
+       <property name="text">
+        <string>Show RSA certificates</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="DialogCertificateStoreCheckBoxShowDSACertificates">
+       <property name="text">
+        <string>Show DSA certificates</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="DialogCertificateStoreCheckBoxShowECCCertificates">
+       <property name="text">
+        <string>Show ECC certificates</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="DialogCertificateStoreHorizontalLayoutCreateCertificateImportCertificate">
+     <item>
+      <widget class="QPushButton" name="DialogCertificateStorePushButtonCreateCertificate">
+       <property name="text">
+        <string>Create Certificate</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="DialogCertificateStorePushButtonImportCertificate">
+       <property name="text">
+        <string>Import Certificate</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="DialogCertificateStoreHorizontalLayoutDisplayCertificateExportCertificate">
+     <item>
+      <widget class="QPushButton" name="DialogCertificateStorePushButtonDisplayCertificate">
+       <property name="text">
+        <string>Display Certificate</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="DialogCertificateStorePushButtonExportCertificate">
+       <property name="text">
+        <string>Export Certificate</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="DialogCertificateStoreHorizontalLayoutDeleteCertificate">
+     <item>
+      <widget class="QPushButton" name="DialogCertificateStorePushButtonDeleteCertificate">
+       <property name="text">
+        <string>Delete Certificate</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="Line" name="DialogCertificateStoreLine1">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Horizontal</enum>
      </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
+    </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="DialogCertificateStoreHorizontalLayoutButtons">
@@ -63,6 +145,9 @@
        </property>
        <property name="text">
         <string>Close</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

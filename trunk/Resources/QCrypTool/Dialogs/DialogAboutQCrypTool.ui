@@ -203,6 +203,13 @@
     </spacer>
    </item>
    <item>
+    <widget class="Line" name="DialogAboutLine1">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="DialogAboutQCrypToolHorizontalLayoutButtons">
      <property name="spacing">
       <number>0</number>
@@ -223,6 +230,9 @@
        </property>
        <property name="text">
         <string>Close</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
