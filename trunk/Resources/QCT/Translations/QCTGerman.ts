@@ -60,7 +60,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTINFORMATION</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="137"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="138"/>
         <source>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTINFORMATION</source>
         <translation>QCrypTool ist ein auf Plattformunabhängigkeit ausgerichteter Fork von CrypTool 1. Bitte besuchen Sie http://www.cryptool.org für Informationen zum ursprünglichen Projekt.</translation>
     </message>
@@ -68,7 +68,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTLICENSINGINFORMATION</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="138"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="139"/>
         <source>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTLICENSINGINFORMATION</source>
         <translation>QCrypTool ist lizenziert unter der LGPLv3.</translation>
     </message>
@@ -76,7 +76,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_TITLE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="136"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="137"/>
         <source>I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_TITLE</source>
         <translation>Über QCrypTool</translation>
     </message>
@@ -84,7 +84,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWDSACERTIFICATES</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="125"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="126"/>
         <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWDSACERTIFICATES</source>
         <translation>DSA-Zertifikate anzeigen</translation>
     </message>
@@ -92,7 +92,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWECCCERTIFICATES</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="126"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="127"/>
         <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWECCCERTIFICATES</source>
         <translation>ECC-Zertifikate anzeigen</translation>
     </message>
@@ -100,7 +100,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWRSACERTIFICATES</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="124"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="125"/>
         <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWRSACERTIFICATES</source>
         <translation>RSA-Zertifikate anzeigen</translation>
     </message>
@@ -108,7 +108,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONCREATECERTIFICATE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="127"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="128"/>
         <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONCREATECERTIFICATE</source>
         <translation>Zertifikat erzeugen</translation>
     </message>
@@ -116,7 +116,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONDELETECERTIFICATE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="131"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="132"/>
         <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONDELETECERTIFICATE</source>
         <translation>Zertifikat löschen</translation>
     </message>
@@ -124,7 +124,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONDISPLAYCERTIFICATE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="129"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="130"/>
         <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONDISPLAYCERTIFICATE</source>
         <translation>Zertifikat anzeigen</translation>
     </message>
@@ -132,7 +132,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONEXPORTCERTIFICATE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="130"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="131"/>
         <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONEXPORTCERTIFICATE</source>
         <translation>Zertifikat exportieren</translation>
     </message>
@@ -140,7 +140,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONIMPORTCERTIFICATE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="128"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="129"/>
         <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONIMPORTCERTIFICATE</source>
         <translation>Zertifikat exportieren</translation>
     </message>
@@ -148,7 +148,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_TITLE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="123"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="124"/>
         <source>I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_TITLE</source>
         <translation>Zertifikats-Speicher</translation>
     </message>
@@ -156,7 +156,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="133"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="134"/>
         <source>I18N_QCRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION</source>
         <translation>Hier können Sie die Sprache der QCrypTool-Benutzerschnittstelle ändern.&lt;br&gt;&lt;br&gt;Die Sprache wird geändert, sobald Sie OK klicken, Sie müssen QCrypTool nicht neu starten.</translation>
     </message>
@@ -164,7 +164,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGLANGUAGE_TITLE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="132"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="133"/>
         <source>I18N_QCRYPTOOL_DIALOGLANGUAGE_TITLE</source>
         <translation>Sprache</translation>
     </message>
@@ -172,7 +172,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGSCALING_LABELDESCRIPTION</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="135"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="136"/>
         <source>I18N_QCRYPTOOL_DIALOGSCALING_LABELDESCRIPTION</source>
         <translation>Hier können Sie die Skalierung der QCrypTool-Benuterschnittstelle ändern.</translation>
     </message>
@@ -180,7 +180,7 @@
 <context>
     <name>I18N_QCRYPTOOL_DIALOGSCALING_TITLE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="134"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="135"/>
         <source>I18N_QCRYPTOOL_DIALOGSCALING_TITLE</source>
         <translation>Skalierung</translation>
     </message>
@@ -188,7 +188,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKI</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="104"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="105"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKI</source>
         <translation>Digitale Signaturen/PKI</translation>
     </message>
@@ -196,7 +196,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONCERTIFICATESTORE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="105"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="106"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONCERTIFICATESTORE</source>
         <translation>Zertifikats-Speicher</translation>
     </message>
@@ -204,7 +204,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONCREATESIGNATURE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="106"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="107"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONCREATESIGNATURE</source>
         <translation>Signatur erzeugen</translation>
     </message>
@@ -212,7 +212,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONEXTRACTSIGNATURE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="108"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="109"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONEXTRACTSIGNATURE</source>
         <translation>Signatur extrahieren</translation>
     </message>
@@ -220,7 +220,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONSIGNATUREDEMONSTRATION</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="109"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="110"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONSIGNATUREDEMONSTRATION</source>
         <translation>Signatur-Demo</translation>
     </message>
@@ -228,7 +228,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONVERIFYSIGNATURE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="107"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="108"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONVERIFYSIGNATURE</source>
         <translation>Signatur verifizieren</translation>
     </message>
@@ -236,7 +236,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUHELP</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="113"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="114"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUHELP</source>
         <translation>Hilfe</translation>
     </message>
@@ -244,7 +244,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONABOUTQCRYPTOOL</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="120"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="121"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONABOUTQCRYPTOOL</source>
         <translation>Über QCrypTool</translation>
     </message>
@@ -252,7 +252,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONCTBOOK</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="118"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="119"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONCTBOOK</source>
         <translation>CT-Buch</translation>
     </message>
@@ -260,7 +260,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONINDEX</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="115"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="116"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONINDEX</source>
         <translation>Index</translation>
     </message>
@@ -268,7 +268,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONPRESENTATION</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="119"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="120"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONPRESENTATION</source>
         <translation>Präsentation</translation>
     </message>
@@ -276,7 +276,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONREADME</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="117"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="118"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONREADME</source>
         <translation>Readme</translation>
     </message>
@@ -284,7 +284,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONSCENARIOSTUTORIALS</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="116"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="117"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONSCENARIOSTUTORIALS</source>
         <translation>Szenarien (Tutorials)</translation>
     </message>
@@ -292,7 +292,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONSTARTINGPAGE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="114"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="115"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONSTARTINGPAGE</source>
         <translation>Startseite</translation>
     </message>
@@ -300,7 +300,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUOPTIONS</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="110"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="111"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUOPTIONS</source>
         <translation>Optionen</translation>
     </message>
@@ -308,7 +308,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUOPTIONSACTIONLANGUAGE</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="111"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="112"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUOPTIONSACTIONLANGUAGE</source>
         <translation>Sprache</translation>
     </message>
@@ -316,7 +316,7 @@
 <context>
     <name>I18N_QCRYPTOOL_MAINWINDOW_MENUOPTIONSACTIONSCALING</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="112"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="113"/>
         <source>I18N_QCRYPTOOL_MAINWINDOW_MENUOPTIONSACTIONSCALING</source>
         <translation>Skalierung</translation>
     </message>
@@ -324,17 +324,25 @@
 <context>
     <name>I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEFILECOULDNOTBEOPENED</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="101"/>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="100"/>
         <source>I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEFILECOULDNOTBEOPENED</source>
         <translation>Die Datenbank-Datei &apos;%1&apos; konnte nicht geöffnet werden!</translation>
     </message>
 </context>
 <context>
-    <name>I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEPATHCOULDNOTBECREATED</name>
+    <name>I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEQUERYFAILED</name>
     <message>
-        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="100"/>
-        <source>I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEPATHCOULDNOTBECREATED</source>
-        <translation>Der Datenbank-Pfad &apos;%1&apos; konnte nicht erzeugt werden!</translation>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="102"/>
+        <source>I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEQUERYFAILED</source>
+        <translation>Datenbank-Abfrage gescheitert: &apos;%1&apos;</translation>
+    </message>
+</context>
+<context>
+    <name>I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASETABLEFORMATINVALID</name>
+    <message>
+        <location filename="../../../Sources/QCTTranslationSystem.cpp" line="101"/>
+        <source>I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASETABLEFORMATINVALID</source>
+        <translation>Das Format der Datenbank-Tabelle &apos;%1&apos; ist ungültig. Stellen Sie sicher, dass die Tabelle einen Primärschlüssel mit dem Namen &apos;Identifier&apos; hat.</translation>
     </message>
 </context>
 </TS>
