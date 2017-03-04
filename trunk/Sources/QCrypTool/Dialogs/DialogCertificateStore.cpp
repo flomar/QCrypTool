@@ -42,6 +42,14 @@ namespace QCT {
 
             void DialogCertificateStore::initializeData() {
                 setWindowTitle(trStr(I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_TITLE));
+                m_ui->DialogCertificateStoreCheckBoxShowRSACertificates->setText(trStr(I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWRSACERTIFICATES));
+                m_ui->DialogCertificateStoreCheckBoxShowDSACertificates->setText(trStr(I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWDSACERTIFICATES));
+                m_ui->DialogCertificateStoreCheckBoxShowECCCertificates->setText(trStr(I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_CHECKBOXSHOWECCCERTIFICATES));
+                m_ui->DialogCertificateStorePushButtonCreateCertificate->setText(trStr(I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONCREATECERTIFICATE));
+                m_ui->DialogCertificateStorePushButtonImportCertificate->setText(trStr(I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONIMPORTCERTIFICATE));
+                m_ui->DialogCertificateStorePushButtonDisplayCertificate->setText(trStr(I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONDISPLAYCERTIFICATE));
+                m_ui->DialogCertificateStorePushButtonExportCertificate->setText(trStr(I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONEXPORTCERTIFICATE));
+                m_ui->DialogCertificateStorePushButtonDeleteCertificate->setText(trStr(I18N_QCRYPTOOL_DIALOGCERTIFICATESTORE_PUSHBUTTONDELETECERTIFICATE));
                 m_ui->DialogCertificateStorePushButtonClose->setText(trStr(I18N_GENERIC_CLOSE));
             }
 
