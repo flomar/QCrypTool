@@ -12,6 +12,7 @@ TARGET = QCrypTool
 
 HEADERS += \
 Sources/QCT.h \
+Sources/QCTDatabaseSystem.h \
 Sources/QCTHelpSystem.h \
 Sources/QCTScalingSystem.h \
 Sources/QCTTranslationSystem.h \
@@ -39,6 +40,7 @@ Sources/QCrypTool/Dialogs/DialogAboutQCrypTool.h
 
 SOURCES += \
 Sources/QCT.cpp \
+Sources/QCTDatabaseSystem.cpp \
 Sources/QCTHelpSystem.cpp \
 Sources/QCTScalingSystem.cpp \
 Sources/QCTTranslationSystem.cpp \

@@ -4,6 +4,8 @@
 #define _QCT_CORE_DIALOG_H_
 
 #include <QCT.h>
+
+#include <QCTDatabaseSystem.h>
 #include <QCTHelpSystem.h>
 #include <QCTScalingSystem.h>
 #include <QCTTranslationSystem.h>
@@ -29,6 +31,7 @@ namespace QCT {
         signals:
             void signalRequestContextHelp(const QString &_identifierContextHelp);
         protected:
+            DatabaseSystem &m_databaseSystem;
             HelpSystem &m_helpSystem;
             ScalingSystem &m_scalingSystem;
             TranslationSystem &m_translationSystem;

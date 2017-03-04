@@ -2,6 +2,9 @@
 
 #include <QCTScalingSystem.h>
 
+#include <QCTDatabaseSystem.h>
+#include <QCTHelpSystem.h>
+#include <QCTScalingSystem.h>
 #include <QCTTranslationSystem.h>
 
 namespace QCT {

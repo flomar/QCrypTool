@@ -7,6 +7,7 @@ namespace QCT {
 
         MainWindow::MainWindow(QWidget *_parent, const Qt::WindowFlags _flags) :
             QMainWindow(_parent, _flags),
+            m_databaseSystem(DatabaseSystem::instance()),
             m_helpSystem(HelpSystem::instance()),
             m_scalingSystem(ScalingSystem::instance()),
             m_translationSystem(TranslationSystem::instance()) {

@@ -7,6 +7,12 @@
 
 namespace QCT {
 
+    // This singleton class provides run-time translation capabilities
+    // and stores all I18N-related identifiers used throughout the
+    // application in a single point of entry. In conjuction with
+    // the "lupdate" and "lrelease" tools, this class enables
+    // translators to use the "QtLinguist" tool to contribute to
+    // the project with as little effort as possible.
     class TranslationSystem : public QObject {
         Q_OBJECT
     protected:

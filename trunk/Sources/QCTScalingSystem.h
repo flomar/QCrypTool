@@ -10,7 +10,9 @@
 namespace QCT {
 
     // This singleton class is responsible for the application-wide
-    // GUI scaling and for providing/manipulating fonts.
+    // GUI scaling and for providing/manipulating fonts, buttons and
+    // other GUI elements. It is used in all Dialog- and MainWindow-
+    // derived classes.
     class ScalingSystem : public QObject {
         Q_OBJECT
     protected:

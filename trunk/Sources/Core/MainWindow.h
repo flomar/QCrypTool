@@ -4,6 +4,8 @@
 #define _QCT_CORE_MAINWINDOW_H_
 
 #include <QCT.h>
+
+#include <QCTDatabaseSystem.h>
 #include <QCTHelpSystem.h>
 #include <QCTScalingSystem.h>
 #include <QCTTranslationSystem.h>
@@ -32,6 +34,7 @@ namespace QCT {
         private:
             void installEventFilterForMenusAndActions();
         protected:
+            DatabaseSystem &m_databaseSystem;
             HelpSystem &m_helpSystem;
             ScalingSystem &m_scalingSystem;
             TranslationSystem &m_translationSystem;

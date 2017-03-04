@@ -2,6 +2,11 @@
 
 #include <QCTTranslationSystem.h>
 
+#include <QCTDatabaseSystem.h>
+#include <QCTHelpSystem.h>
+#include <QCTScalingSystem.h>
+#include <QCTTranslationSystem.h>
+
 // ATTENTION: If we're using only the "<file.h>" pattern above, for some reason
 // the "lupdate" command complains about unknown classes/namespaces.
 #include "QCTTranslationSystem.h"

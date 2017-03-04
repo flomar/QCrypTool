@@ -7,6 +7,7 @@ namespace QCT {
 
         Dialog::Dialog(QWidget *_parent, const Qt::WindowFlags _flags) :
             QDialog(_parent, _flags),
+            m_databaseSystem(DatabaseSystem::instance()),
             m_helpSystem(HelpSystem::instance()),
             m_scalingSystem(ScalingSystem::instance()),
             m_translationSystem(TranslationSystem::instance()) {

@@ -4,6 +4,8 @@
 #define _QCT_CORE_APPLICATION_H_
 
 #include <QCT.h>
+
+#include <QCTDatabaseSystem.h>
 #include <QCTHelpSystem.h>
 #include <QCTScalingSystem.h>
 #include <QCTTranslationSystem.h>
@@ -21,6 +23,7 @@ namespace QCT {
         public:
             int exec();
         protected:
+            DatabaseSystem &m_databaseSystem;
             HelpSystem &m_helpSystem;
             ScalingSystem &m_scalingSystem;
             TranslationSystem &m_translationSystem;

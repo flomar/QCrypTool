@@ -12,7 +12,8 @@ namespace QCT {
     // This singleton class implements the context-sensitive help system
     // of QCrypTool. All MainWindow- and Dialog-derived classes register
     // themselves with the help system and emit a signal whenever the F1
-    // key is pressed. These signals are collected in this class.
+    // key is pressed. These signals are collected in this class, which
+    // in turn invokes the "QtAssistant" tool to display the help.
     class HelpSystem : public QObject {
         Q_OBJECT
     protected:
