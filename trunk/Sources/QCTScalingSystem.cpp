@@ -33,9 +33,11 @@ namespace QCT {
         return helpSystem;
     }
 
-    void ScalingSystem::initializeFonts() {
-        QFontDatabase::addApplicationFont(":/QCT/Fonts/Arial.ttf");
-        QFontDatabase::addApplicationFont(":/QCT/Fonts/Courier.ttf");
+    void ScalingSystem::initialize() {
+        initializeFonts();
+        const QVariantMap settingsGUI = DatabaseSystem::instance().getRecord("SettingsGUI", "*", "Identifier=1");
+        const QVariant scaling = settingsGUI.value("Scaling");
+        setScaling((float)((scaling.isNull() ? (float)(1.0) : (float)(scaling.toInt()) / 100)));
     }
 
     void ScalingSystem::setScaling(const float _scaling, const bool _override) {
@@ -50,6 +52,9 @@ namespace QCT {
             m_scaling = _scaling;
         }
         if(m_scaling != scalingOld) {
+            QVariantMap settingsGUI = DatabaseSystem::instance().getRecord("SettingsGUI", "*", "Identifier=1");
+            settingsGUI.insert("Scaling", m_scaling * 100);
+            DatabaseSystem::instance().updateRecord("SettingsGUI", settingsGUI);
             emit signalChangedScaling();
         }
     }
@@ -57,6 +62,11 @@ namespace QCT {
     void ScalingSystem::setScalingPercentage(const int _scalingPercentage, const bool _override) {
         const float scaling = (float)(_scalingPercentage) / 100.0;
         setScaling(scaling, _override);
+    }
+
+    void ScalingSystem::initializeFonts() {
+        QFontDatabase::addApplicationFont(":/QCT/Fonts/Arial.ttf");
+        QFontDatabase::addApplicationFont(":/QCT/Fonts/Courier.ttf");
     }
 
 }

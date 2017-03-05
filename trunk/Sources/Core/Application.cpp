@@ -20,8 +20,8 @@ namespace QCT {
 
         int Application::exec() {
             m_databaseSystem.initializeDatabase();
-            m_scalingSystem.initializeFonts();
-            m_translationSystem.setLanguage();
+            m_scalingSystem.initialize();
+            m_translationSystem.initialize();
             return QApplication::exec();
         }
 

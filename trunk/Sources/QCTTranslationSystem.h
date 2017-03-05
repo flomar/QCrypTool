@@ -21,6 +21,8 @@ namespace QCT {
     public:
         static TranslationSystem &instance();
     public:
+        void initialize();
+    public:
         void initializeLanguages();
         // If this function is invoked without a parameter, the function
         // tries to adhere to the system locale when setting the language.

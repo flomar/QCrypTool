@@ -21,7 +21,7 @@ namespace QCT {
     public:
         static ScalingSystem &instance();
     public:
-        void initializeFonts();
+        void initialize();
     public:
         void setScaling(const float _scaling, const bool _override = false);
         void setScalingPercentage(const int _scalingPercentage, const bool _override = false);
@@ -34,6 +34,8 @@ namespace QCT {
         int getScalingPercentage() const { return (int)(m_scaling * 100); }
     signals:
         void signalChangedScaling();
+    private:
+        void initializeFonts();
     private:
         const float m_scalingMinimum;
         const float m_scalingMaximum;

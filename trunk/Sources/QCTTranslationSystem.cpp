@@ -39,8 +39,14 @@ namespace QCT {
         m_mapLanguageTranslations.insert("German", trStr(I18N_GENERIC_GERMAN));
     }
 
-    void TranslationSystem::setLanguage(const QString &_language) {
+    void TranslationSystem::initialize() {
         initializeLanguages();
+        const QVariantMap settingsGUI = DatabaseSystem::instance().getRecord("SettingsGUI", "*", "Identifier=1");
+        const QVariant language = settingsGUI.value("Language");
+        setLanguage(language.isNull() ? QString::null : language.toString());
+    }
+
+    void TranslationSystem::setLanguage(const QString &_language) {
         const QString locale = QLocale::system().name();
         QString language = _language;
         if(language.isEmpty()) {
@@ -55,6 +61,9 @@ namespace QCT {
             if(m_translator.load(QString(":/QCT/Translations/QCT%1.qm").arg(language))) {
                 m_language = language;
                 initializeLanguages();
+                QVariantMap settingsGUI = DatabaseSystem::instance().getRecord("SettingsGUI", "*", "Identifier=1");
+                settingsGUI.insert("Language", m_language);
+                DatabaseSystem::instance().updateRecord("SettingsGUI", settingsGUI);
                 emit signalChangedLanguage();
             }
         }
