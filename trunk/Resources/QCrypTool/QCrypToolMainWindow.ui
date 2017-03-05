@@ -48,16 +48,40 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="MenuFileActionNew"/>
    </widget>
    <widget class="QMenu" name="MenuEdit">
     <property name="title">
      <string>Edit</string>
     </property>
+    <addaction name="MenuEditActionCut"/>
+    <addaction name="MenuEditActionCopy"/>
+    <addaction name="MenuEditActionPaste"/>
    </widget>
    <widget class="QMenu" name="MenuView">
     <property name="title">
      <string>View</string>
     </property>
+    <widget class="QMenu" name="MenuViewMenuFont">
+     <property name="title">
+      <string>Font</string>
+     </property>
+     <addaction name="MenuViewMenuFontActionNormalXS"/>
+     <addaction name="MenuViewMenuFontActionNormalS"/>
+     <addaction name="MenuViewMenuFontActionNormalM"/>
+     <addaction name="MenuViewMenuFontActionNormalL"/>
+     <addaction name="MenuViewMenuFontActionNormalXL"/>
+     <addaction name="separator"/>
+     <addaction name="MenuViewMenuFontActionMonospaceXS"/>
+     <addaction name="MenuViewMenuFontActionMonospaceS"/>
+     <addaction name="MenuViewMenuFontActionMonospaceM"/>
+     <addaction name="MenuViewMenuFontActionMonospaceL"/>
+     <addaction name="MenuViewMenuFontActionMonospaceXL"/>
+    </widget>
+    <addaction name="MenuViewMenuFont"/>
+    <addaction name="separator"/>
+    <addaction name="MenuViewActionShowAsText"/>
+    <addaction name="MenuViewActionShowAsHex"/>
    </widget>
    <widget class="QMenu" name="MenuEncryptDecrypt">
     <property name="title">
@@ -240,6 +264,86 @@
   <action name="MenuDigitalSignaturesPKIActionCertificateStore">
    <property name="text">
     <string>Certificate Store</string>
+   </property>
+  </action>
+  <action name="MenuFileActionNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="MenuViewActionShowAsText">
+   <property name="text">
+    <string>Show as Text</string>
+   </property>
+  </action>
+  <action name="MenuViewActionShowAsHex">
+   <property name="text">
+    <string>Show as Hex</string>
+   </property>
+  </action>
+  <action name="MenuEditActionCut">
+   <property name="text">
+    <string>Cut</string>
+   </property>
+  </action>
+  <action name="MenuEditActionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </action>
+  <action name="MenuEditActionPaste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+  </action>
+  <action name="MenuViewMenuFontActionNormalXS">
+   <property name="text">
+    <string>Normal XS</string>
+   </property>
+  </action>
+  <action name="MenuViewMenuFontActionNormalS">
+   <property name="text">
+    <string>Normal S</string>
+   </property>
+  </action>
+  <action name="MenuViewMenuFontActionNormalM">
+   <property name="text">
+    <string>Normal M</string>
+   </property>
+  </action>
+  <action name="MenuViewMenuFontActionNormalL">
+   <property name="text">
+    <string>Normal L</string>
+   </property>
+  </action>
+  <action name="MenuViewMenuFontActionNormalXL">
+   <property name="text">
+    <string>Normal XL</string>
+   </property>
+  </action>
+  <action name="MenuViewMenuFontActionMonospaceXS">
+   <property name="text">
+    <string>Monospace XS</string>
+   </property>
+  </action>
+  <action name="MenuViewMenuFontActionMonospaceS">
+   <property name="text">
+    <string>Monospace S</string>
+   </property>
+  </action>
+  <action name="MenuViewMenuFontActionMonospaceM">
+   <property name="text">
+    <string>Monospace M</string>
+   </property>
+  </action>
+  <action name="MenuViewMenuFontActionMonospaceL">
+   <property name="text">
+    <string>Monospace L</string>
+   </property>
+  </action>
+  <action name="MenuViewMenuFontActionMonospaceXL">
+   <property name="text">
+    <string>Monospace XL</string>
    </property>
   </action>
  </widget>

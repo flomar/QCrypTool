@@ -37,6 +37,7 @@ namespace QCT {
         QString getString(const QString &_identifier) const;
     signals:
         void signalChangedLanguage();
+        void signalChangedLanguage(const QString &_language);
     private:
         QTranslator m_translator;
         QMap<QString, QString> m_mapLanguageTranslations;
@@ -61,6 +62,16 @@ namespace QCT {
     extern const char *I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEQUERYFAILED;
 
     // QCrypTool main window translations
+    extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUFILE;
+    extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUFILEACTIONNEW;
+    extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUEDIT;
+    extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUEDITACTIONCUT;
+    extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUEDITACTIONCOPY;
+    extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUEDITACTIONPASTE;
+    extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUVIEW;
+    extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUVIEWMENUFONT;
+    extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUVIEWSHOWASTEXT;
+    extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUVIEWSHOWASHEX;
     extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKI;
     extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONCERTIFICATESTORE;
     extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUDIGITALSIGNATURESPKIACTIONCREATESIGNATURE;

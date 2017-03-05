@@ -20,6 +20,7 @@ Sources/QCTTranslationSystem.h \
 Sources/Core/Application.h \
 Sources/Core/MainWindow.h \
 Sources/Core/Dialog.h \
+Sources/Core/Editor.h \
 Sources/Core/Utilities.h \
 Sources/Core/Utilities/UtilitiesConversion.h \
 Sources/Core/Utilities/UtilitiesDatabase.h \
@@ -51,6 +52,7 @@ Sources/QCTTranslationSystem.cpp \
 Sources/Core/Application.cpp \
 Sources/Core/MainWindow.cpp \
 Sources/Core/Dialog.cpp \
+Sources/Core/Editor.cpp \
 Sources/Core/Utilities.cpp \
 Sources/Core/Utilities/UtilitiesConversion.cpp \
 Sources/Core/Utilities/UtilitiesDatabase.cpp \

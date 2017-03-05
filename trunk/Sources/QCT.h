@@ -37,6 +37,7 @@
 #include <QProcess>
 #include <QThread>
 #include <QFont>
+#include <QFontMetricsF>
 #include <QFontDatabase>
 #include <QSqlDatabase>
 #include <QSqlError>
@@ -45,6 +46,11 @@
 #include <QSqlIndex>
 #include <QSqlField>
 #include <QSqlRelationalTableModel>
+#include <QMdiArea>
+#include <QMdiSubWindow>
+#include <QWidget>
+#include <QScrollBar>
+#include <QHBoxLayout>
 
 namespace QCT {
 

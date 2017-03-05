@@ -4,7 +4,9 @@
 #define _QCT_QCRYPTOOL_QCRYPTOOLMAINWINDOW_H_
 
 #include <QCrypTool/QCrypTool.h>
+
 #include <Core/MainWindow.h>
+#include <Core/Editor.h>
 
 namespace Ui {
     class QCrypToolMainWindow;
@@ -24,6 +26,25 @@ namespace QCT {
             virtual void slotChangedLanguage();
             virtual void slotChangedScaling();
         private slots:
+            void slotTriggeredMenuFileActionNew();
+        private slots:
+            void slotTriggeredMenuEditActionCut();
+            void slotTriggeredMenuEditActionCopy();
+            void slotTriggeredMenuEditActionPaste();
+        private slots:
+            void slotTriggeredMenuViewMenuFontActionNormalXS();
+            void slotTriggeredMenuViewMenuFontActionNormalS();
+            void slotTriggeredMenuViewMenuFontActionNormalM();
+            void slotTriggeredMenuViewMenuFontActionNormalL();
+            void slotTriggeredMenuViewMenuFontActionNormalXL();
+            void slotTriggeredMenuViewMenuFontActionMonospaceXS();
+            void slotTriggeredMenuViewMenuFontActionMonospaceS();
+            void slotTriggeredMenuViewMenuFontActionMonospaceM();
+            void slotTriggeredMenuViewMenuFontActionMonospaceL();
+            void slotTriggeredMenuViewMenuFontActionMonospaceXL();
+            void slotTriggeredMenuViewShowAsText();
+            void slotTriggeredMenuViewShowAsHex();
+        private slots:
             void slotTriggeredMenuDigitalSignaturesPKIActionCertificateStore();
             void slotTriggeredMenuDigitalSignaturesPKIActionCreateSignature();
             void slotTriggeredMenuDigitalSignaturesPKIActionVerifySignature();
@@ -42,6 +63,8 @@ namespace QCT {
             void slotTriggeredMenuOptionsActionScaling();
         private slots:
             void slotTriggeredMenuHelpActionAboutQCrypTool();
+        private:
+            Core::Editor *getCurrentEditor();
         private:
             Ui::QCrypToolMainWindow *m_ui;
         };

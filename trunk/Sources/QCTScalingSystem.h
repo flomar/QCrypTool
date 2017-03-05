@@ -34,6 +34,7 @@ namespace QCT {
         int getScalingPercentage() const { return (int)(m_scaling * 100); }
     signals:
         void signalChangedScaling();
+        void signalChangedScaling(const float _scaling);
     private:
         void initializeFonts();
     private:
@@ -43,11 +44,11 @@ namespace QCT {
     private:
         const QString m_fontFamilyNormal;
         const QString m_fontFamilyMonospace;
-        const float m_fontPixelSizeXS;
-        const float m_fontPixelSizeS;
-        const float m_fontPixelSizeM;
-        const float m_fontPixelSizeL;
-        const float m_fontPixelSizeXL;
+        const int m_fontPixelSizeXS;
+        const int m_fontPixelSizeS;
+        const int m_fontPixelSizeM;
+        const int m_fontPixelSizeL;
+        const int m_fontPixelSizeXL;
     public:
         enum FontType {
             FONT_TYPE_NULL,
@@ -62,6 +63,10 @@ namespace QCT {
             FONT_TYPE_MONOSPACE_L,
             FONT_TYPE_MONOSPACE_XL
         };
+    public:
+        QFont getFont(const FontType _fontType) const;
+        QString getFontFamily(const FontType _fontType) const;
+        int getFontPixelSize(const FontType _fontType) const;
     public:
         template<class T>
         void setFont(T *_object, const FontType _fontType) {
