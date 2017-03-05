@@ -23,7 +23,7 @@ namespace QCT {
     public:
         static DatabaseSystem &instance();
     public:
-        void initializeDatabase();
+        void initialize();
     public:
         static bool checkTable(const QString &_table);
         static bool checkQuery(const QSqlQuery &_query);
@@ -39,16 +39,6 @@ namespace QCT {
     private:
         const QString m_pathDatabase;
         QSqlDatabase m_database;
-    };
-
-    // This is a convenience class: It provides a range of static functions
-    // operating on the DatabaseSystem class. In contrast to the functions
-    // of the DatabaseSystem class, the functions in this class serve a
-    // concrete purpose in various parts of QCrypTool.
-    class DatabaseInterface : public QObject {
-        Q_OBJECT
-    public:
-        // TODO/FIXME
     };
 
 }

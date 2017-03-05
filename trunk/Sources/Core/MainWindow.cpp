@@ -10,6 +10,7 @@ namespace QCT {
             m_databaseSystem(DatabaseSystem::instance()),
             m_helpSystem(HelpSystem::instance()),
             m_scalingSystem(ScalingSystem::instance()),
+            m_settingsSystem(SettingsSystem::instance()),
             m_translationSystem(TranslationSystem::instance()) {
             connect(this, SIGNAL(signalRequestContextHelp(QString)), &m_helpSystem, SLOT(slotRequestContextHelp(QString)));
             connect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));

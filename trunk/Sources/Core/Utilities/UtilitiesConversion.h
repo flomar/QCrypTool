@@ -1,5 +1,8 @@
 // UtilitiesConversion.h
 
+#ifndef _QCT_CORE_UTILITIES_UTILITIESCONVERSION_H_
+#define _QCT_CORE_UTILITIES_UTILITIESCONVERSION_H_
+
 #include <QCT.h>
 
 namespace QCT {
@@ -48,3 +51,5 @@ namespace QCT {
         }
     }
 }
+
+#endif

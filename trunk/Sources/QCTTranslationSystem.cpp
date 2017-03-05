@@ -5,6 +5,7 @@
 #include <QCTDatabaseSystem.h>
 #include <QCTHelpSystem.h>
 #include <QCTScalingSystem.h>
+#include <QCTSettingsSystem.h>
 #include <QCTTranslationSystem.h>
 
 // ATTENTION: If we're using only the "<file.h>" pattern above, for some reason
@@ -41,9 +42,7 @@ namespace QCT {
 
     void TranslationSystem::initialize() {
         initializeLanguages();
-        const QVariantMap settingsGUI = DatabaseSystem::instance().getRecord("SettingsGUI", "*", "Identifier=1");
-        const QVariant language = settingsGUI.value("Language");
-        setLanguage(language.isNull() ? QString::null : language.toString());
+        setLanguage(SettingsSystem::instance().getSettingsGUILanguage("English"));
     }
 
     void TranslationSystem::setLanguage(const QString &_language) {
@@ -61,9 +60,7 @@ namespace QCT {
             if(m_translator.load(QString(":/QCT/Translations/QCT%1.qm").arg(language))) {
                 m_language = language;
                 initializeLanguages();
-                QVariantMap settingsGUI = DatabaseSystem::instance().getRecord("SettingsGUI", "*", "Identifier=1");
-                settingsGUI.insert("Language", m_language);
-                DatabaseSystem::instance().updateRecord("SettingsGUI", settingsGUI);
+                SettingsSystem::instance().setSettingsGUILanguage(m_language);
                 emit signalChangedLanguage();
             }
         }

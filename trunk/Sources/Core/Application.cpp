@@ -10,6 +10,7 @@ namespace QCT {
             m_databaseSystem(DatabaseSystem::instance()),
             m_helpSystem(HelpSystem::instance()),
             m_scalingSystem(ScalingSystem::instance()),
+            m_settingsSystem(SettingsSystem::instance()),
             m_translationSystem(TranslationSystem::instance()) {
             setWindowIcon(Core::Utilities::Graphics::getIconFromSvg(_pathIconSvg, _sizeIconSvg));
         }
@@ -19,9 +20,16 @@ namespace QCT {
         }
 
         int Application::exec() {
-            m_databaseSystem.initializeDatabase();
+            // ATTENTION: Before we actually execute the application, we need
+            // to initialize the individual systems. Order of execution is
+            // very important here because systems depend on each other.
+            // This is certainly not the best design ever devised, but it
+            // gets the job done.
+            m_databaseSystem.initialize();
+            m_settingsSystem.initialize();
             m_scalingSystem.initialize();
             m_translationSystem.initialize();
+            m_helpSystem.initialize();
             return QApplication::exec();
         }
 

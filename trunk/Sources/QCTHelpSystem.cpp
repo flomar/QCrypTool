@@ -5,6 +5,7 @@
 #include <QCTDatabaseSystem.h>
 #include <QCTHelpSystem.h>
 #include <QCTScalingSystem.h>
+#include <QCTSettingsSystem.h>
 #include <QCTTranslationSystem.h>
 
 namespace QCT {
@@ -21,6 +22,10 @@ namespace QCT {
     HelpSystem &HelpSystem::instance() {
         static HelpSystem helpSystem;
         return helpSystem;
+    }
+
+    void HelpSystem::initialize() {
+
     }
 
     void HelpSystem::slotRequestContextHelp(const QString &_identifierContextHelp) {

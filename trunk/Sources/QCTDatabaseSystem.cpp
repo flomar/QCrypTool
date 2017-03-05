@@ -5,6 +5,7 @@
 #include <QCTDatabaseSystem.h>
 #include <QCTHelpSystem.h>
 #include <QCTScalingSystem.h>
+#include <QCTSettingsSystem.h>
 #include <QCTTranslationSystem.h>
 
 namespace QCT {
@@ -26,7 +27,7 @@ namespace QCT {
         return databaseSystem;
     }
 
-    void DatabaseSystem::initializeDatabase() {
+    void DatabaseSystem::initialize() {
         m_database = QSqlDatabase::addDatabase("QSQLITE");
         m_database.setDatabaseName(m_pathDatabase);
         if(!m_database.open()) {

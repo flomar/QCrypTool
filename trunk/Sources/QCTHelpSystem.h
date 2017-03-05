@@ -21,6 +21,8 @@ namespace QCT {
         virtual ~HelpSystem();
     public:
         static HelpSystem &instance();
+    public:
+        void initialize();
     private slots:
         void slotRequestContextHelp(const QString &_identifierContextHelp);
     private slots:

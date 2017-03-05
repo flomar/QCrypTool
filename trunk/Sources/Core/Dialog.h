@@ -8,6 +8,7 @@
 #include <QCTDatabaseSystem.h>
 #include <QCTHelpSystem.h>
 #include <QCTScalingSystem.h>
+#include <QCTSettingsSystem.h>
 #include <QCTTranslationSystem.h>
 
 #include <Core/Utilities.h>
@@ -34,6 +35,7 @@ namespace QCT {
             DatabaseSystem &m_databaseSystem;
             HelpSystem &m_helpSystem;
             ScalingSystem &m_scalingSystem;
+            SettingsSystem &m_settingsSystem;
             TranslationSystem &m_translationSystem;
         };
 

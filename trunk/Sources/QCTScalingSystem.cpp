@@ -5,6 +5,7 @@
 #include <QCTDatabaseSystem.h>
 #include <QCTHelpSystem.h>
 #include <QCTScalingSystem.h>
+#include <QCTSettingsSystem.h>
 #include <QCTTranslationSystem.h>
 
 namespace QCT {
@@ -29,15 +30,13 @@ namespace QCT {
     }
 
     ScalingSystem &ScalingSystem::instance() {
-        static ScalingSystem helpSystem;
-        return helpSystem;
+        static ScalingSystem scalingSystem;
+        return scalingSystem;
     }
 
     void ScalingSystem::initialize() {
         initializeFonts();
-        const QVariantMap settingsGUI = DatabaseSystem::instance().getRecord("SettingsGUI", "*", "Identifier=1");
-        const QVariant scaling = settingsGUI.value("Scaling");
-        setScaling((float)((scaling.isNull() ? (float)(1.0) : (float)(scaling.toInt()) / 100)));
+        setScalingPercentage(SettingsSystem::instance().getSettingsGUIScaling(100));
     }
 
     void ScalingSystem::setScaling(const float _scaling, const bool _override) {
@@ -52,9 +51,7 @@ namespace QCT {
             m_scaling = _scaling;
         }
         if(m_scaling != scalingOld) {
-            QVariantMap settingsGUI = DatabaseSystem::instance().getRecord("SettingsGUI", "*", "Identifier=1");
-            settingsGUI.insert("Scaling", m_scaling * 100);
-            DatabaseSystem::instance().updateRecord("SettingsGUI", settingsGUI);
+            SettingsSystem::instance().setSettingsGUIScaling(m_scaling * 100);
             emit signalChangedScaling();
         }
     }
