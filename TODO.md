@@ -13,6 +13,7 @@ This document contains the most important TODOs for the project.
 
 ## Urgent Issues
 
+- Draft the DEVELOPERS.md document including all relevant information: How to set up the build environment, how to build the translation files, how to build the help files, and how to build an installer executable.
 - Add default database to the installer and implement a backup system: During installation the existing database should be backed up (i.e. ".QCrypToolDatabase.sqlite.backup[TIMESTAMP]") and then the user should be asked how to proceed with the changed data when he first runs the newly installed version.
 - Implement "CertificateStore" functionality. This way we'll have a vertical prototype to test the OpenSSL abstraction layer.
 
