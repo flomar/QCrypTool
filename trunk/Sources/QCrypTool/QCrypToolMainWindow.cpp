@@ -99,6 +99,7 @@ namespace QCT {
         }
 
         void MainWindow::slotChangedScaling() {
+            slotChangedLanguage();
             if(menuBar()) {
                 m_scalingSystem.setFont(menuBar(), ScalingSystem::FONT_TYPE_NORMAL_M);
                 QList<QMenu*> menus = menuBar()->findChildren<QMenu*>();
