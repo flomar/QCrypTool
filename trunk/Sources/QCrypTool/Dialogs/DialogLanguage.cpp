@@ -17,21 +17,12 @@ namespace QCT {
                 delete m_ui;
             }
 
-            void DialogLanguage::initializeSignalsAndSlots() {
+            void DialogLanguage::slotInitializeSignalsAndSlots() {
                 connect(m_ui->DialogLanguagePushButtonCancel, SIGNAL(clicked()), this, SLOT(slotClickedDialogLanguagePushButtonCancel()));
                 connect(m_ui->DialogLanguagePushButtonOK, SIGNAL(clicked()), this, SLOT(slotClickedDialogLanguagePushButtonOK()));
             }
 
-            void DialogLanguage::initializeVisuals() {
-                m_scalingSystem.setFont(m_ui->DialogLanguageLabelDescription, ScalingSystem::FONT_TYPE_NORMAL_M);
-                m_scalingSystem.setFont(m_ui->DialogLanguageComboxBoxLanguage, ScalingSystem::FONT_TYPE_NORMAL_M);
-                m_scalingSystem.setFont(m_ui->DialogLanguagePushButtonCancel, ScalingSystem::FONT_TYPE_NORMAL_M);
-                m_scalingSystem.setFont(m_ui->DialogLanguagePushButtonOK, ScalingSystem::FONT_TYPE_NORMAL_M);
-                m_scalingSystem.setFixedSize(m_ui->DialogLanguagePushButtonCancel);
-                m_scalingSystem.setFixedSize(m_ui->DialogLanguagePushButtonOK);
-            }
-
-            void DialogLanguage::initializeData() {
+            void DialogLanguage::slotInitializeLanguage() {
                 setWindowTitle(trStr(I18N_QCRYPTOOL_DIALOGLANGUAGE_TITLE));
                 m_ui->DialogLanguageLabelDescription->setText(trStr(I18N_QCRYPTOOL_DIALOGLANGUAGE_LABELDESCRIPTION));
                 m_ui->DialogLanguageComboxBoxLanguage->clear();
@@ -43,6 +34,15 @@ namespace QCT {
                 m_ui->DialogLanguageComboxBoxLanguage->setCurrentText(m_translationSystem.getLanguageTranslated(m_translationSystem.getLanguage()));
                 m_ui->DialogLanguagePushButtonCancel->setText(trStr(I18N_GENERIC_CANCEL));
                 m_ui->DialogLanguagePushButtonOK->setText(trStr(I18N_GENERIC_OK));
+            }
+
+            void DialogLanguage::slotInitializeScaling() {
+                m_scalingSystem.setFont(m_ui->DialogLanguageLabelDescription, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogLanguageComboxBoxLanguage, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogLanguagePushButtonCancel, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFont(m_ui->DialogLanguagePushButtonOK, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_scalingSystem.setFixedSize(m_ui->DialogLanguagePushButtonCancel);
+                m_scalingSystem.setFixedSize(m_ui->DialogLanguagePushButtonOK);
             }
 
             void DialogLanguage::slotClickedDialogLanguagePushButtonCancel() {

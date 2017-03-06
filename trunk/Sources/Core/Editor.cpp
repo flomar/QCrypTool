@@ -78,7 +78,7 @@ namespace QCT {
         }
 
         QSize Editor::sizeHint() const {
-            return QSize(400, 300) * m_scalingSystem.getScaling();
+            return QSize(400, 300) * m_scalingSystem.getScaling() / 100;
         }
 
         void Editor::slotChangedScaling() {

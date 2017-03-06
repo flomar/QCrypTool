@@ -12,9 +12,10 @@ namespace QCT {
 
     ScalingSystem::ScalingSystem(QObject *_parent) :
         QObject(_parent),
-        m_scalingMinimum(0.5),
-        m_scalingMaximum(2.5),
-        m_scaling(1.0),
+        m_scalingStep(10),
+        m_scalingMinimum(50),
+        m_scalingMaximum(1000),
+        m_scaling(100),
         m_fontFamilyNormal("Arial"),
         m_fontFamilyMonospace("Courier"),
         m_fontPixelSizeXS(6),
@@ -36,12 +37,12 @@ namespace QCT {
 
     bool ScalingSystem::initialize() {
         initializeFonts();
-        setScalingPercentage(OptionsSystem::instance().getOptionsScaling(100));
+        setScaling(OptionsSystem::instance().getOptionsScaling(100));
         return true;
     }
 
-    void ScalingSystem::setScaling(const float _scaling, const bool _override) {
-        const float scalingOld = m_scaling;
+    void ScalingSystem::setScaling(const qint32 _scaling, const bool _override) {
+        const qint32 scalingOld = m_scaling;
         if(_scaling < m_scalingMinimum && !_override) {
             m_scaling = m_scalingMinimum;
         }
@@ -52,20 +53,23 @@ namespace QCT {
             m_scaling = _scaling;
         }
         if(m_scaling != scalingOld) {
-            OptionsSystem::instance().setOptionsScaling(m_scaling * 100);
+            OptionsSystem::instance().setOptionsScaling(m_scaling);
             emit signalChangedScaling();
             emit signalChangedScaling(m_scaling);
         }
     }
 
-    void ScalingSystem::setScalingPercentage(const int _scalingPercentage, const bool _override) {
-        const float scaling = (float)(_scalingPercentage) / 100.0;
-        setScaling(scaling, _override);
-    }
-
     void ScalingSystem::initializeFonts() {
         QFontDatabase::addApplicationFont(":/QCT/Fonts/Arial.ttf");
         QFontDatabase::addApplicationFont(":/QCT/Fonts/Courier.ttf");
+    }
+
+    void ScalingSystem::slotRequestScalingIncrease() {
+        setScaling(m_scaling + m_scalingStep);
+    }
+
+    void ScalingSystem::slotRequestScalingDecrease() {
+        setScaling(m_scaling - m_scalingStep);
     }
 
     QFont ScalingSystem::getFont(const FontType _fontType) const {
@@ -103,23 +107,23 @@ namespace QCT {
         switch(_fontType) {
         case FONT_TYPE_NORMAL_XS:
         case FONT_TYPE_MONOSPACE_XS:
-            fontPixelSize = m_fontPixelSizeXS * m_scaling;
+            fontPixelSize = m_fontPixelSizeXS * m_scaling / 100;
             break;
         case FONT_TYPE_NORMAL_S:
         case FONT_TYPE_MONOSPACE_S:
-            fontPixelSize = m_fontPixelSizeS * m_scaling;
+            fontPixelSize = m_fontPixelSizeS * m_scaling / 100;
             break;
         case FONT_TYPE_NORMAL_M:
         case FONT_TYPE_MONOSPACE_M:
-            fontPixelSize = m_fontPixelSizeM * m_scaling;
+            fontPixelSize = m_fontPixelSizeM * m_scaling / 100;
             break;
         case FONT_TYPE_NORMAL_L:
         case FONT_TYPE_MONOSPACE_L:
-            fontPixelSize = m_fontPixelSizeL * m_scaling;
+            fontPixelSize = m_fontPixelSizeL * m_scaling / 100;
             break;
         case FONT_TYPE_NORMAL_XL:
         case FONT_TYPE_MONOSPACE_XL:
-            fontPixelSize = m_fontPixelSizeXL * m_scaling;
+            fontPixelSize = m_fontPixelSizeXL * m_scaling / 100;
             break;
         default:
             break;

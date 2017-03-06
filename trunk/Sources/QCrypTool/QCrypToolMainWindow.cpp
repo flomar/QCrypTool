@@ -22,7 +22,7 @@ namespace QCT {
             delete m_ui;
         }
 
-        void MainWindow::initializeSignalsAndSlots() {
+        void MainWindow::slotInitializeSignalsAndSlots() {
             connect(m_ui->MenuFileActionNew, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuFileActionNew()));
             connect(m_ui->MenuEditActionCut, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuEditActionCut()));
             connect(m_ui->MenuEditActionCopy, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuEditActionCopy()));
@@ -56,7 +56,7 @@ namespace QCT {
             connect(m_ui->MenuHelpActionAboutQCrypTool, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuHelpActionAboutQCrypTool()));
         }
 
-        void MainWindow::slotChangedLanguage() {
+        void MainWindow::slotInitializeLanguage() {
             setWindowTitle(QString("%1 %2").arg(getProjectName()).arg(getProjectVersion()));
             // TODO/FIXME: add more translations
             m_ui->MenuFile->setTitle(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUFILE));
@@ -98,8 +98,8 @@ namespace QCT {
             m_ui->MenuHelpActionAboutQCrypTool->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUHELPACTIONABOUTQCRYPTOOL));
         }
 
-        void MainWindow::slotChangedScaling() {
-            slotChangedLanguage();
+        void MainWindow::slotInitializeScaling() {
+            slotInitializeLanguage();
             if(menuBar()) {
                 m_scalingSystem.setFont(menuBar(), ScalingSystem::FONT_TYPE_NORMAL_M);
                 QList<QMenu*> menus = menuBar()->findChildren<QMenu*>();

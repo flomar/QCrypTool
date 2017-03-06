@@ -23,24 +23,25 @@ namespace QCT {
     public:
         bool initialize();
     public:
-        void setScaling(const float _scaling, const bool _override = false);
-        void setScalingPercentage(const int _scalingPercentage, const bool _override = false);
+        void setScaling(const qint32 _scaling, const bool _override = false);
     public:
-        float getScalingMinimum() const { return m_scalingMinimum; }
-        float getScalingMaximum() const { return m_scalingMaximum; }
-        float getScaling() const { return m_scaling; }
-        int getScalingPercentageMinimum() const { return (int)(m_scalingMinimum * 100); }
-        int getScalingPercentageMaximum() const { return (int)(m_scalingMaximum * 100); }
-        int getScalingPercentage() const { return (int)(m_scaling * 100); }
+        qint32 getScalingStep() const { return m_scalingStep; }
+        qint32 getScalingMinimum() const { return m_scalingMinimum; }
+        qint32 getScalingMaximum() const { return m_scalingMaximum; }
+        qint32 getScaling() const { return m_scaling; }
     signals:
         void signalChangedScaling();
-        void signalChangedScaling(const float _scaling);
+        void signalChangedScaling(const qint32 _scaling);
     private:
         void initializeFonts();
     private:
-        const float m_scalingMinimum;
-        const float m_scalingMaximum;
-        float m_scaling;
+        const qint32 m_scalingStep;
+        const qint32 m_scalingMinimum;
+        const qint32 m_scalingMaximum;
+        qint32 m_scaling;
+    private slots:
+        void slotRequestScalingIncrease();
+        void slotRequestScalingDecrease();
     private:
         const QString m_fontFamilyNormal;
         const QString m_fontFamilyMonospace;
@@ -75,43 +76,43 @@ namespace QCT {
             switch(_fontType) {
             case FONT_TYPE_NORMAL_XS:
                 font.setFamily(m_fontFamilyNormal);
-                font.setPixelSize(m_fontPixelSizeXS * m_scaling);
+                font.setPixelSize(m_fontPixelSizeXS * m_scaling / 100);
                 break;
             case FONT_TYPE_NORMAL_S:
                 font.setFamily(m_fontFamilyNormal);
-                font.setPixelSize(m_fontPixelSizeS * m_scaling);
+                font.setPixelSize(m_fontPixelSizeS * m_scaling / 100);
                 break;
             case FONT_TYPE_NORMAL_M:
                 font.setFamily(m_fontFamilyNormal);
-                font.setPixelSize(m_fontPixelSizeM * m_scaling);
+                font.setPixelSize(m_fontPixelSizeM * m_scaling / 100);
                 break;
             case FONT_TYPE_NORMAL_L:
                 font.setFamily(m_fontFamilyNormal);
-                font.setPixelSize(m_fontPixelSizeL * m_scaling);
+                font.setPixelSize(m_fontPixelSizeL * m_scaling / 100);
                 break;
             case FONT_TYPE_NORMAL_XL:
                 font.setFamily(m_fontFamilyNormal);
-                font.setPixelSize(m_fontPixelSizeXL * m_scaling);
+                font.setPixelSize(m_fontPixelSizeXL * m_scaling / 100);
                 break;
             case FONT_TYPE_MONOSPACE_XS:
                 font.setFamily(m_fontFamilyMonospace);
-                font.setPixelSize(m_fontPixelSizeXS * m_scaling);
+                font.setPixelSize(m_fontPixelSizeXS * m_scaling / 100);
                 break;
             case FONT_TYPE_MONOSPACE_S:
                 font.setFamily(m_fontFamilyMonospace);
-                font.setPixelSize(m_fontPixelSizeS * m_scaling);
+                font.setPixelSize(m_fontPixelSizeS * m_scaling / 100);
                 break;
             case FONT_TYPE_MONOSPACE_M:
                 font.setFamily(m_fontFamilyMonospace);
-                font.setPixelSize(m_fontPixelSizeM * m_scaling);
+                font.setPixelSize(m_fontPixelSizeM * m_scaling / 100);
                 break;
             case FONT_TYPE_MONOSPACE_L:
                 font.setFamily(m_fontFamilyMonospace);
-                font.setPixelSize(m_fontPixelSizeL * m_scaling);
+                font.setPixelSize(m_fontPixelSizeL * m_scaling / 100);
                 break;
             case FONT_TYPE_MONOSPACE_XL:
                 font.setFamily(m_fontFamilyMonospace);
-                font.setPixelSize(m_fontPixelSizeXL * m_scaling);
+                font.setPixelSize(m_fontPixelSizeXL * m_scaling / 100);
                 break;
             default:
                 break;
@@ -143,19 +144,19 @@ namespace QCT {
         void setFixedWidth(T *_object) {
             if(!_object) return;
             const QSize baseSize = _object->baseSize();
-            _object->setFixedWidth(baseSize.width() * m_scaling);
+            _object->setFixedWidth(baseSize.width() * m_scaling / 100);
         }
         template<class T>
         void setFixedHeight(T *_object) {
             if(!_object) return;
             const QSize baseSize = _object->baseSize();
-            _object->setFixedHeight(baseSize.height() * m_scaling);
+            _object->setFixedHeight(baseSize.height() * m_scaling / 100);
         }
         template<class T>
         void setFixedSize(T *_object) {
             if(!_object) return;
             const QSize baseSize = _object->baseSize();
-            _object->setFixedSize(baseSize * m_scaling);
+            _object->setFixedSize(baseSize * m_scaling / 100);
         }
     };
 

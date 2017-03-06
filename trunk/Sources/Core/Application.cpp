@@ -13,10 +13,14 @@ namespace QCT {
             m_scalingSystem(ScalingSystem::instance()),
             m_helpSystem(HelpSystem::instance()) {
             setWindowIcon(Core::Utilities::Graphics::getIconFromSvg(_pathIconSvg, _sizeIconSvg));
+            installEventFilter(this);
+            connect(this, SIGNAL(signalRequestScalingIncrease()), &m_scalingSystem, SLOT(slotRequestScalingIncrease()));
+            connect(this, SIGNAL(signalRequestScalingDecrease()), &m_scalingSystem, SLOT(slotRequestScalingDecrease()));
         }
 
         Application::~Application() {
-
+            disconnect(this, SIGNAL(signalRequestScalingIncrease()), &m_scalingSystem, SLOT(slotRequestScalingIncrease()));
+            disconnect(this, SIGNAL(signalRequestScalingDecrease()), &m_scalingSystem, SLOT(slotRequestScalingDecrease()));
         }
 
         bool Application::initialize() {
@@ -52,6 +56,24 @@ namespace QCT {
                 return false;
             }
             return true;
+        }
+
+        bool Application::eventFilter(QObject *_object, QEvent *_event) {
+            // signal key presses of Ctrl+/Ctrl- to the help system
+            if(_event->type() == QEvent::KeyPress) {
+                QKeyEvent *keyEvent = dynamic_cast<QKeyEvent*>(_event);
+                if(keyEvent) {
+                    if(keyEvent->key() == Qt::Key_Plus && keyEvent->modifiers() & Qt::ControlModifier) {
+                        emit signalRequestScalingIncrease();
+                        return true;
+                    }
+                    if(keyEvent->key() == Qt::Key_Minus && keyEvent->modifiers() & Qt::ControlModifier) {
+                        emit signalRequestScalingDecrease();
+                        return true;
+                    }
+                }
+            }
+            return QObject::eventFilter(_object, _event);
         }
 
     }

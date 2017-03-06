@@ -17,12 +17,24 @@ namespace QCT {
                 delete m_ui;
             }
 
-            void DialogScaling::initializeSignalsAndSlots() {
+            void DialogScaling::slotInitializeSignalsAndSlots() {
                 connect(m_ui->DialogScalingPushButtonCancel, SIGNAL(clicked()), this, SLOT(slotClickedDialogScalingPushButtonCancel()));
                 connect(m_ui->DialogScalingPushButtonOK, SIGNAL(clicked()), this, SLOT(slotClickedDialogScalingPushButtonOK()));
             }
 
-            void DialogScaling::initializeVisuals() {
+            void DialogScaling::slotInitializeLanguage() {
+                setWindowTitle(trStr(I18N_QCRYPTOOL_DIALOGSCALING_TITLE));
+                m_ui->DialogScalingLabelDescription->setText(trStr(I18N_QCRYPTOOL_DIALOGSCALING_LABELDESCRIPTION));
+                m_ui->DialogScalingSpinBoxScaling->setMinimum(m_scalingSystem.getScalingMinimum());
+                m_ui->DialogScalingSpinBoxScaling->setMaximum(m_scalingSystem.getScalingMaximum());
+                m_ui->DialogScalingSpinBoxScaling->setValue((m_scalingSystem.getScaling()));
+                m_ui->DialogScalingSpinBoxScaling->setSingleStep(5);
+                m_ui->DialogScalingSpinBoxScaling->setSuffix("%");
+                m_ui->DialogScalingPushButtonCancel->setText(trStr(I18N_GENERIC_CANCEL));
+                m_ui->DialogScalingPushButtonOK->setText(trStr(I18N_GENERIC_OK));
+            }
+
+            void DialogScaling::slotInitializeScaling() {
                 m_scalingSystem.setFont(m_ui->DialogScalingLabelDescription, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFont(m_ui->DialogScalingSpinBoxScaling, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFont(m_ui->DialogScalingPushButtonCancel, ScalingSystem::FONT_TYPE_NORMAL_M);
@@ -31,24 +43,12 @@ namespace QCT {
                 m_scalingSystem.setFixedSize(m_ui->DialogScalingPushButtonOK);
             }
 
-            void DialogScaling::initializeData() {
-                setWindowTitle(trStr(I18N_QCRYPTOOL_DIALOGSCALING_TITLE));
-                m_ui->DialogScalingLabelDescription->setText(trStr(I18N_QCRYPTOOL_DIALOGSCALING_LABELDESCRIPTION));
-                m_ui->DialogScalingSpinBoxScaling->setMinimum(m_scalingSystem.getScalingPercentageMinimum());
-                m_ui->DialogScalingSpinBoxScaling->setMaximum(m_scalingSystem.getScalingPercentageMaximum());
-                m_ui->DialogScalingSpinBoxScaling->setValue((m_scalingSystem.getScalingPercentage()));
-                m_ui->DialogScalingSpinBoxScaling->setSingleStep(5);
-                m_ui->DialogScalingSpinBoxScaling->setSuffix("%");
-                m_ui->DialogScalingPushButtonCancel->setText(trStr(I18N_GENERIC_CANCEL));
-                m_ui->DialogScalingPushButtonOK->setText(trStr(I18N_GENERIC_OK));
-            }
-
             void DialogScaling::slotClickedDialogScalingPushButtonCancel() {
                 done(QDialog::Rejected);
             }
 
             void DialogScaling::slotClickedDialogScalingPushButtonOK() {
-                m_scalingSystem.setScalingPercentage(m_ui->DialogScalingSpinBoxScaling->value());
+                m_scalingSystem.setScaling(m_ui->DialogScalingSpinBoxScaling->value());
                 done(QDialog::Accepted);
             }
 

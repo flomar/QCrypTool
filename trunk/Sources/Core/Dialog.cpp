@@ -14,19 +14,23 @@ namespace QCT {
             m_helpSystem(HelpSystem::instance()) {
             installEventFilter(this);
             connect(this, SIGNAL(signalRequestContextHelp(QString)), &m_helpSystem, SLOT(slotRequestContextHelp(QString)));
+            connect(&m_translationSystem, SIGNAL(signalChangedLanguage()), this, SLOT(slotInitializeLanguage()));
+            connect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotInitializeScaling()));
         }
 
         Dialog::~Dialog() {
             disconnect(this, SIGNAL(signalRequestContextHelp(QString)), &m_helpSystem, SLOT(slotRequestContextHelp(QString)));
+            disconnect(&m_translationSystem, SIGNAL(signalChangedLanguage()), this, SLOT(slotInitializeLanguage()));
+            disconnect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotInitializeScaling()));
         }
 
         int Dialog::exec() {
             // make dialogs adhere to the application-wide scaling factor
-            setFixedSize(size() * m_scalingSystem.getScaling());
+            setFixedSize(baseSize() * m_scalingSystem.getScaling() / 100);
             // initialize derived class
-            initializeSignalsAndSlots();
-            initializeVisuals();
-            initializeData();
+            slotInitializeSignalsAndSlots();
+            slotInitializeLanguage();
+            slotInitializeScaling();
             // invoke base class implementation
             return QDialog::exec();
         }

@@ -19,10 +19,10 @@ namespace QCT {
             public:
                 DialogLanguage(QWidget *_parent = 0, Qt::WindowFlags _flags = Qt::WindowFlags());
                 virtual ~DialogLanguage();
-            protected:
-                virtual void initializeSignalsAndSlots();
-                virtual void initializeVisuals();
-                virtual void initializeData();
+            protected slots:
+                virtual void slotInitializeSignalsAndSlots();
+                virtual void slotInitializeLanguage();
+                virtual void slotInitializeScaling();
             private:
                 Ui::DialogLanguage *m_ui;
             private slots:

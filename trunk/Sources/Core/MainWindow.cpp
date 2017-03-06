@@ -13,23 +13,23 @@ namespace QCT {
             m_scalingSystem(ScalingSystem::instance()),
             m_helpSystem(HelpSystem::instance()) {
             connect(this, SIGNAL(signalRequestContextHelp(QString)), &m_helpSystem, SLOT(slotRequestContextHelp(QString)));
-            connect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));
-            connect(&m_translationSystem, SIGNAL(signalChangedLanguage()), this, SLOT(slotChangedLanguage()));
+            connect(&m_translationSystem, SIGNAL(signalChangedLanguage()), this, SLOT(slotInitializeLanguage()));
+            connect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotInitializeScaling()));
         }
 
         MainWindow::~MainWindow() {
             disconnect(this, SIGNAL(signalRequestContextHelp(QString)), &m_helpSystem, SLOT(slotRequestContextHelp(QString)));
-            disconnect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));
-            disconnect(&m_translationSystem, SIGNAL(signalChangedLanguage()), this, SLOT(slotChangedLanguage()));
+            disconnect(&m_translationSystem, SIGNAL(signalChangedLanguage()), this, SLOT(slotInitializeLanguage()));
+            disconnect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotInitializeScaling()));
         }
 
         void MainWindow::show() {
             // install event filters for menus and actions
             installEventFilterForMenusAndActions();
             // initialize derived class
-            initializeSignalsAndSlots();
-            slotChangedLanguage();
-            slotChangedScaling();
+            slotInitializeSignalsAndSlots();
+            slotInitializeLanguage();
+            slotInitializeScaling();
             // invoke base class implementation
             QMainWindow::show();
         }

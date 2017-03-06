@@ -20,11 +20,10 @@ namespace QCT {
         public:
             MainWindow(QWidget *_parent = 0, const Qt::WindowFlags _flags = Qt::WindowFlags());
             virtual ~MainWindow();
-        protected:
-            virtual void initializeSignalsAndSlots();
         protected slots:
-            virtual void slotChangedLanguage();
-            virtual void slotChangedScaling();
+            virtual void slotInitializeSignalsAndSlots();
+            virtual void slotInitializeLanguage();
+            virtual void slotInitializeScaling();
         private slots:
             void slotTriggeredMenuFileActionNew();
         private slots:

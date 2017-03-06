@@ -24,6 +24,11 @@ namespace QCT {
         public:
             bool initialize();
         protected:
+            bool eventFilter(QObject *_object, QEvent *_event);
+        signals:
+            void signalRequestScalingIncrease();
+            void signalRequestScalingDecrease();
+        protected:
             DatabaseSystem &m_databaseSystem;
             OptionsSystem &m_optionsSystem;
             TranslationSystem &m_translationSystem;

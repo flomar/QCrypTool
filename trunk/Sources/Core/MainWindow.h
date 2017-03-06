@@ -23,13 +23,12 @@ namespace QCT {
             virtual ~MainWindow();
         public slots:
             void show();
-        protected:
-            virtual void initializeSignalsAndSlots() = 0;
+        protected slots:
+            virtual void slotInitializeSignalsAndSlots() = 0;
+            virtual void slotInitializeLanguage() = 0;
+            virtual void slotInitializeScaling() = 0;
         protected:
             bool eventFilter(QObject *_object, QEvent *_event);
-        protected slots:
-            virtual void slotChangedLanguage() = 0;
-            virtual void slotChangedScaling() = 0;
         signals:
             void signalRequestContextHelp(const QString &_identifierContextHelp);
         private:
