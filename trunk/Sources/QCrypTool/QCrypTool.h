@@ -6,9 +6,10 @@
 #include <QCT.h>
 
 #include <QCTDatabaseSystem.h>
-#include <QCTHelpSystem.h>
-#include <QCTScalingSystem.h>
+#include <QCTOptionsSystem.h>
 #include <QCTTranslationSystem.h>
+#include <QCTScalingSystem.h>
+#include <QCTHelpSystem.h>
 
 namespace QCT {
     namespace QCrypTool {

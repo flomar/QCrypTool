@@ -3,10 +3,10 @@
 #include <QCTTranslationSystem.h>
 
 #include <QCTDatabaseSystem.h>
-#include <QCTHelpSystem.h>
-#include <QCTScalingSystem.h>
-#include <QCTSettingsSystem.h>
+#include <QCTOptionsSystem.h>
 #include <QCTTranslationSystem.h>
+#include <QCTScalingSystem.h>
+#include <QCTHelpSystem.h>
 
 // ATTENTION: If we're using only the "<file.h>" pattern above, for some reason
 // the "lupdate" command complains about unknown classes/namespaces.
@@ -42,7 +42,7 @@ namespace QCT {
 
     void TranslationSystem::initialize() {
         initializeLanguages();
-        setLanguage(SettingsSystem::instance().getSettingsGUILanguage("English"));
+        setLanguage(OptionsSystem::instance().getOptionsLanguage("English"));
     }
 
     void TranslationSystem::setLanguage(const QString &_language) {
@@ -60,7 +60,7 @@ namespace QCT {
             if(m_translator.load(QString(":/QCT/Translations/QCT%1.qm").arg(language))) {
                 m_language = language;
                 initializeLanguages();
-                SettingsSystem::instance().setSettingsGUILanguage(m_language);
+                OptionsSystem::instance().setOptionsLanguage(m_language);
                 emit signalChangedLanguage();
                 emit signalChangedLanguage(m_language);
             }

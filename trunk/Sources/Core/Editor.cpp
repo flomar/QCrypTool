@@ -8,10 +8,10 @@ namespace QCT {
         Editor::Editor(QWidget *_parent) :
             QWidget(_parent),
             m_databaseSystem(DatabaseSystem::instance()),
-            m_helpSystem(HelpSystem::instance()),
-            m_scalingSystem(ScalingSystem::instance()),
-            m_settingsSystem(SettingsSystem::instance()),
+            m_optionsSystem(OptionsSystem::instance()),
             m_translationSystem(TranslationSystem::instance()),
+            m_scalingSystem(ScalingSystem::instance()),
+            m_helpSystem(HelpSystem::instance()),
             m_editorWidget(new EditorWidget(this)),
             m_editorScrollBar(new EditorScrollBar(this)),
             m_editorBackEnd(new EditorBackEnd(this)),
@@ -124,10 +124,19 @@ namespace QCT {
             painter.setBrush(QColor(255, 255, 255, 255));
             painter.drawRect(rect());
             // TODO/FIXME
-            QString text;
-            for(int i=0; i<10; i++)
-                text.append("This read-only text is just for testing. ");
-            painter.drawText(rect(), text, textOption);
+            if(m_mode == Editor::MODE_TEXT) {
+                QString text;
+                text.append("TEXT\n");
+                for(int i=0; i<10; i++)
+                    text.append("This read-only text is just for testing. ");
+                painter.drawText(rect(), text, textOption);
+
+            }
+            if(m_mode == Editor::MODE_HEX) {
+                QString text;
+                text.append("HEX\n");
+                painter.drawText(rect(), text, textOption);
+            }
         }
 
         EditorScrollBar::EditorScrollBar(QWidget *_parent) :

@@ -3,10 +3,10 @@
 #include <QCTScalingSystem.h>
 
 #include <QCTDatabaseSystem.h>
-#include <QCTHelpSystem.h>
-#include <QCTScalingSystem.h>
-#include <QCTSettingsSystem.h>
+#include <QCTOptionsSystem.h>
 #include <QCTTranslationSystem.h>
+#include <QCTScalingSystem.h>
+#include <QCTHelpSystem.h>
 
 namespace QCT {
 
@@ -36,7 +36,7 @@ namespace QCT {
 
     void ScalingSystem::initialize() {
         initializeFonts();
-        setScalingPercentage(SettingsSystem::instance().getSettingsGUIScaling(100));
+        setScalingPercentage(OptionsSystem::instance().getOptionsScaling(100));
     }
 
     void ScalingSystem::setScaling(const float _scaling, const bool _override) {
@@ -51,7 +51,7 @@ namespace QCT {
             m_scaling = _scaling;
         }
         if(m_scaling != scalingOld) {
-            SettingsSystem::instance().setSettingsGUIScaling(m_scaling * 100);
+            OptionsSystem::instance().setOptionsScaling(m_scaling * 100);
             emit signalChangedScaling();
             emit signalChangedScaling(m_scaling);
         }

@@ -8,10 +8,10 @@ namespace QCT {
         Dialog::Dialog(QWidget *_parent, const Qt::WindowFlags _flags) :
             QDialog(_parent, _flags),
             m_databaseSystem(DatabaseSystem::instance()),
-            m_helpSystem(HelpSystem::instance()),
+            m_optionsSystem(OptionsSystem::instance()),
+            m_translationSystem(TranslationSystem::instance()),
             m_scalingSystem(ScalingSystem::instance()),
-            m_settingsSystem(SettingsSystem::instance()),
-            m_translationSystem(TranslationSystem::instance()) {
+            m_helpSystem(HelpSystem::instance()) {
             installEventFilter(this);
             connect(this, SIGNAL(signalRequestContextHelp(QString)), &m_helpSystem, SLOT(slotRequestContextHelp(QString)));
         }

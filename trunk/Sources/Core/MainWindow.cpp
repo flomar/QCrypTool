@@ -8,10 +8,10 @@ namespace QCT {
         MainWindow::MainWindow(QWidget *_parent, const Qt::WindowFlags _flags) :
             QMainWindow(_parent, _flags),
             m_databaseSystem(DatabaseSystem::instance()),
-            m_helpSystem(HelpSystem::instance()),
+            m_optionsSystem(OptionsSystem::instance()),
+            m_translationSystem(TranslationSystem::instance()),
             m_scalingSystem(ScalingSystem::instance()),
-            m_settingsSystem(SettingsSystem::instance()),
-            m_translationSystem(TranslationSystem::instance()) {
+            m_helpSystem(HelpSystem::instance()) {
             connect(this, SIGNAL(signalRequestContextHelp(QString)), &m_helpSystem, SLOT(slotRequestContextHelp(QString)));
             connect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));
             connect(&m_translationSystem, SIGNAL(signalChangedLanguage()), this, SLOT(slotChangedLanguage()));

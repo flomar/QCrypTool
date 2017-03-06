@@ -6,10 +6,10 @@
 #include <QCT.h>
 
 #include <QCTDatabaseSystem.h>
-#include <QCTHelpSystem.h>
-#include <QCTScalingSystem.h>
-#include <QCTSettingsSystem.h>
+#include <QCTOptionsSystem.h>
 #include <QCTTranslationSystem.h>
+#include <QCTScalingSystem.h>
+#include <QCTHelpSystem.h>
 
 #include <Core/Utilities.h>
 
@@ -36,10 +36,10 @@ namespace QCT {
             void installEventFilterForMenusAndActions();
         protected:
             DatabaseSystem &m_databaseSystem;
-            HelpSystem &m_helpSystem;
-            ScalingSystem &m_scalingSystem;
-            SettingsSystem &m_settingsSystem;
+            OptionsSystem &m_optionsSystem;
             TranslationSystem &m_translationSystem;
+            ScalingSystem &m_scalingSystem;
+            HelpSystem &m_helpSystem;
         };
 
     }

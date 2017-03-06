@@ -3,10 +3,10 @@
 #include <QCTDatabaseSystem.h>
 
 #include <QCTDatabaseSystem.h>
-#include <QCTHelpSystem.h>
-#include <QCTScalingSystem.h>
-#include <QCTSettingsSystem.h>
+#include <QCTOptionsSystem.h>
 #include <QCTTranslationSystem.h>
+#include <QCTScalingSystem.h>
+#include <QCTHelpSystem.h>
 
 namespace QCT {
 
