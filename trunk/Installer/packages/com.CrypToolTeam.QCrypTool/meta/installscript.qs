@@ -29,6 +29,7 @@ Component.prototype.installationFinishedPageIsShown = function() {
     try {
         if(installer.isInstaller() && installer.status == QInstaller.Success) {
             installer.addWizardPageItem(component, "LaunchQCrypToolForm", QInstaller.InstallationFinished);
+            installer.performOperation("Move", ["@TargetDir@/QCrypToolDatabase.sqlite", "@HomeDir@/QCrypToolDatabase.sqlite"]);
         }
     }
     catch(e) {
@@ -51,7 +52,6 @@ Component.prototype.installationFinished = function() {
                     QDesktopServices.openUrl("file:///" + installer.value("TargetDir") + "/QCrypTool.exe");
                 }
             }
-            installer.performOperation("Copy", ["@TargetDir@/QCrypToolDatabase.sqlite", "@HomeDir@/QCrypToolDatabase.sqlite"]);
         }
     }
     catch(e) {
