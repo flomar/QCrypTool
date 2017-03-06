@@ -23,7 +23,7 @@ namespace QCT {
     public:
         static DatabaseSystem &instance();
     public:
-        void initialize();
+        bool initialize();
     public:
         static bool checkTable(const QString &_table);
         static bool checkQuery(const QSqlQuery &_query);

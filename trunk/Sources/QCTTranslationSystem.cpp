@@ -40,9 +40,10 @@ namespace QCT {
         m_mapLanguageTranslations.insert("German", trStr(I18N_GENERIC_GERMAN));
     }
 
-    void TranslationSystem::initialize() {
+    bool TranslationSystem::initialize() {
         initializeLanguages();
         setLanguage(OptionsSystem::instance().getOptionsLanguage("English"));
+        return true;
     }
 
     void TranslationSystem::setLanguage(const QString &_language) {

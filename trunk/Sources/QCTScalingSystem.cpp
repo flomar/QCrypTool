@@ -34,9 +34,10 @@ namespace QCT {
         return scalingSystem;
     }
 
-    void ScalingSystem::initialize() {
+    bool ScalingSystem::initialize() {
         initializeFonts();
         setScalingPercentage(OptionsSystem::instance().getOptionsScaling(100));
+        return true;
     }
 
     void ScalingSystem::setScaling(const float _scaling, const bool _override) {

@@ -22,7 +22,7 @@ namespace QCT {
             Application(int &_argc, char **_argv, const QString &_pathIconSvg, const QSize &_sizeIconSvg);
             virtual ~Application();
         public:
-            int exec();
+            bool initialize();
         protected:
             DatabaseSystem &m_databaseSystem;
             OptionsSystem &m_optionsSystem;

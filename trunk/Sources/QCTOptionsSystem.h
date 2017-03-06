@@ -19,7 +19,7 @@ namespace QCT {
     public:
         static OptionsSystem &instance();
     public:
-        void initialize();
+        bool initialize();
     public:
         QString getOptionsLanguage(const QString &_default = QString::null) const;
         int getOptionsScaling(const int _default = 100) const;

@@ -22,7 +22,7 @@ namespace QCT {
     public:
         static HelpSystem &instance();
     public:
-        void initialize();
+        bool initialize();
     private slots:
         void slotRequestContextHelp(const QString &_identifierContextHelp);
     private slots:

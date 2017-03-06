@@ -12,7 +12,7 @@ namespace QCT {
 
     DatabaseSystem::DatabaseSystem(QObject *_parent) :
         QObject(_parent),
-        m_pathDatabase(QString("%1/%2").arg(QDir::homePath()).arg(".QCrypToolDatabase.sqlite")) {
+        m_pathDatabase(QString("%1/%2").arg(QDir::homePath()).arg("QCrypToolDatabase.sqlite")) {
 
     }
 
@@ -27,13 +27,18 @@ namespace QCT {
         return databaseSystem;
     }
 
-    void DatabaseSystem::initialize() {
+    bool DatabaseSystem::initialize() {
+        QFileInfo fileInfoDatabase(m_pathDatabase);
+        if(!fileInfoDatabase.exists()) {
+            return false;
+        }
         m_database = QSqlDatabase::addDatabase("QSQLITE");
         m_database.setDatabaseName(m_pathDatabase);
         if(!m_database.open()) {
             Core::Utilities::MessageBoxes::execMessageBoxCritical(trStr(I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEFILECOULDNOTBEOPENED).arg(m_database.databaseName()));
-            return;
+            return false;
         }
+        return true;
     }
 
     bool DatabaseSystem::checkTable(const QString &_table) {

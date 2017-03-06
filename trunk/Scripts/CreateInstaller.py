@@ -131,6 +131,7 @@ def createInstaller():
         shutil.copy(qtInstallationDir + "/lib/libicuuc.so.56", installerPackageDataDir)
         shutil.copy(qtInstallationDir + "/lib/libicudata.so.56", installerPackageDataDir)
         shutil.copy(qtInstallationDir + "/lib/libQt5CLucene.so.5", installerPackageDataDir)
+        shutil.copy(scriptDir + "/../Resources/QCT/QCrypToolDatabase.sqlite", installerPackageDataDir)
         command = qtInstallerFrameworkDir + "/bin/binarycreator -c " + installerConfigFileOriginal + " -p " + scriptDir + "/../Installer/packages " + scriptDir + "/../Installer/SetupQCrypTool-" + projectVersion + ".run"
         os.system(command)
     # MacOS-specific
@@ -150,6 +151,7 @@ def createInstaller():
         os.system(command)
         command = qtInstallationDir + "/bin/windeployqt.exe" + " " + installerPackageDataDir + "/assistant.exe"
         os.system(command)
+        shutil.copy(scriptDir + "/../Resources/QCT/QCrypToolDatabase.sqlite", installerPackageDataDir)
         command = qtInstallerFrameworkDir + "/bin/binarycreator.exe -c " + installerConfigFileOriginal + " -p " + scriptDir + "/../Installer/packages " + scriptDir + "/../Installer/SetupQCrypTool-" + projectVersion + ".exe"
         os.system(command)
     # clean up

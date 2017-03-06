@@ -21,7 +21,7 @@ namespace QCT {
     public:
         static TranslationSystem &instance();
     public:
-        void initialize();
+        bool initialize();
     public:
         void initializeLanguages();
         // If this function is invoked without a parameter, the function

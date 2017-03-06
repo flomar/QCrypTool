@@ -24,8 +24,8 @@ namespace QCT {
         return helpSystem;
     }
 
-    void HelpSystem::initialize() {
-
+    bool HelpSystem::initialize() {
+        return true;
     }
 
     void HelpSystem::slotRequestContextHelp(const QString &_identifierContextHelp) {

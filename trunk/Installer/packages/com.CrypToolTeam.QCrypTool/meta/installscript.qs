@@ -51,6 +51,7 @@ Component.prototype.installationFinished = function() {
                     QDesktopServices.openUrl("file:///" + installer.value("TargetDir") + "/QCrypTool.exe");
                 }
             }
+            installer.performOperation("Copy", ["@TargetDir@/QCrypToolDatabase.sqlite", "@HomeDir@/QCrypToolDatabase.sqlite"]);
         }
     }
     catch(e) {

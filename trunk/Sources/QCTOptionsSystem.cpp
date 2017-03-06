@@ -24,8 +24,8 @@ namespace QCT {
         return optionsSystem;
     }
 
-    void OptionsSystem::initialize() {
-
+    bool OptionsSystem::initialize() {
+        return true;
     }
 
     QString OptionsSystem::getOptionsLanguage(const QString &_default) const {

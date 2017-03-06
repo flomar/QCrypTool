@@ -21,7 +21,7 @@ namespace QCT {
     public:
         static ScalingSystem &instance();
     public:
-        void initialize();
+        bool initialize();
     public:
         void setScaling(const float _scaling, const bool _override = false);
         void setScalingPercentage(const int _scalingPercentage, const bool _override = false);
