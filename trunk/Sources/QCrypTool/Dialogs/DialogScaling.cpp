@@ -35,8 +35,10 @@ namespace QCT {
             }
 
             void DialogScaling::slotInitializeScaling() {
+                m_scalingSystem.setFixedSize(this);
                 m_scalingSystem.setFont(m_ui->DialogScalingLabelDescription, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFont(m_ui->DialogScalingSpinBoxScaling, ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_ui->DialogScalingSpinBoxScaling->setValue(m_scalingSystem.getScaling());
                 m_scalingSystem.setFont(m_ui->DialogScalingPushButtonCancel, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFont(m_ui->DialogScalingPushButtonOK, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFixedSize(m_ui->DialogScalingPushButtonCancel);

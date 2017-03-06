@@ -37,6 +37,7 @@ namespace QCT {
             }
 
             void DialogLanguage::slotInitializeScaling() {
+                m_scalingSystem.setFixedSize(this);
                 m_scalingSystem.setFont(m_ui->DialogLanguageLabelDescription, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFont(m_ui->DialogLanguageComboxBoxLanguage, ScalingSystem::FONT_TYPE_NORMAL_M);
                 m_scalingSystem.setFont(m_ui->DialogLanguagePushButtonCancel, ScalingSystem::FONT_TYPE_NORMAL_M);

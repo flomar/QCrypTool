@@ -23,7 +23,6 @@ namespace QCT {
 
             void DialogAboutQCrypTool::slotInitializeLanguage() {
                 setWindowTitle(trStr(I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_TITLE));
-                m_ui->DialogAboutQCrypToolLabelProjectLogo->setPixmap(Core::Utilities::Graphics::getPixmapFromSvg(":/QCT/Images/QCTLogo.svg", m_ui->DialogAboutQCrypToolLabelProjectLogo->size()));
                 m_ui->DialogAboutQCrypToolLabelProjectNameAndVersion->setText(QString("%1 %2").arg(getProjectName()).arg(getProjectVersion()));
                 m_ui->DialogAboutQCrypToolLabelProjectInformation->setText(trStr(I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTINFORMATION));
                 m_ui->DialogAboutQCrypToolLabelProjectLicensingInformation->setText(trStr(I18N_QCRYPTOOL_DIALOGABOUTQCRYPTOOL_PROJECTLICENSINGINFORMATION));
@@ -32,7 +31,9 @@ namespace QCT {
             }
 
             void DialogAboutQCrypTool::slotInitializeScaling() {
+                m_scalingSystem.setFixedSize(this);
                 m_scalingSystem.setFixedSize(m_ui->DialogAboutQCrypToolLabelProjectLogo);
+                m_ui->DialogAboutQCrypToolLabelProjectLogo->setPixmap(Core::Utilities::Graphics::getPixmapFromSvg(":/QCT/Images/QCTLogo.svg", m_ui->DialogAboutQCrypToolLabelProjectLogo->size()));
                 m_scalingSystem.setFont(m_ui->DialogAboutQCrypToolLabelProjectNameAndVersion, ScalingSystem::FONT_TYPE_NORMAL_XL);
                 m_scalingSystem.setBold(m_ui->DialogAboutQCrypToolLabelProjectNameAndVersion, true);
                 m_scalingSystem.setFont(m_ui->DialogAboutQCrypToolLabelProjectInformation, ScalingSystem::FONT_TYPE_NORMAL_M);

@@ -174,7 +174,7 @@
     <message>
         <location filename="../../../Sources/QCTTranslationSystem.cpp" line="152"/>
         <source>I18N_QCRYPTOOL_DIALOGSCALING_LABELDESCRIPTION</source>
-        <translation>Here you can change the scaling of the QCrypTool user interface.</translation>
+        <translation>Here you can change the scaling of the QCrypTool user interface.&lt;br&gt;br&gt;Alternatively you can use Alt+ or Alt- at any time to increase or decrease the scaling factor.</translation>
     </message>
 </context>
 <context>

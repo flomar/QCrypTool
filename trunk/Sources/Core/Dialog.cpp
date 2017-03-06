@@ -25,8 +25,6 @@ namespace QCT {
         }
 
         int Dialog::exec() {
-            // make dialogs adhere to the application-wide scaling factor
-            setFixedSize(baseSize() * m_scalingSystem.getScaling() / 100);
             // initialize derived class
             slotInitializeSignalsAndSlots();
             slotInitializeLanguage();

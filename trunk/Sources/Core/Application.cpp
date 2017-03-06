@@ -59,15 +59,15 @@ namespace QCT {
         }
 
         bool Application::eventFilter(QObject *_object, QEvent *_event) {
-            // signal key presses of Ctrl+/Ctrl- to the help system
+            // signal key presses of Alt+/Alt- to the help system
             if(_event->type() == QEvent::KeyPress) {
                 QKeyEvent *keyEvent = dynamic_cast<QKeyEvent*>(_event);
                 if(keyEvent) {
-                    if(keyEvent->key() == Qt::Key_Plus && keyEvent->modifiers() & Qt::ControlModifier) {
+                    if(keyEvent->key() == Qt::Key_Plus && keyEvent->modifiers().testFlag(Qt::AltModifier)) {
                         emit signalRequestScalingIncrease();
                         return true;
                     }
-                    if(keyEvent->key() == Qt::Key_Minus && keyEvent->modifiers() & Qt::ControlModifier) {
+                    if(keyEvent->key() == Qt::Key_Minus && keyEvent->modifiers().testFlag(Qt::AltModifier)) {
                         emit signalRequestScalingDecrease();
                         return true;
                     }
