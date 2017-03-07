@@ -27,8 +27,6 @@ namespace QCT {
             // ATTENTION: Before we actually execute the application, we need
             // to initialize the individual systems. Order of execution is
             // very important here because systems depend on each other.
-            // This is certainly not the best design ever devised, but it
-            // gets the job done.
             bool result = true;
             QString system = QString::null;
             if(!m_databaseSystem.initialize()) {
@@ -59,7 +57,7 @@ namespace QCT {
         }
 
         bool Application::eventFilter(QObject *_object, QEvent *_event) {
-            // signal key presses of Alt+/Alt- to the help system
+            // signal key presses of Alt+/Alt- to the scaling system
             if(_event->type() == QEvent::KeyPress) {
                 QKeyEvent *keyEvent = dynamic_cast<QKeyEvent*>(_event);
                 if(keyEvent) {

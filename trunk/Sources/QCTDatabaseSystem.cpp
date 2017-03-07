@@ -10,72 +10,52 @@
 
 namespace QCT {
 
-    DatabaseSystem::DatabaseSystem(QObject *_parent) :
-        QObject(_parent),
-        m_pathDatabase(QString("%1/%2").arg(QDir::homePath()).arg("QCrypToolDatabase.sqlite")) {
+    Database::Database(const QString _pathDatabase, QObject *_parent) :
+        QObject(_parent) {
+        m_database = QSqlDatabase::addDatabase("QSQLITE", _pathDatabase);
+        m_database.setDatabaseName(_pathDatabase);
+    }
+
+    Database::~Database() {
 
     }
 
-    DatabaseSystem::~DatabaseSystem() {
-        if(m_database.isOpen()) {
-            m_database.close();
-        }
-    }
-
-    DatabaseSystem &DatabaseSystem::instance() {
-        static DatabaseSystem databaseSystem;
-        return databaseSystem;
-    }
-
-    bool DatabaseSystem::initialize() {
-        QFileInfo fileInfoDatabase(m_pathDatabase);
-        if(!fileInfoDatabase.exists()) {
-            return false;
-        }
-        m_database = QSqlDatabase::addDatabase("QSQLITE");
-        m_database.setDatabaseName(m_pathDatabase);
+    bool Database::checkTable(const QString &_table) {
         if(!m_database.open()) {
             Core::Utilities::MessageBoxes::execMessageBoxCritical(trStr(I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEFILECOULDNOTBEOPENED).arg(m_database.databaseName()));
             return false;
         }
-        return true;
-    }
-
-    bool DatabaseSystem::checkTable(const QString &_table) {
-        QSqlDatabase database = QSqlDatabase::database();
-        if(!database.open()) {
-            Core::Utilities::MessageBoxes::execMessageBoxCritical(trStr(I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEFILECOULDNOTBEOPENED).arg(database.databaseName()));
-            return false;
+        if(_table == "sqlite_master") {
+            return true;
         }
-        const QSqlIndex index = QSqlDatabase::database().primaryIndex(_table);
+        const QSqlIndex index = m_database.primaryIndex(_table);
         for(qint64 i=0; i<index.count(); i++) {
             if(index.fieldName(i) == "Identifier") {
                 return true;
             }
         }
-        Core::Utilities::MessageBoxes::execMessageBoxCritical(trStr(I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASETABLEFORMATINVALID).arg(_table));
+        Core::Utilities::MessageBoxes::execMessageBoxCritical(trStr(I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASETABLEFORMATINVALID).arg(_table).arg(m_database.databaseName()));
         return false;
     }
 
-    bool DatabaseSystem::checkQuery(const QSqlQuery &_query) {
-        QSqlDatabase database = QSqlDatabase::database();
-        if(!database.open()) {
-            Core::Utilities::MessageBoxes::execMessageBoxCritical(trStr(I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEFILECOULDNOTBEOPENED).arg(database.databaseName()));
+    bool Database::checkQuery(const QSqlQuery &_query) {
+        if(!m_database.open()) {
+            Core::Utilities::MessageBoxes::execMessageBoxCritical(trStr(I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEFILECOULDNOTBEOPENED).arg(m_database.databaseName()));
             return false;
         }
         if(!_query.isActive()) {
-            Core::Utilities::MessageBoxes::execMessageBoxCritical(trStr(I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEQUERYFAILED).arg(_query.lastError().text()));
+            Core::Utilities::MessageBoxes::execMessageBoxCritical(trStr(I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEQUERYFAILED).arg(m_database.databaseName()).arg(_query.lastError().text()));
             return false;
         }
         return true;
     }
 
-    QSet<qint64> DatabaseSystem::getIdentifiers(const QString &_table) {
+    QSet<qint64> Database::getIdentifiers(const QString &_table) {
         QSet<qint64> identifiers;
         if(!checkTable(_table)) {
             return identifiers;
         }
-        QSqlQuery query(QSqlDatabase::database());
+        QSqlQuery query(m_database);
         const QString queryString = QString("SELECT Identifier FROM %1").arg(_table);
         query.exec(queryString);
         if(!checkQuery(query)) {
@@ -89,7 +69,7 @@ namespace QCT {
         return identifiers;
     }
 
-    qint64 DatabaseSystem::getSmallestAvailableIdentifier(const QString &_table) {
+    qint64 Database::getSmallestAvailableIdentifier(const QString &_table) {
         qint64 identifier = 0;
         const QSet<qint64> identifiers = getIdentifiers(_table);
         for(int potentialIdentifier=1; potentialIdentifier<std::numeric_limits<qint64>::max(); potentialIdentifier++) {
@@ -100,12 +80,12 @@ namespace QCT {
         return identifier;
     }
 
-    QVariantMap DatabaseSystem::getRecord(const QString &_table, const QString &_what, const QString &_where) {
+    QVariantMap Database::getRecord(const QString &_table, const QString &_what, const QString &_where) {
         QVariantMap record;
         if(!checkTable(_table)) {
             return record;
         }
-        QSqlQuery query(QSqlDatabase::database());
+        QSqlQuery query(m_database);
         const QString queryString = QString("SELECT %1 FROM %2 WHERE %3").arg(_what).arg(_table).arg(_where);
         query.exec(queryString);
         if(!checkQuery(query)) {
@@ -119,12 +99,12 @@ namespace QCT {
         return record;
     }
 
-    QVector<QVariantMap> DatabaseSystem::getRecords(const QString &_table, const QList<QString> &_listFields) {
+    QVector<QVariantMap> Database::getRecords(const QString &_table, const QList<QString> &_listFields) {
         QVector<QVariantMap> records;
         if(!checkTable(_table)) {
             return records;
         }
-        QSqlQuery query(QSqlDatabase::database());
+        QSqlQuery query(m_database);
         QString queryString;
         if(_listFields.isEmpty()) {
             queryString = QString("SELECT * FROM %1").arg(_table);
@@ -146,12 +126,12 @@ namespace QCT {
         return records;
     }
 
-    QVector<QVariantMap> DatabaseSystem::getRecords(const QString &_table, const QString &_what, const QString &_where) {
+    QVector<QVariantMap> Database::getRecords(const QString &_table, const QString &_what, const QString &_where) {
         QVector<QVariantMap> records;
         if(!checkTable(_table)) {
             return records;
         }
-        QSqlQuery query(QSqlDatabase::database());
+        QSqlQuery query(m_database);
         const QString queryString = QString("SELECT %1 FROM %2 WHERE %3").arg(_what).arg(_table).arg(_where);
         query.exec(queryString);
         if(!checkQuery(query)) {
@@ -167,13 +147,13 @@ namespace QCT {
         return records;
     }
 
-    qint64 DatabaseSystem::insertRecord(const QString &_table, const QVariantMap &_record) {
+    qint64 Database::insertRecord(const QString &_table, const QVariantMap &_record) {
         if(!checkTable(_table)) {
             return 0;
         }
         const QSet<qint64> identifiers = getIdentifiers(_table);
         const qint64 identifier = _record.contains("Identifier") ? _record.value("Identifier").toInt() : getSmallestAvailableIdentifier(_table);
-        QSqlQuery query(QSqlDatabase::database());
+        QSqlQuery query(m_database);
         QString queryString;
         if(!identifiers.contains(identifier)) {
             queryString = QString("INSERT INTO %1 (Identifier, %2) VALUES (%3, %4)").arg(_table).arg(Core::Utilities::Conversion::convertListToString<QString>(_record.keys())).arg(identifier).arg(Core::Utilities::Conversion::convertListToString<QVariant>(_record.values()));
@@ -188,12 +168,12 @@ namespace QCT {
         return identifier;
     }
 
-    qint64 DatabaseSystem::updateRecord(const QString &_table, const QVariantMap &_record) {
+    qint64 Database::updateRecord(const QString &_table, const QVariantMap &_record) {
         if(!checkTable(_table)) {
             return 0;
         }
         const qint64 identifier = _record.contains("Identifier") ? _record.value("Identifier").toInt() : 0;
-        QSqlQuery query(QSqlDatabase::database());
+        QSqlQuery query(m_database);
         const QString queryString = QString("UPDATE %1 SET %2 WHERE Identifier='%3'").arg(_table).arg(Core::Utilities::Conversion::convertVariantMapToString(_record)).arg(identifier);
         query.exec(queryString);
         if(!checkQuery(query)) {
@@ -202,9 +182,9 @@ namespace QCT {
         return identifier;
     }
 
-    qint64 DatabaseSystem::removeRecord(const QString &_table, const QVariantMap &_record) {
+    qint64 Database::removeRecord(const QString &_table, const QVariantMap &_record) {
         const qint64 identifier = _record.contains("Identifier") ? _record.value("Identifier").toInt() : 0;
-        QSqlQuery query(QSqlDatabase::database());
+        QSqlQuery query(m_database);
         const QString queryString = QString("DELETE FROM %1 WHERE Identifier='%2'").arg(_table).arg(identifier);
         query.exec(queryString);
         if(!checkQuery(query)) {
@@ -213,13 +193,44 @@ namespace QCT {
         return identifier;
     }
 
-    bool DatabaseSystem::removeRecords(const QString &_table, const QString &_where) {
-        QSqlQuery query(QSqlDatabase::database());
+    bool Database::removeRecords(const QString &_table, const QString &_where) {
+        QSqlQuery query(m_database);
         const QString queryString = QString("DELETE FROM %1 WHERE %2").arg(_table).arg(_where);
         query.exec(queryString);
         if(!checkQuery(query)) {
             return false;
         }
+        return true;
+    }
+
+    DatabaseSystem::DatabaseSystem(QObject *_parent) :
+        QObject(_parent),
+        m_database(QSharedPointer<Database>(new Database(QString("%1/%2").arg(QDir::homePath()).arg("QCrypToolDatabase.sqlite")))),
+        m_databaseBackup(QSharedPointer<Database>(new Database(QString("%1/%2").arg(QDir::homePath()).arg("QCrypToolDatabase.sqlite.backup")))) {
+
+    }
+
+    DatabaseSystem::~DatabaseSystem() {
+
+    }
+
+    DatabaseSystem &DatabaseSystem::instance() {
+        static DatabaseSystem databaseSystem;
+        return databaseSystem;
+    }
+
+    bool DatabaseSystem::initialize() {
+        QFileInfo fileInfoDatabase(m_database->getDatabaseName());
+        if(!fileInfoDatabase.exists()) {
+            return false;
+        }
+        QFileInfo fileInfoDatabaseBackup(m_databaseBackup->getDatabaseName());
+        if(!fileInfoDatabaseBackup.exists()) {
+            return true;
+        }
+        // ATTENTION: At this point we should insert a merging/migration
+        // function to convert data from the backup database to the current
+        // database. (TODO/FIXME)
         return true;
     }
 

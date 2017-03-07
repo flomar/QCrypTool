@@ -414,7 +414,7 @@
     <message>
         <location filename="../../../Sources/QCTTranslationSystem.cpp" line="108"/>
         <source>I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASEQUERYFAILED</source>
-        <translation>Database query failed: &apos;%1&apos;</translation>
+        <translation>Database query for database file &apos;%1&apos; failed: &apos;%2&apos;</translation>
     </message>
 </context>
 <context>
@@ -422,7 +422,7 @@
     <message>
         <location filename="../../../Sources/QCTTranslationSystem.cpp" line="107"/>
         <source>I18N_QCRYPTOOL_MESSAGEDATABASESYSTEM_DATABASETABLEFORMATINVALID</source>
-        <translation>The format of the database table &apos;%1&apos; is invalid. Make sure the table has a primary key field named &apos;Identifier&apos;.</translation>
+        <translation>The format of the database table &apos;%1&apos; in database file &apos;%2&apos; is invalid. Make sure the table has a primary key field named &apos;Identifier&apos;.</translation>
     </message>
 </context>
 </TS>

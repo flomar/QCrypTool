@@ -57,7 +57,7 @@ namespace QCT {
     }
 
     QVariantMap OptionsSystem::getOptions() const {
-        const QVector<QVariantMap> vectorOptions = DatabaseSystem::instance().getRecords("Options");
+        const QVector<QVariantMap> vectorOptions = DatabaseSystem::instance().getDatabase()->getRecords("Options");
         if(vectorOptions.isEmpty()) {
             return QVariantMap();
         }
@@ -65,7 +65,7 @@ namespace QCT {
     }
 
     void OptionsSystem::setOptions(const QVariantMap &_options) const {
-        DatabaseSystem::instance().updateRecord("Options", _options);
+        DatabaseSystem::instance().getDatabase()->updateRecord("Options", _options);
     }
 
 }

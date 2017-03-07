@@ -9,12 +9,35 @@
 
 namespace QCT {
 
-    // This singleton class provides an interface to the underlying
-    // QCrypTool SQLITE database. It offers a range of static functions
-    // with generic functionality. NOTE: For this class to work properly,
-    // all tables in the database must feature an "Identifier" field as
-    // primary key. Furthermore, these methods mainly work on QVariantMap.
-    // This is very slow data structure, but it's very easy to use.
+    // This is the base class for all SQLITE databases. It offers functions
+    // with generic functionality. NOTE: For this class to work properly, all
+    // tables (except for "sqlite_master") must feature an "Identifier" field
+    // as primary key. Furthermore, these methods mainly work on QVarianMap.
+    // It's a very slow data structure, but it's very easy to use.
+    class Database : public QObject {
+        Q_OBJECT
+    public:
+        Database(const QString _pathDatabase, QObject *_parent = 0);
+        virtual ~Database();
+    public:
+        QString getDatabaseName() const { return m_database.databaseName(); }
+    public:
+        bool checkTable(const QString &_table);
+        bool checkQuery(const QSqlQuery &_query);
+        QSet<qint64> getIdentifiers(const QString &_table);
+        qint64 getSmallestAvailableIdentifier(const QString &_table);
+        QVariantMap getRecord(const QString &_table, const QString &_what, const QString &_where);
+        QVector<QVariantMap> getRecords(const QString &_table, const QList<QString> &_listFields = QList<QString>());
+        QVector<QVariantMap> getRecords(const QString &_table, const QString &_what, const QString &_where);
+        qint64 insertRecord(const QString &_table, const QVariantMap &_record);
+        qint64 updateRecord(const QString &_table, const QVariantMap &_record);
+        qint64 removeRecord(const QString &_table, const QVariantMap &_record);
+        bool removeRecords(const QString &_table, const QString &_where);
+    private:
+        QSqlDatabase m_database;
+    };
+
+    // This singleton class is the QCrypTool database implementation.
     class DatabaseSystem : public QObject {
         Q_OBJECT
     protected:
@@ -25,20 +48,12 @@ namespace QCT {
     public:
         bool initialize();
     public:
-        static bool checkTable(const QString &_table);
-        static bool checkQuery(const QSqlQuery &_query);
-        static QSet<qint64> getIdentifiers(const QString &_table);
-        static qint64 getSmallestAvailableIdentifier(const QString &_table);
-        static QVariantMap getRecord(const QString &_table, const QString &_what, const QString &_where);
-        static QVector<QVariantMap> getRecords(const QString &_table, const QList<QString> &_listFields = QList<QString>());
-        static QVector<QVariantMap> getRecords(const QString &_table, const QString &_what, const QString &_where);
-        static qint64 insertRecord(const QString &_table, const QVariantMap &_record);
-        static qint64 updateRecord(const QString &_table, const QVariantMap &_record);
-        static qint64 removeRecord(const QString &_table, const QVariantMap &_record);
-        static bool removeRecords(const QString &_table, const QString &_where);
+        QSharedPointer<Database> getDatabase() { return m_database; }
     private:
-        const QString m_pathDatabase;
-        QSqlDatabase m_database;
+        void migrateDatabase(QSharedPointer<Database> _databaseSource, QSharedPointer<Database> _databaseTarget);
+    private:
+        QSharedPointer<Database> m_database;
+        QSharedPointer<Database> m_databaseBackup;
     };
 
 }

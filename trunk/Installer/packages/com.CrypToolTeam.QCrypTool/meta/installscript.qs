@@ -29,6 +29,7 @@ Component.prototype.installationFinishedPageIsShown = function() {
     try {
         if(installer.isInstaller() && installer.status == QInstaller.Success) {
             installer.addWizardPageItem(component, "LaunchQCrypToolForm", QInstaller.InstallationFinished);
+            installer.performOperation("Move", ["@HomeDir@/QCrypToolDatabase.sqlite", "@HomeDir@/QCrypToolDatabase.sqlite.backup"]);
             installer.performOperation("Move", ["@TargetDir@/QCrypToolDatabase.sqlite", "@HomeDir@/QCrypToolDatabase.sqlite"]);
         }
     }
