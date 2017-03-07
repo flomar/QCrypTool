@@ -12,13 +12,25 @@ The following is **REQUIRED** to build QCrypTool:
 
 - **Qt**: Qt is required. No way around it. Any **Qt 5.8+** version should do. If you intend to build self-extracting installer executables, don't forget to include the **Qt Installer Framework 2.0+** when installing Qt.
 
-- **Git**: Git is required for organizing your code and submitting pull requests against this repository, also Git is used during the build process to dynamically determine the current version of your build. Amy **Git 1.8+** version should do. But please note that Git needs to be in your **PATH** variable. You can build QCrypTool without Git by downloading a ZIP archive of this repository, but for most developers it makes things more complicated than they need to be.
+- **Git**: Git is required for organizing your code and submitting pull requests against this repository, also Git is used during the build process to dynamically determine the current version of your build. Amy **Git 1.8+** version should do. You can build QCrypTool without Git by downloading a ZIP archive of this repository, but for most developers it makes things more complicated than they need to be.
 
-- **Python**: Python is required for executing a bunch of helper scripts during the build process. Any **Python 2.7+** distribution should do. But please note that Python needs to be in your **PATH** variable. You can build QCrypTool without Python by calling the necessary commands yourself, but this is neither very efficient nor officially supported.
+- **Python**: Python is required for executing a bunch of helper scripts during the build process. Any **Python 2.7+** distribution should do. You can build QCrypTool without Python by calling the necessary commands yourself, but this is neither very efficient nor officially supported.
 
 - **Compiler**: Any 64bit and C++11-capable compiler should do. On Linux QCrypTool has been compiled using gcc64, on Windows CrypTool has been compiled using MSVC2015.
 
 ## Build Instructions
+
+### Acquiring The Source Code
+
+TODO
+
+### Preparing The Environment
+
+None of the steps described in this section are mandatory for building QCrypTool. But if you skip these steps, sooner or later you'll run into problems when trying to deal with the context help or the self-extracting installer executables.
+
+First you have to put both Git and Python into your **PATH** variable. If you fire up a terminal and typing "git" or "python" doesn't yield any errors, you're good to go.
+
+Then you have to define a few additional environment variables: **QTINSTALLERFRAMEWORKDIR**, **QTINSTALLATIONDIR**, and **BUILDDIR**.
 
 TODO
 
