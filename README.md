@@ -11,6 +11,6 @@ This repository contains two main branches: **master** and **experimental**.
 - The **master** branch contains code which can be compiled successfully as-is.
 - The **experimental** branch contains the most recent features and fixes, therefore the code may not even compile successfully. As soon as a certain degree of stability is reached, this branch is continuously merged into the master branch.
 
-A DEVELOPERS.md document will soon be added to guide contributors through the build process.
+Please take a look at the DEVELOPERS.md document if you intend to contribute to the project.
 
 Florian Marchal (flomar), February 2017

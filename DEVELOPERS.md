@@ -26,11 +26,51 @@ TODO
 
 ### Preparing The Environment
 
-None of the steps described in this section are mandatory for building QCrypTool. But if you skip these steps, sooner or later you'll run into problems when trying to deal with the context help or the self-extracting installer executables.
+#### Creating The Build Folder
 
-First you have to put both Git and Python into your **PATH** variable. If you fire up a terminal and typing "git" or "python" doesn't yield any errors, you're good to go.
+You have to create the folder **ROOT/build/QCrypTool** where ROOT is the root of the Git repository.
 
-Then you have to define a few additional environment variables: **QTINSTALLERFRAMEWORKDIR**, **QTINSTALLATIONDIR**, and **BUILDDIR**.
+You can tell you've created the folder on the right level if the ROOT folder contains both a "build" and a "trunk" folder.
+
+#### Making Git And Pythong Available
+
+You have to put both Git and Python into your **PATH** variable.
+
+If you fire up a terminal and typing "git" or "python" doesn't yield any errors, you know you're good to go.
+
+#### Defining Additional Environment Variables
+
+You have to define a few additional environment variables: **QTINSTALLERFRAMEWORKDIR**, **QTINSTALLATIONDIR**, and **BUILDDIR**.
+
+The **QTINSTALLERFRAMEWORKDIR** variable must point to the Qt Installer Framework which you have installed with your Qt distribution.
+
+The **QTINSTALLATIONDIR** variable must point to the Qt distribution you have installed.
+
+The **BUILDDIR** must point to the build directory you have created earlier.
+
+The following commands give you an idea of how this works under Windows. It is particularly important which level the environment variables point to:
+
+- set QTINSTALLERFRAMEWORKDIR=C:\Qt\Tools\QtInstallerFramework\2.0
+- set QTINSTALLATIONDIR=C:\Qt\5.8\msvc2015_64
+- set BUILDDIR=C:\QCrypTool\build
+
+#### Configuring Qt Creator
+
+Fire up "QCrypTool.pro" using Qt Creator.
+
+TODO: setting "Working Directory" and "Build Directory" for both "Debug" and "Release"
+
+TODO: invoking "UpdateBuildInformation.py PREBUILD/POSTBUILD" for "Debug"
+
+### Creating Translations
+
+TODO
+
+### Creating Help
+
+TODO
+
+### Building QCrypTool
 
 TODO
 
