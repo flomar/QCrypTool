@@ -72,7 +72,7 @@ namespace QCT {
     qint64 Database::getSmallestAvailableIdentifier(const QString &_table) {
         qint64 identifier = 0;
         const QSet<qint64> identifiers = getIdentifiers(_table);
-        for(int potentialIdentifier=1; potentialIdentifier<std::numeric_limits<qint64>::max(); potentialIdentifier++) {
+        for(qint64 potentialIdentifier=1; potentialIdentifier<std::numeric_limits<qint64>::max(); potentialIdentifier++) {
             if(!identifiers.contains(potentialIdentifier)) {
                 return potentialIdentifier;
             }
