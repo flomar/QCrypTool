@@ -50,6 +50,9 @@
 #include <QMdiSubWindow>
 #include <QWidget>
 #include <QTextEdit>
+#include <QGridLayout>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 namespace QCT {
 

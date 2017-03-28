@@ -49,11 +49,11 @@ namespace QCT {
             ScalingSystem &m_scalingSystem;
             HelpSystem &m_helpSystem;
         private:
-            EditorWidget *m_editorWidget;
-            EditorBackEnd *m_editorBackEnd;
-        private:
             Mode m_mode;
             ScalingSystem::FontType m_fontType;
+        private:
+            EditorWidget *m_editorWidget;
+            EditorBackEnd *m_editorBackEnd;
         };
 
         // This class implements the drawable area of the Editor class.
@@ -70,14 +70,18 @@ namespace QCT {
             EditorWidgetHex *m_widgetHex;
         };
 
-        // TODO/FIXME
         class EditorWidgetText : public QTextEdit {
             Q_OBJECT
+        public:
+            EditorWidgetText(QWidget *_parent = 0);
+            virtual ~EditorWidgetText();
         };
 
-        // TODO/FIXME
         class EditorWidgetHex : public QWidget {
             Q_OBJECT
+        public:
+            EditorWidgetHex(QWidget *_parent = 0);
+            virtual ~EditorWidgetHex();
         };
 
         // This class implements a back-end for the Editor class to provide
