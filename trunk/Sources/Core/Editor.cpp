@@ -13,18 +13,23 @@ namespace QCT {
             m_scalingSystem(ScalingSystem::instance()),
             m_helpSystem(HelpSystem::instance()),
             m_mode(MODE_NULL),
-            m_fontType(ScalingSystem::FONT_TYPE_NULL),
-            m_editorWidget(new EditorWidget(this)),
-            m_editorBackEnd(new EditorBackEnd(this)) {
+            m_fontTypeText(ScalingSystem::FONT_TYPE_NULL),
+            m_fontTypeHex(ScalingSystem::FONT_TYPE_NULL),
+            m_editorWidgetText(new EditorWidgetText()),
+            m_editorWidgetHex(new EditorWidgetHex()) {
             connect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));
-            setMode(MODE_TEXT);
-            setFontType(ScalingSystem::FONT_TYPE_NORMAL_M);
             QVBoxLayout *verticalBoxLayout = new QVBoxLayout();
             verticalBoxLayout->setMargin(0);
             verticalBoxLayout->setSpacing(0);
-            verticalBoxLayout->addWidget(m_editorWidget);
-            m_editorWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+            verticalBoxLayout->addWidget(m_editorWidgetText);
+            verticalBoxLayout->addWidget(m_editorWidgetHex);
+            m_editorWidgetText->setVisible(false);
+            m_editorWidgetHex->setVisible(false);
+            m_editorWidgetText->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+            m_editorWidgetHex->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
             setLayout(verticalBoxLayout);
+            setMode(MODE_TEXT);
+            setFontType(ScalingSystem::FONT_TYPE_NORMAL_M);
         }
 
         Editor::~Editor() {
@@ -33,7 +38,8 @@ namespace QCT {
 
         void Editor::setMode(const Mode _mode) {
             m_mode = _mode;
-            m_editorWidget->setMode(m_mode);
+            m_editorWidgetText->setVisible(m_mode == MODE_TEXT);
+            m_editorWidgetHex->setVisible(m_mode == MODE_HEX);
         }
 
         void Editor::setFontType(const ScalingSystem::FontType _fontType) {
@@ -44,8 +50,8 @@ namespace QCT {
             case ScalingSystem::FONT_TYPE_NORMAL_L:
             case ScalingSystem::FONT_TYPE_NORMAL_XL:
                 if(m_mode == MODE_TEXT) {
-                    m_fontType = _fontType;
-                    m_editorWidget->setFont(m_scalingSystem.getFont(m_fontType));
+                    m_fontTypeText = _fontType;
+                    m_editorWidgetText->setFont(m_scalingSystem.getFont(m_fontTypeText));
                     break;
                 }
                 break;
@@ -54,9 +60,14 @@ namespace QCT {
             case ScalingSystem::FONT_TYPE_MONOSPACE_M:
             case ScalingSystem::FONT_TYPE_MONOSPACE_L:
             case ScalingSystem::FONT_TYPE_MONOSPACE_XL:
-                if(m_mode == MODE_TEXT || m_mode == MODE_HEX) {
-                    m_fontType = _fontType;
-                    m_editorWidget->setFont(m_scalingSystem.getFont(m_fontType));
+                if(m_mode == MODE_TEXT) {
+                    m_fontTypeText = _fontType;
+                    m_editorWidgetText->setFont(m_scalingSystem.getFont(m_fontTypeText));
+                    break;
+                }
+                if(m_mode == MODE_HEX) {
+                    m_fontTypeHex = _fontType;
+                    m_editorWidgetHex->setFont(m_scalingSystem.getFont(m_fontTypeHex));
                     break;
                 }
                 break;
@@ -70,35 +81,8 @@ namespace QCT {
         }
 
         void Editor::slotChangedScaling() {
-            m_editorWidget->setFont(m_scalingSystem.getFont(m_fontType));
-            update();
-        }
-
-        EditorWidget::EditorWidget(QWidget *_parent) :
-            QWidget(_parent),
-            m_mode(Editor::MODE_NULL),
-            m_widgetText(new EditorWidgetText()),
-            m_widgetHex(new EditorWidgetHex()) {
-            QVBoxLayout *verticalBoxLayout = new QVBoxLayout();
-            verticalBoxLayout->setMargin(0);
-            verticalBoxLayout->setSpacing(0);
-            verticalBoxLayout->addWidget(m_widgetText);
-            verticalBoxLayout->addWidget(m_widgetHex);
-            m_widgetText->setVisible(false);
-            m_widgetHex->setVisible(false);
-            m_widgetText->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-            m_widgetHex->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-            setLayout(verticalBoxLayout);
-        }
-
-        EditorWidget::~EditorWidget() {
-
-        }
-
-        void EditorWidget::setMode(const Editor::Mode _mode) {
-            m_mode = _mode;
-            m_widgetText->setVisible(m_mode == Editor::MODE_TEXT);
-            m_widgetHex->setVisible(m_mode == Editor::MODE_HEX);
+            m_editorWidgetText->setFont(m_scalingSystem.getFont(m_fontTypeText));
+            m_editorWidgetHex->setFont(m_scalingSystem.getFont(m_fontTypeHex));
             update();
         }
 

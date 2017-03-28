@@ -17,13 +17,10 @@ namespace QCT {
     namespace Core {
 
         class Editor;
-        class EditorWidget;
         class EditorWidgetText;
         class EditorWidgetHex;
         class EditorBackEnd;
 
-        // This class implements an editor provding the visualization
-        // and manipulation of both Text and Hex data alike.
         class Editor : public QWidget {
             Q_OBJECT
         public:
@@ -50,24 +47,13 @@ namespace QCT {
             HelpSystem &m_helpSystem;
         private:
             Mode m_mode;
-            ScalingSystem::FontType m_fontType;
         private:
-            EditorWidget *m_editorWidget;
+            ScalingSystem::FontType m_fontTypeText;
+            ScalingSystem::FontType m_fontTypeHex;
+            EditorWidgetText *m_editorWidgetText;
+            EditorWidgetHex *m_editorWidgetHex;
+        private:
             EditorBackEnd *m_editorBackEnd;
-        };
-
-        // This class implements the drawable area of the Editor class.
-        class EditorWidget : public QWidget {
-            Q_OBJECT
-        public:
-            EditorWidget(QWidget *_parent = 0);
-            virtual ~EditorWidget();
-        public:
-            void setMode(const Editor::Mode _mode);
-        private:
-            Editor::Mode m_mode;
-            EditorWidgetText *m_widgetText;
-            EditorWidgetHex *m_widgetHex;
         };
 
         class EditorWidgetText : public QTextEdit {
@@ -84,10 +70,6 @@ namespace QCT {
             virtual ~EditorWidgetHex();
         };
 
-        // This class implements a back-end for the Editor class to provide
-        // caching of very large files. The maximum supported file size is
-        // "std::numberic_limits<qint64> / 2" because in Hex mode each
-        // half-byte is addressed individually.
         class EditorBackEnd : public QObject {
             Q_OBJECT
         public:
