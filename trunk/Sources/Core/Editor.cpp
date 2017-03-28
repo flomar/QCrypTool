@@ -13,20 +13,12 @@ namespace QCT {
             m_scalingSystem(ScalingSystem::instance()),
             m_helpSystem(HelpSystem::instance()),
             m_editorWidget(new EditorWidget(this)),
-            m_editorScrollBar(new EditorScrollBar(this)),
             m_editorBackEnd(new EditorBackEnd(this)),
             m_mode(MODE_NULL),
             m_fontType(ScalingSystem::FONT_TYPE_NULL) {
             connect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));
             setMode(MODE_TEXT);
             setFontType(ScalingSystem::FONT_TYPE_NORMAL_M);
-            m_editorWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-            QHBoxLayout *horizontalBoxLayout = new QHBoxLayout();
-            horizontalBoxLayout->setMargin(0);
-            horizontalBoxLayout->setSpacing(0);
-            horizontalBoxLayout->addWidget(m_editorWidget);
-            horizontalBoxLayout->addWidget(m_editorScrollBar);
-            setLayout(horizontalBoxLayout);
         }
 
         Editor::~Editor() {
@@ -86,20 +78,11 @@ namespace QCT {
             update();
         }
 
-        EditorBackEnd::EditorBackEnd(QObject *_parent) :
-            QObject(_parent),
-            m_blockSize(0x1000),
-            m_fileSizeMaximum(std::numeric_limits<qint64>::max() / 2) {
-
-        }
-
-        EditorBackEnd::~EditorBackEnd() {
-
-        }
-
         EditorWidget::EditorWidget(QWidget *_parent) :
             QWidget(_parent),
-            m_mode(Editor::MODE_NULL) {
+            m_mode(Editor::MODE_NULL),
+            m_widgetText(0),
+            m_widgetHex(0) {
 
         }
 
@@ -112,39 +95,14 @@ namespace QCT {
             update();
         }
 
-        void EditorWidget::paintEvent(QPaintEvent *_event) {
-            Q_UNUSED(_event);
-            QPainter painter(this);
-            QTextOption textOption;
-            textOption.setWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
-            const QFontMetricsF fontMetrics(font());
-            const qreal fontWidth = fontMetrics.width("X");
-            const qreal fontHeight = fontMetrics.height();
-            painter.setPen(QColor(0, 0, 0, 255));
-            painter.setBrush(QColor(255, 255, 255, 255));
-            painter.drawRect(rect());
-            // TODO/FIXME
-            if(m_mode == Editor::MODE_TEXT) {
-                QString text;
-                text.append("TEXT\n");
-                for(int i=0; i<10; i++)
-                    text.append("This read-only text is just for testing. ");
-                painter.drawText(rect(), text, textOption);
-
-            }
-            if(m_mode == Editor::MODE_HEX) {
-                QString text;
-                text.append("HEX\n");
-                painter.drawText(rect(), text, textOption);
-            }
-        }
-
-        EditorScrollBar::EditorScrollBar(QWidget *_parent) :
-            QScrollBar(Qt::Vertical, _parent) {
+        EditorBackEnd::EditorBackEnd(QObject *_parent) :
+            QObject(_parent),
+            m_blockSize(0x1000),
+            m_fileSizeMaximum(std::numeric_limits<qint64>::max() / 2) {
 
         }
 
-        EditorScrollBar::~EditorScrollBar() {
+        EditorBackEnd::~EditorBackEnd() {
 
         }
 

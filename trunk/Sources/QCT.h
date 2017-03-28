@@ -49,8 +49,7 @@
 #include <QMdiArea>
 #include <QMdiSubWindow>
 #include <QWidget>
-#include <QScrollBar>
-#include <QHBoxLayout>
+#include <QTextEdit>
 
 namespace QCT {
 

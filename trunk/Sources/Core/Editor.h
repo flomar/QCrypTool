@@ -18,11 +18,12 @@ namespace QCT {
 
         class Editor;
         class EditorWidget;
-        class EditorScrollBar;
+        class EditorWidgetText;
+        class EditorWidgetHex;
         class EditorBackEnd;
 
         // This class implements an editor provding the visualization
-        // and manipulation of both Ascii and Hex data alike.
+        // and manipulation of both Text and Hex data alike.
         class Editor : public QWidget {
             Q_OBJECT
         public:
@@ -49,11 +50,34 @@ namespace QCT {
             HelpSystem &m_helpSystem;
         private:
             EditorWidget *m_editorWidget;
-            EditorScrollBar *m_editorScrollBar;
             EditorBackEnd *m_editorBackEnd;
         private:
             Mode m_mode;
             ScalingSystem::FontType m_fontType;
+        };
+
+        // This class implements the drawable area of the Editor class.
+        class EditorWidget : public QWidget {
+            Q_OBJECT
+        public:
+            EditorWidget(QWidget *_parent = 0);
+            virtual ~EditorWidget();
+        public:
+            void setMode(const Editor::Mode _mode);
+        private:
+            Editor::Mode m_mode;
+            EditorWidgetText *m_widgetText;
+            EditorWidgetHex *m_widgetHex;
+        };
+
+        // TODO/FIXME
+        class EditorWidgetText : public QTextEdit {
+            Q_OBJECT
+        };
+
+        // TODO/FIXME
+        class EditorWidgetHex : public QWidget {
+            Q_OBJECT
         };
 
         // This class implements a back-end for the Editor class to provide
@@ -75,28 +99,6 @@ namespace QCT {
         private:
             const qint64 m_blockSize;
             const qint64 m_fileSizeMaximum;
-        };
-
-        // This class implements the drawable area of the Editor class.
-        class EditorWidget : public QWidget {
-            Q_OBJECT
-        public:
-            EditorWidget(QWidget *_parent = 0);
-            virtual ~EditorWidget();
-        public:
-            void setMode(const Editor::Mode _mode);
-        protected:
-            virtual void paintEvent(QPaintEvent *_event);
-        private:
-            Editor::Mode m_mode;
-        };
-
-        // This class implements the scroll bar of the Editor class.
-        class EditorScrollBar : public QScrollBar {
-            Q_OBJECT
-        public:
-            EditorScrollBar(QWidget *_parent = 0);
-            virtual ~EditorScrollBar();
         };
 
     }
