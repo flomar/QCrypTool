@@ -47,12 +47,10 @@ namespace QCT {
             HelpSystem &m_helpSystem;
         private:
             Mode m_mode;
+            ScalingSystem::FontType m_fontType;
         private:
-            ScalingSystem::FontType m_fontTypeText;
-            ScalingSystem::FontType m_fontTypeHex;
             EditorWidgetText *m_editorWidgetText;
             EditorWidgetHex *m_editorWidgetHex;
-        private:
             EditorBackEnd *m_editorBackEnd;
         };
 
@@ -61,13 +59,17 @@ namespace QCT {
         public:
             EditorWidgetText(QWidget *_parent = 0);
             virtual ~EditorWidgetText();
+        protected:
+            virtual void paintEvent(QPaintEvent *_event);
         };
 
-        class EditorWidgetHex : public QWidget {
+        class EditorWidgetHex : public QAbstractScrollArea {
             Q_OBJECT
         public:
             EditorWidgetHex(QWidget *_parent = 0);
             virtual ~EditorWidgetHex();
+        protected:
+            virtual void paintEvent(QPaintEvent *_event);
         };
 
         class EditorBackEnd : public QObject {

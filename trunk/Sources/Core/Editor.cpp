@@ -13,23 +13,18 @@ namespace QCT {
             m_scalingSystem(ScalingSystem::instance()),
             m_helpSystem(HelpSystem::instance()),
             m_mode(MODE_NULL),
-            m_fontTypeText(ScalingSystem::FONT_TYPE_NULL),
-            m_fontTypeHex(ScalingSystem::FONT_TYPE_NULL),
-            m_editorWidgetText(new EditorWidgetText()),
-            m_editorWidgetHex(new EditorWidgetHex()) {
+            m_fontType(ScalingSystem::FONT_TYPE_NULL),
+            m_editorWidgetText(new EditorWidgetText(this)),
+            m_editorWidgetHex(new EditorWidgetHex(this)),
+            m_editorBackEnd(0) {
             connect(&m_scalingSystem, SIGNAL(signalChangedScaling()), this, SLOT(slotChangedScaling()));
             QVBoxLayout *verticalBoxLayout = new QVBoxLayout();
             verticalBoxLayout->setMargin(0);
             verticalBoxLayout->setSpacing(0);
             verticalBoxLayout->addWidget(m_editorWidgetText);
             verticalBoxLayout->addWidget(m_editorWidgetHex);
-            m_editorWidgetText->setVisible(false);
-            m_editorWidgetHex->setVisible(false);
-            m_editorWidgetText->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-            m_editorWidgetHex->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
             setLayout(verticalBoxLayout);
             setMode(MODE_TEXT);
-            setFontType(ScalingSystem::FONT_TYPE_NORMAL_M);
         }
 
         Editor::~Editor() {
@@ -40,40 +35,24 @@ namespace QCT {
             m_mode = _mode;
             m_editorWidgetText->setVisible(m_mode == MODE_TEXT);
             m_editorWidgetHex->setVisible(m_mode == MODE_HEX);
+            setFontType(m_mode == MODE_TEXT ? ScalingSystem::FONT_TYPE_NORMAL_M : ScalingSystem::FONT_TYPE_MONOSPACE_M);
         }
 
         void Editor::setFontType(const ScalingSystem::FontType _fontType) {
-            switch(_fontType) {
-            case ScalingSystem::FONT_TYPE_NORMAL_XS:
-            case ScalingSystem::FONT_TYPE_NORMAL_S:
-            case ScalingSystem::FONT_TYPE_NORMAL_M:
-            case ScalingSystem::FONT_TYPE_NORMAL_L:
-            case ScalingSystem::FONT_TYPE_NORMAL_XL:
-                if(m_mode == MODE_TEXT) {
-                    m_fontTypeText = _fontType;
-                    m_editorWidgetText->setFont(m_scalingSystem.getFont(m_fontTypeText));
-                    break;
+            m_fontType = _fontType;
+            const QVector<ScalingSystem::FontType> vectorFontTypesNormal = QVector<ScalingSystem::FontType>() << ScalingSystem::FONT_TYPE_NORMAL_XS << ScalingSystem::FONT_TYPE_NORMAL_S << ScalingSystem::FONT_TYPE_NORMAL_M << ScalingSystem::FONT_TYPE_NORMAL_L << ScalingSystem::FONT_TYPE_NORMAL_XL;
+            const QVector<ScalingSystem::FontType> vectorFontTypesMonospace = QVector<ScalingSystem::FontType>() << ScalingSystem::FONT_TYPE_MONOSPACE_XS << ScalingSystem::FONT_TYPE_MONOSPACE_S << ScalingSystem::FONT_TYPE_MONOSPACE_M << ScalingSystem::FONT_TYPE_MONOSPACE_L << ScalingSystem::FONT_TYPE_MONOSPACE_XL;
+            if(m_mode == MODE_TEXT) {
+                if(vectorFontTypesNormal.contains(_fontType) || vectorFontTypesMonospace.contains(_fontType)) {
+                    m_editorWidgetText->setFont(ScalingSystem::instance().getFont(m_fontType));
                 }
-                break;
-            case ScalingSystem::FONT_TYPE_MONOSPACE_XS:
-            case ScalingSystem::FONT_TYPE_MONOSPACE_S:
-            case ScalingSystem::FONT_TYPE_MONOSPACE_M:
-            case ScalingSystem::FONT_TYPE_MONOSPACE_L:
-            case ScalingSystem::FONT_TYPE_MONOSPACE_XL:
-                if(m_mode == MODE_TEXT) {
-                    m_fontTypeText = _fontType;
-                    m_editorWidgetText->setFont(m_scalingSystem.getFont(m_fontTypeText));
-                    break;
-                }
-                if(m_mode == MODE_HEX) {
-                    m_fontTypeHex = _fontType;
-                    m_editorWidgetHex->setFont(m_scalingSystem.getFont(m_fontTypeHex));
-                    break;
-                }
-                break;
-            default:
-                break;
             }
+            else if(m_mode == MODE_HEX) {
+                if(vectorFontTypesMonospace.contains(_fontType)) {
+                    m_editorWidgetHex->setFont(ScalingSystem::instance().getFont(m_fontType));
+                }
+            }
+            update();
         }
 
         QSize Editor::sizeHint() const {
@@ -81,27 +60,44 @@ namespace QCT {
         }
 
         void Editor::slotChangedScaling() {
-            m_editorWidgetText->setFont(m_scalingSystem.getFont(m_fontTypeText));
-            m_editorWidgetHex->setFont(m_scalingSystem.getFont(m_fontTypeHex));
+            if(m_mode == MODE_TEXT) {
+                m_editorWidgetText->setFont(m_scalingSystem.getFont(m_fontType));
+            }
+            else if(m_mode == MODE_HEX) {
+                m_editorWidgetHex->setFont(m_scalingSystem.getFont(m_fontType));
+            }
             update();
         }
 
         EditorWidgetText::EditorWidgetText(QWidget *_parent) :
             QTextEdit(_parent) {
-
+            setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+            setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         }
 
         EditorWidgetText::~EditorWidgetText() {
 
         }
 
-        EditorWidgetHex::EditorWidgetHex(QWidget *_parent) :
-            QWidget(_parent) {
+        void EditorWidgetText::paintEvent(QPaintEvent *_event) {
+            QTextEdit::paintEvent(_event);
+        }
 
+        EditorWidgetHex::EditorWidgetHex(QWidget *_parent) :
+            QAbstractScrollArea(_parent) {
+            setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+            setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         }
 
         EditorWidgetHex::~EditorWidgetHex() {
 
+        }
+
+        void EditorWidgetHex::paintEvent(QPaintEvent *_event) {
+            QAbstractScrollArea::paintEvent(_event);
+            QPainter painter(viewport());
+            painter.setBrush(QColor(255, 0, 0, 255));
+            painter.drawRect(rect());
         }
 
         EditorBackEnd::EditorBackEnd(QObject *_parent) :
