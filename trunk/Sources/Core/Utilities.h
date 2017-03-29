@@ -9,6 +9,7 @@
 #include <Core/Utilities/UtilitiesConversion.h>
 #include <Core/Utilities/UtilitiesDatabase.h>
 #include <Core/Utilities/UtilitiesDateAndTime.h>
+#include <Core/Utilities/UtilitiesFile.h>
 #include <Core/Utilities/UtilitiesGraphics.h>
 #include <Core/Utilities/UtilitiesMessageBoxes.h>
 #include <Core/Utilities/UtilitiesPlatformCode.h>

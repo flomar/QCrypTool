@@ -1,6 +1,6 @@
 // UtilitiesMessageBoxes.cpp
 
-#include <Core/Utilities/UtilitiesMessageBoxes.h>
+#include <Core/Utilities.h>
 
 namespace QCT {
     namespace Core {

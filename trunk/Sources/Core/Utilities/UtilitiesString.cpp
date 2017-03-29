@@ -1,6 +1,6 @@
 // UtilitiesString.cpp
 
-#include <Core/Utilities/UtilitiesString.h>
+#include <Core/Utilities.h>
 
 namespace QCT {
     namespace Core {

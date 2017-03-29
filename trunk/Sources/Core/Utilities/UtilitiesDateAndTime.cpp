@@ -1,6 +1,6 @@
 // UtilitiesDateAndTime.cpp
 
-#include <Core/Utilities/UtilitiesDateAndTime.h>
+#include <Core/Utilities.h>
 
 namespace QCT {
     namespace Core {

@@ -1,6 +1,6 @@
 // UtilitiesDatabase.cpp
 
-#include <Core/Utilities/UtilitiesDatabase.h>
+#include <Core/Utilities.h>
 
 namespace QCT {
     namespace Core {

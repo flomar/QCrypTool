@@ -1,6 +1,6 @@
 // UtilitiesGraphics.cpp
 
-#include <Core/Utilities/UtilitiesGraphics.h>
+#include <Core/Utilities.h>
 
 namespace QCT {
     namespace Core {

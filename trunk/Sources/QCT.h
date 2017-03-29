@@ -54,6 +54,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QFontMetricsF>
+#include <QStandardPaths>
 
 namespace QCT {
 

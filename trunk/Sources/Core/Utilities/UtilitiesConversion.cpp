@@ -1,6 +1,6 @@
 // UtilitiesConversion.cpp
 
-#include <Core/Utilities/UtilitiesConversion.h>
+#include <Core/Utilities.h>
 
 namespace QCT {
     namespace Core {

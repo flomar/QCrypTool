@@ -25,6 +25,7 @@ Sources/Core/Utilities.h \
 Sources/Core/Utilities/UtilitiesConversion.h \
 Sources/Core/Utilities/UtilitiesDatabase.h \
 Sources/Core/Utilities/UtilitiesDateAndTime.h \
+Sources/Core/Utilities/UtilitiesFile.h \
 Sources/Core/Utilities/UtilitiesGraphics.h \
 Sources/Core/Utilities/UtilitiesMessageBoxes.h \
 Sources/Core/Utilities/UtilitiesPlatformCode.h \
@@ -58,6 +59,7 @@ Sources/Core/Utilities.cpp \
 Sources/Core/Utilities/UtilitiesConversion.cpp \
 Sources/Core/Utilities/UtilitiesDatabase.cpp \
 Sources/Core/Utilities/UtilitiesDateAndTime.cpp \
+Sources/Core/Utilities/UtilitiesFile.cpp \
 Sources/Core/Utilities/UtilitiesGraphics.cpp \
 Sources/Core/Utilities/UtilitiesMessageBoxes.cpp \
 Sources/Core/Utilities/UtilitiesPlatformCode.cpp \

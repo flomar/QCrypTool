@@ -12,6 +12,7 @@ namespace QCT {
             m_translationSystem(TranslationSystem::instance()),
             m_scalingSystem(ScalingSystem::instance()),
             m_helpSystem(HelpSystem::instance()) {
+            qsrand((uint)(Utilities::DateAndTime::getCurrentDateAndTime()));
             setWindowIcon(Core::Utilities::Graphics::getIconFromSvg(_pathIconSvg, _sizeIconSvg));
             installEventFilter(this);
             connect(this, SIGNAL(signalRequestScalingIncrease()), &m_scalingSystem, SLOT(slotRequestScalingIncrease()));

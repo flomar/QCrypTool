@@ -1,7 +1,6 @@
 // UtilitiesPlatformCode.cpp
 
-#include <Core/Utilities/UtilitiesPlatformCode.h>
-#include <Core/Utilities/UtilitiesMessageBoxes.h>
+#include <Core/Utilities.h>
 
 #ifdef Q_OS_LINUX
 #include <X11/Xlib.h>
