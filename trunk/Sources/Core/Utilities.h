@@ -11,6 +11,7 @@
 #include <Core/Utilities/UtilitiesDateAndTime.h>
 #include <Core/Utilities/UtilitiesFile.h>
 #include <Core/Utilities/UtilitiesGraphics.h>
+#include <Core/Utilities/UtilitiesInteraction.h>
 #include <Core/Utilities/UtilitiesMessageBoxes.h>
 #include <Core/Utilities/UtilitiesPlatformCode.h>
 #include <Core/Utilities/UtilitiesString.h>

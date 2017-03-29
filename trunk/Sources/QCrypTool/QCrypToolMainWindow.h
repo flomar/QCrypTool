@@ -26,6 +26,7 @@ namespace QCT {
             virtual void slotInitializeScaling();
         private slots:
             void slotTriggeredMenuFileActionNew();
+            void slotTriggeredMenuFileActionOpen();
         private slots:
             void slotTriggeredMenuEditActionCut();
             void slotTriggeredMenuEditActionCopy();

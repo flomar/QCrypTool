@@ -64,6 +64,7 @@ namespace QCT {
     // QCrypTool main window translations
     extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUFILE;
     extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUFILEACTIONNEW;
+    extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUFILEACTIONOPEN;
     extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUEDIT;
     extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUEDITACTIONCUT;
     extern const char *I18N_QCRYPTOOL_MAINWINDOW_MENUEDITACTIONCOPY;

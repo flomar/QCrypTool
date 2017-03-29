@@ -41,7 +41,7 @@
      <x>0</x>
      <y>0</y>
      <width>1024</width>
-     <height>21</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="MenuFile">
@@ -49,6 +49,7 @@
      <string>File</string>
     </property>
     <addaction name="MenuFileActionNew"/>
+    <addaction name="MenuFileActionOpen"/>
    </widget>
    <widget class="QMenu" name="MenuEdit">
     <property name="title">
@@ -344,6 +345,11 @@
   <action name="MenuViewMenuFontActionMonospaceXL">
    <property name="text">
     <string>Monospace XL</string>
+   </property>
+  </action>
+  <action name="MenuFileActionOpen">
+   <property name="text">
+    <string>Open</string>
    </property>
   </action>
  </widget>

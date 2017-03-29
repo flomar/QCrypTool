@@ -24,6 +24,7 @@ namespace QCT {
 
         void MainWindow::slotInitializeSignalsAndSlots() {
             connect(m_ui->MenuFileActionNew, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuFileActionNew()));
+            connect(m_ui->MenuFileActionOpen, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuFileActionOpen()));
             connect(m_ui->MenuEditActionCut, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuEditActionCut()));
             connect(m_ui->MenuEditActionCopy, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuEditActionCopy()));
             connect(m_ui->MenuEditActionPaste, SIGNAL(triggered()), this, SLOT(slotTriggeredMenuEditActionPaste()));
@@ -61,6 +62,7 @@ namespace QCT {
             // TODO/FIXME: add more translations
             m_ui->MenuFile->setTitle(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUFILE));
             m_ui->MenuFileActionNew->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUFILEACTIONNEW));
+            m_ui->MenuFileActionOpen->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUFILEACTIONOPEN));
             m_ui->MenuEdit->setTitle(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUEDIT));
             m_ui->MenuEditActionCut->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUEDITACTIONCUT));
             m_ui->MenuEditActionCopy->setText(trStr(I18N_QCRYPTOOL_MAINWINDOW_MENUEDITACTIONCOPY));
@@ -115,6 +117,14 @@ namespace QCT {
 
         void MainWindow::slotTriggeredMenuFileActionNew() {
             Core::Editor *editor = new Core::Editor();
+            m_ui->mdiArea->addSubWindow(editor);
+            editor->show();
+        }
+
+        void MainWindow::slotTriggeredMenuFileActionOpen() {
+            const QString fileName = Core::Utilities::Interaction::getSelectedFileName();
+            if(fileName.isEmpty()) return;
+            Core::Editor *editor = new Core::Editor(fileName);
             m_ui->mdiArea->addSubWindow(editor);
             editor->show();
         }
