@@ -12,6 +12,7 @@
 #include <Core/Utilities/UtilitiesGraphics.h>
 #include <Core/Utilities/UtilitiesMessageBoxes.h>
 #include <Core/Utilities/UtilitiesPlatformCode.h>
+#include <Core/Utilities/UtilitiesString.h>
 
 namespace QCT {
     namespace Core {

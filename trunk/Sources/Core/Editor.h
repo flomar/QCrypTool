@@ -70,6 +70,16 @@ namespace QCT {
             virtual ~EditorWidgetHex();
         protected:
             virtual void paintEvent(QPaintEvent *_event);
+        private:
+            void updateFontMetrics();
+            void updateBytesPerRow();
+        private:
+            const int m_charactersAddress;
+            const int m_charactersOuterSpacing;
+            const int m_charactersInnerSpacing;
+            float m_fontMetricsWidth;
+            float m_fontMetricsHeight;
+            int m_bytesPerRow;
         };
 
         class EditorBackEnd : public QObject {

@@ -53,6 +53,7 @@
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QFontMetricsF>
 
 namespace QCT {
 

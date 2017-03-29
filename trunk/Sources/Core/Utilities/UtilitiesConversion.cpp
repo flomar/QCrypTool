@@ -5,7 +5,7 @@
 namespace QCT {
     namespace Core {
         namespace Utilities {
-            namespace DateAndTime {
+            namespace Conversion {
 
             }
         }

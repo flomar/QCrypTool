@@ -28,6 +28,7 @@ Sources/Core/Utilities/UtilitiesDateAndTime.h \
 Sources/Core/Utilities/UtilitiesGraphics.h \
 Sources/Core/Utilities/UtilitiesMessageBoxes.h \
 Sources/Core/Utilities/UtilitiesPlatformCode.h \
+Sources/Core/Utilities/UtilitiesString.h \
 Sources/Core/Cryptography.h \
 Sources/Core/Cryptography/CryptographyOpenSSL.h \
 Sources/Core/Cryptography/CryptographyHash.h \
@@ -60,6 +61,7 @@ Sources/Core/Utilities/UtilitiesDateAndTime.cpp \
 Sources/Core/Utilities/UtilitiesGraphics.cpp \
 Sources/Core/Utilities/UtilitiesMessageBoxes.cpp \
 Sources/Core/Utilities/UtilitiesPlatformCode.cpp \
+Sources/Core/Utilities/UtilitiesString.cpp \
 Sources/Core/Cryptography.cpp \
 Sources/Core/Cryptography/CryptographyOpenSSL.cpp \
 Sources/Core/Cryptography/CryptographyHash.cpp \

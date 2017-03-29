@@ -84,7 +84,13 @@ namespace QCT {
         }
 
         EditorWidgetHex::EditorWidgetHex(QWidget *_parent) :
-            QAbstractScrollArea(_parent) {
+            QAbstractScrollArea(_parent),
+            m_charactersAddress(8),
+            m_charactersOuterSpacing(2),
+            m_charactersInnerSpacing(1),
+            m_fontMetricsWidth(0.0f),
+            m_fontMetricsHeight(0.0f),
+            m_bytesPerRow(0) {
             setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
             setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         }
@@ -96,8 +102,38 @@ namespace QCT {
         void EditorWidgetHex::paintEvent(QPaintEvent *_event) {
             QAbstractScrollArea::paintEvent(_event);
             QPainter painter(viewport());
-            painter.setBrush(QColor(255, 0, 0, 255));
-            painter.drawRect(rect());
+
+            // update some internal values with each repaint
+            updateFontMetrics();
+            updateBytesPerRow();
+
+            const QString data = "This text is displayed for testing purposes only, don't expect anything fancy!";
+
+            for(int indexRow=0; indexRow<(data.length() + m_bytesPerRow - 1)/m_bytesPerRow; indexRow++) {
+                const QByteArray dataRow = data.mid(indexRow * m_bytesPerRow, m_bytesPerRow).toLatin1();
+                const QString stringAddress = Utilities::String::fillLeft(QString::number(indexRow * m_bytesPerRow, 16).toUpper(), '0', m_charactersAddress);
+                const QString stringHex = Utilities::String::fillRight(Utilities::String::toHex(dataRow, " "), ' ', (m_bytesPerRow - 1) * m_charactersInnerSpacing + m_bytesPerRow * 2);
+                const QString stringText = Utilities::String::toText(dataRow, " ");
+                painter.drawText(QPointF(0.0f, (indexRow + 1) * m_fontMetricsHeight), QString("%1 %2 %3").arg(stringAddress).arg(stringHex).arg(stringText));
+            }
+        }
+
+        void EditorWidgetHex::updateFontMetrics() {
+            QFontMetricsF fontMetrics(font());
+            m_fontMetricsWidth = fontMetrics.width(QChar('X'));
+            m_fontMetricsHeight = fontMetrics.height();
+        }
+
+        void EditorWidgetHex::updateBytesPerRow() {
+            const int bytesPerRowMinimum = 1;
+            int bytesPerRow = bytesPerRowMinimum;
+            while(true) {
+                const int charactersPerRow = m_charactersAddress + m_charactersOuterSpacing * 2 + (bytesPerRow - 1) * m_charactersInnerSpacing + bytesPerRow * 3;
+                const float rowWidth = charactersPerRow * m_fontMetricsWidth;
+                if(rowWidth >= (float)viewport()->size().width()) break;
+                else bytesPerRow++;
+            }
+            m_bytesPerRow = bytesPerRow;
         }
 
         EditorBackEnd::EditorBackEnd(QObject *_parent) :
