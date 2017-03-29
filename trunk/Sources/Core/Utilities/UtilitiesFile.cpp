@@ -25,6 +25,17 @@ namespace QCT {
                     return QString::null;
                 }
 
+                QString createTempFile(const QString &_extension) {
+                    const QString tempFileName = createTempFileName(_extension);
+                    if(!tempFileName.isEmpty()) {
+                        QFile file(tempFileName);
+                        if(file.open(QFile::ReadWrite | QFile::Truncate)) {
+                            return tempFileName;
+                        }
+                    }
+                    return QString::null;
+                }
+
             }
         }
     }

@@ -19,12 +19,12 @@ namespace QCT {
         class Editor;
         class EditorWidgetText;
         class EditorWidgetHex;
-        class EditorBackEnd;
+        class EditorDocument;
 
         class Editor : public QWidget {
             Q_OBJECT
         public:
-            Editor(QWidget *_parent = 0);
+            Editor(const QString &_fileName = QString::null, QWidget *_parent = 0);
             virtual ~Editor();
         public:
             enum Mode {
@@ -51,7 +51,8 @@ namespace QCT {
         private:
             EditorWidgetText *m_editorWidgetText;
             EditorWidgetHex *m_editorWidgetHex;
-            EditorBackEnd *m_editorBackEnd;
+        private:
+            EditorDocument *m_editorDocument;
         };
 
         class EditorWidgetText : public QTextEdit {
@@ -61,6 +62,8 @@ namespace QCT {
             virtual ~EditorWidgetText();
         protected:
             virtual void paintEvent(QPaintEvent *_event);
+        private slots:
+            void slotChangedData(const QByteArray &_data);
         };
 
         class EditorWidgetHex : public QAbstractScrollArea {
@@ -70,6 +73,8 @@ namespace QCT {
             virtual ~EditorWidgetHex();
         protected:
             virtual void paintEvent(QPaintEvent *_event);
+        private slots:
+            void slotChangedData(const QByteArray &_data);
         private:
             void updateFontMetrics();
             void updateBytesPerRow();
@@ -80,23 +85,32 @@ namespace QCT {
             float m_fontMetricsWidth;
             float m_fontMetricsHeight;
             int m_bytesPerRow;
+        private:
+            QByteArray m_data;
         };
 
-        class EditorBackEnd : public QObject {
+        class EditorDocument : public QObject {
             Q_OBJECT
         public:
-            EditorBackEnd(QObject *_parent = 0);
-            virtual ~EditorBackEnd();
+            EditorDocument(const QString &_fileName, QObject *_parent = 0);
+            virtual ~EditorDocument();
         public:
-            struct Block {
-                Block() : data(QByteArray()), index(0), modified(false) { }
-                QByteArray data;
-                qint64 index;
-                bool modified;
-            };
+            bool open();
+            bool containsTextOnly();
+        public:
+            const QString &getFileName() const { return m_fileName; }
+            const QString &getTitle() const { return m_title; }
+        public:
+            const QByteArray &getData() const { return m_data; }
         private:
-            const qint64 m_blockSize;
             const qint64 m_fileSizeMaximum;
+        private:
+            QString m_fileName;
+            QString m_title;
+        private:
+            QByteArray m_data;
+        signals:
+            void signalChangedData(const QByteArray &_data);
         };
 
     }
