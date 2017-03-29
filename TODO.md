@@ -13,6 +13,7 @@ This document contains the most important TODOs for the project.
 
 ## Urgent Issues
 
+- Extend the Editor implementation: Right now there's a lot of functionality missing, and the "Edit" menu has no effect whatsoever yet.
 - ~~Add default database to the installer~~ and implement a backup system: During installation the existing database should be backed up (i.e. "QCrypToolDatabase.sqlite.backup[TIMESTAMP]") and then the user should be asked how to proceed with the changed data when he first runs the newly installed version.
 - Implement "CertificateStore" functionality. This way we'll have a vertical prototype to test the OpenSSL abstraction layer.
 
@@ -28,5 +29,8 @@ This document contains the most important TODOs for the project.
 - [WIP]: Apply existing scaling system to all future dialogs.
 - [WIP] Extend QtAssistant-based context help.
 - [WIP] Extend the DEVELOPERS.md document.
-- Develop a QTextEdit-derived ASCII editor and a custom HEX editor, both preferably with support for files larger than 2GB.
 - Decide on a technology for the tutorials/demonstrations: Qt or QML.
+
+## Long-Term Roadmap
+
+- Implement 64bit Editor: Due to limitations in Qt's QTextEdit and QAbstractScrollArea classes, the current Editor supports 32bit only for now (files up to 2GB). A 64bit-capable Editor implementation should feature the same back-end for text and hex, and it should implement a caching mechanism by operating on blocks/chunks of the underlying file.
