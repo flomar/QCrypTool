@@ -78,6 +78,7 @@ namespace QCT {
         private:
             void updateFontMetrics();
             void updateBytesPerRow();
+            void updateRowsAndScrollBar();
         private:
             const int m_charactersAddress;
             const int m_charactersOuterSpacing;
@@ -85,6 +86,7 @@ namespace QCT {
             float m_fontMetricsWidth;
             float m_fontMetricsHeight;
             int m_bytesPerRow;
+            int m_rows;
         private:
             QByteArray m_data;
         };

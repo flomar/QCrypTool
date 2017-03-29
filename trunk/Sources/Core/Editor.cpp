@@ -103,6 +103,7 @@ namespace QCT {
             m_fontMetricsWidth(0.0f),
             m_fontMetricsHeight(0.0f),
             m_bytesPerRow(0),
+            m_rows(0),
             m_data(QByteArray()) {
             setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
             setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
@@ -117,12 +118,17 @@ namespace QCT {
             QPainter painter(viewport());
             updateFontMetrics();
             updateBytesPerRow();
-            for(int indexRow=0; indexRow<(m_data.length() + m_bytesPerRow - 1) / m_bytesPerRow; indexRow++) {
+            updateRowsAndScrollBar();
+            const int visibleRows = viewport()->size().height() / m_fontMetricsHeight;
+            const int startingRow = verticalScrollBar()->value();
+            float verticalOffset = 0.0f;
+            for(int indexRow=startingRow; indexRow<startingRow+visibleRows && indexRow<m_rows; indexRow++) {
+                verticalOffset += m_fontMetricsHeight;
                 const QByteArray dataRow = m_data.mid(indexRow * m_bytesPerRow, m_bytesPerRow);
                 const QString stringAddress = Utilities::String::fillLeft(QString::number(indexRow * m_bytesPerRow, 16).toUpper(), '0', m_charactersAddress);
                 const QString stringHex = Utilities::String::fillRight(Utilities::String::toHex(dataRow, " "), ' ', (m_bytesPerRow - 1) * m_charactersInnerSpacing + m_bytesPerRow * 2);
                 const QString stringText = Utilities::String::toText(dataRow, " ");
-                painter.drawText(QPointF(0.0f, (indexRow + 1) * m_fontMetricsHeight), QString("%1 %2 %3").arg(stringAddress).arg(stringHex).arg(stringText));
+                painter.drawText(QPointF(0.0f, verticalOffset), QString("%1 %2 %3").arg(stringAddress).arg(stringHex).arg(stringText));
             }
         }
 
@@ -146,6 +152,12 @@ namespace QCT {
                 else bytesPerRow++;
             }
             m_bytesPerRow = bytesPerRow;
+        }
+
+        void EditorWidgetHex::updateRowsAndScrollBar() {
+            m_rows = (m_data.length() + m_bytesPerRow - 1) / m_bytesPerRow;
+            verticalScrollBar()->setMinimum(0);
+            verticalScrollBar()->setMaximum(m_rows - 1);
         }
 
         EditorDocument::EditorDocument(const QString &_fileName, QObject *_parent) :

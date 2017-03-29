@@ -53,6 +53,7 @@
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QScrollBar>
 #include <QFontMetricsF>
 #include <QStandardPaths>
 #include <QFileDialog>
