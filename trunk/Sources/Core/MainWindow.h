@@ -27,6 +27,7 @@ namespace QCT {
             virtual void slotInitializeSignalsAndSlots() = 0;
             virtual void slotInitializeLanguage() = 0;
             virtual void slotInitializeScaling() = 0;
+            virtual void slotActivateAndDeactivateMenusAndActions() = 0;
         protected:
             bool eventFilter(QObject *_object, QEvent *_event);
         signals:

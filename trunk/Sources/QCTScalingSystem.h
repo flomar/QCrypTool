@@ -66,8 +66,12 @@ namespace QCT {
         };
     public:
         QFont getFont(const FontType _fontType) const;
+        QFont getFontNormal(const FontType _fontType) const;
+        QFont getFontMonospace(const FontType _fontType) const;
         QString getFontFamily(const FontType _fontType) const;
         int getFontPixelSize(const FontType _fontType) const;
+        QVector<FontType> getVectorFontTypesNormal() const;
+        QVector<FontType> getVectorFontTypesMonospace() const;
     public:
         template<class T>
         void setFont(T *_object, const FontType _fontType) {

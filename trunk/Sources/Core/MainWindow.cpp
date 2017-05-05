@@ -30,6 +30,7 @@ namespace QCT {
             slotInitializeSignalsAndSlots();
             slotInitializeLanguage();
             slotInitializeScaling();
+            slotActivateAndDeactivateMenusAndActions();
             // invoke base class implementation
             QMainWindow::show();
         }

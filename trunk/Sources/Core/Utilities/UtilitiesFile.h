@@ -22,6 +22,17 @@ namespace QCT {
                 // If it fails, an empty string is returned.
                 QString createTempFile(const QString &_extension = "tmp");
 
+                // This function returns the size of the specified file.
+                // In case of an error, -1 is returned.
+                qint64 getFileSize(const QString &_fileName);
+
+                // This function calculates the number of non-printable
+                // characters in the specified file. If an error occurs,
+                // the function returns -1. The additional parameter is
+                // provided to supply characters to the function which
+                // are treated as printable although they really aren't.
+                qint64 calculateNonPrintableCharactersInFile(const QString &_fileName, const QString &_charactersTreatedAsPrintable = "\n");
+
             }
         }
     }

@@ -16,9 +16,11 @@ namespace QCT {
             m_ui(new Ui::QCrypToolMainWindow) {
             m_ui->setupUi(this);
             m_ui->menuBar->setNativeMenuBar(false);
+            connect(m_ui->mdiArea, SIGNAL(subWindowActivated(QMdiSubWindow*)), this, SLOT(slotMdiSubWindowActivated(QMdiSubWindow*)));
         }
 
         MainWindow::~MainWindow() {
+            disconnect(m_ui->mdiArea, SIGNAL(subWindowActivated(QMdiSubWindow*)), this, SLOT(slotMdiSubWindowActivated(QMdiSubWindow*)));
             delete m_ui;
         }
 
@@ -115,113 +117,165 @@ namespace QCT {
             }
         }
 
+        void MainWindow::slotMdiSubWindowActivated(QMdiSubWindow *_mdiSubWindow) {
+            Q_UNUSED(_mdiSubWindow);
+            slotActivateAndDeactivateMenusAndActions();
+        }
+
+        void MainWindow::slotActivateAndDeactivateMenusAndActions() {
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                m_ui->MenuViewMenuFontActionNormalXS->setEnabled(currentEditorWidget->getMode() == Core::EditorWidget::MODE_TEXT && currentEditorWidget->getFontType() != ScalingSystem::FONT_TYPE_NORMAL_XS);
+                m_ui->MenuViewMenuFontActionNormalS->setEnabled(currentEditorWidget->getMode() == Core::EditorWidget::MODE_TEXT && currentEditorWidget->getFontType() != ScalingSystem::FONT_TYPE_NORMAL_S);
+                m_ui->MenuViewMenuFontActionNormalM->setEnabled(currentEditorWidget->getMode() == Core::EditorWidget::MODE_TEXT && currentEditorWidget->getFontType() != ScalingSystem::FONT_TYPE_NORMAL_M);
+                m_ui->MenuViewMenuFontActionNormalL->setEnabled(currentEditorWidget->getMode() == Core::EditorWidget::MODE_TEXT && currentEditorWidget->getFontType() != ScalingSystem::FONT_TYPE_NORMAL_L);
+                m_ui->MenuViewMenuFontActionNormalXL->setEnabled(currentEditorWidget->getMode() == Core::EditorWidget::MODE_TEXT && currentEditorWidget->getFontType() != ScalingSystem::FONT_TYPE_NORMAL_XL);
+                m_ui->MenuViewMenuFontActionMonospaceXS->setEnabled(currentEditorWidget->getFontType() != ScalingSystem::FONT_TYPE_MONOSPACE_XS);
+                m_ui->MenuViewMenuFontActionMonospaceS->setEnabled(currentEditorWidget->getFontType() != ScalingSystem::FONT_TYPE_MONOSPACE_S);
+                m_ui->MenuViewMenuFontActionMonospaceM->setEnabled(currentEditorWidget->getFontType() != ScalingSystem::FONT_TYPE_MONOSPACE_M);
+                m_ui->MenuViewMenuFontActionMonospaceL->setEnabled(currentEditorWidget->getFontType() != ScalingSystem::FONT_TYPE_MONOSPACE_L);
+                m_ui->MenuViewMenuFontActionMonospaceXL->setEnabled(currentEditorWidget->getFontType() != ScalingSystem::FONT_TYPE_MONOSPACE_XL);
+                m_ui->MenuViewActionShowAsText->setEnabled(currentEditorWidget->getMode() == Core::EditorWidget::MODE_HEX);
+                m_ui->MenuViewActionShowAsHex->setEnabled(currentEditorWidget->getMode() == Core::EditorWidget::MODE_TEXT);
+            }
+            else {
+                m_ui->MenuViewMenuFontActionNormalXS->setEnabled(false);
+                m_ui->MenuViewMenuFontActionNormalS->setEnabled(false);
+                m_ui->MenuViewMenuFontActionNormalM->setEnabled(false);
+                m_ui->MenuViewMenuFontActionNormalL->setEnabled(false);
+                m_ui->MenuViewMenuFontActionNormalXL->setEnabled(false);
+                m_ui->MenuViewMenuFontActionMonospaceXS->setEnabled(false);
+                m_ui->MenuViewMenuFontActionMonospaceS->setEnabled(false);
+                m_ui->MenuViewMenuFontActionMonospaceM->setEnabled(false);
+                m_ui->MenuViewMenuFontActionMonospaceL->setEnabled(false);
+                m_ui->MenuViewMenuFontActionMonospaceXL->setEnabled(false);
+                m_ui->MenuViewActionShowAsText->setEnabled(false);
+                m_ui->MenuViewActionShowAsHex->setEnabled(false);
+            }
+        }
+
         void MainWindow::slotTriggeredMenuFileActionNew() {
-            Core::Editor *editor = new Core::Editor();
-            m_ui->mdiArea->addSubWindow(editor);
-            editor->show();
+            Core::EditorWidget *editorWidget = new Core::EditorWidget();
+            connect(editorWidget, SIGNAL(signalChangedMode()), this, SLOT(slotActivateAndDeactivateMenusAndActions()));
+            connect(editorWidget, SIGNAL(signalChangedFontType()), this, SLOT(slotActivateAndDeactivateMenusAndActions()));
+            m_ui->mdiArea->addSubWindow(editorWidget);
+            editorWidget->show();
+            slotActivateAndDeactivateMenusAndActions();
         }
 
         void MainWindow::slotTriggeredMenuFileActionOpen() {
             const QString fileName = Core::Utilities::Interaction::getSelectedFileName();
             if(fileName.isEmpty()) return;
-            Core::Editor *editor = new Core::Editor(fileName);
-            m_ui->mdiArea->addSubWindow(editor);
-            editor->show();
+            Core::EditorWidget *editorWidget = new Core::EditorWidget(fileName);
+            connect(editorWidget, SIGNAL(signalChangedMode()), this, SLOT(slotActivateAndDeactivateMenusAndActions()));
+            connect(editorWidget, SIGNAL(signalChangedFontType()), this, SLOT(slotActivateAndDeactivateMenusAndActions()));
+            m_ui->mdiArea->addSubWindow(editorWidget);
+            editorWidget->show();
+            slotActivateAndDeactivateMenusAndActions();
         }
 
         void MainWindow::slotTriggeredMenuEditActionCut() {
-            Core::Utilities::MessageBoxes::execMessageBoxInformation("TODO/FIXME: MainWindow::slotTriggeredMenuEditActionCut()");
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->cut();
+            }
         }
 
         void MainWindow::slotTriggeredMenuEditActionCopy() {
-            Core::Utilities::MessageBoxes::execMessageBoxInformation("TODO/FIXME: MainWindow::slotTriggeredMenuEditActionCopy()");
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->copy();
+            }
         }
 
         void MainWindow::slotTriggeredMenuEditActionPaste() {
-            Core::Utilities::MessageBoxes::execMessageBoxInformation("TODO/FIXME: MainWindow::slotTriggeredMenuEditActionPaste()");
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->paste();
+            }
         }
 
         void MainWindow::slotTriggeredMenuViewMenuFontActionNormalXS() {
-            Core::Editor *currentEditor = getCurrentEditor();
-            if(currentEditor) {
-                currentEditor->setFontType(ScalingSystem::FONT_TYPE_NORMAL_XS);
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->setFontType(ScalingSystem::FONT_TYPE_NORMAL_XS);
             }
         }
 
         void MainWindow::slotTriggeredMenuViewMenuFontActionNormalS() {
-            Core::Editor *currentEditor = getCurrentEditor();
-            if(currentEditor) {
-                currentEditor->setFontType(ScalingSystem::FONT_TYPE_NORMAL_S);
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->setFontType(ScalingSystem::FONT_TYPE_NORMAL_S);
             }
         }
 
         void MainWindow::slotTriggeredMenuViewMenuFontActionNormalM() {
-            Core::Editor *currentEditor = getCurrentEditor();
-            if(currentEditor) {
-                currentEditor->setFontType(ScalingSystem::FONT_TYPE_NORMAL_M);
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->setFontType(ScalingSystem::FONT_TYPE_NORMAL_M);
             }
         }
 
         void MainWindow::slotTriggeredMenuViewMenuFontActionNormalL() {
-            Core::Editor *currentEditor = getCurrentEditor();
-            if(currentEditor) {
-                currentEditor->setFontType(ScalingSystem::FONT_TYPE_NORMAL_L);
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->setFontType(ScalingSystem::FONT_TYPE_NORMAL_L);
             }
         }
 
         void MainWindow::slotTriggeredMenuViewMenuFontActionNormalXL() {
-            Core::Editor *currentEditor = getCurrentEditor();
-            if(currentEditor) {
-                currentEditor->setFontType(ScalingSystem::FONT_TYPE_NORMAL_XL);
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->setFontType(ScalingSystem::FONT_TYPE_NORMAL_XL);
             }
         }
 
         void MainWindow::slotTriggeredMenuViewMenuFontActionMonospaceXS() {
-            Core::Editor *currentEditor = getCurrentEditor();
-            if(currentEditor) {
-                currentEditor->setFontType(ScalingSystem::FONT_TYPE_MONOSPACE_XS);
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->setFontType(ScalingSystem::FONT_TYPE_MONOSPACE_XS);
             }
         }
 
         void MainWindow::slotTriggeredMenuViewMenuFontActionMonospaceS() {
-            Core::Editor *currentEditor = getCurrentEditor();
-            if(currentEditor) {
-                currentEditor->setFontType(ScalingSystem::FONT_TYPE_MONOSPACE_S);
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->setFontType(ScalingSystem::FONT_TYPE_MONOSPACE_S);
             }
         }
 
         void MainWindow::slotTriggeredMenuViewMenuFontActionMonospaceM() {
-            Core::Editor *currentEditor = getCurrentEditor();
-            if(currentEditor) {
-                currentEditor->setFontType(ScalingSystem::FONT_TYPE_MONOSPACE_M);
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->setFontType(ScalingSystem::FONT_TYPE_MONOSPACE_M);
             }
         }
 
         void MainWindow::slotTriggeredMenuViewMenuFontActionMonospaceL() {
-            Core::Editor *currentEditor = getCurrentEditor();
-            if(currentEditor) {
-                currentEditor->setFontType(ScalingSystem::FONT_TYPE_MONOSPACE_L);
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->setFontType(ScalingSystem::FONT_TYPE_MONOSPACE_L);
             }
         }
 
         void MainWindow::slotTriggeredMenuViewMenuFontActionMonospaceXL() {
-            Core::Editor *currentEditor = getCurrentEditor();
-            if(currentEditor) {
-                currentEditor->setFontType(ScalingSystem::FONT_TYPE_MONOSPACE_XL);
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->setFontType(ScalingSystem::FONT_TYPE_MONOSPACE_XL);
             }
         }
 
         void MainWindow::slotTriggeredMenuViewShowAsText() {
-            Core::Editor *currentEditor = getCurrentEditor();
-            if(currentEditor) {
-                currentEditor->setMode(Core::Editor::MODE_TEXT);
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->setMode(Core::EditorWidget::MODE_TEXT);
             }
         }
 
         void MainWindow::slotTriggeredMenuViewShowAsHex() {
-            Core::Editor *currentEditor = getCurrentEditor();
-            if(currentEditor) {
-                currentEditor->setMode(Core::Editor::MODE_HEX);
+            Core::EditorWidget *currentEditorWidget = getCurrentEditorWidget();
+            if(currentEditorWidget) {
+                currentEditorWidget->setMode(Core::EditorWidget::MODE_HEX);
             }
         }
 
@@ -289,13 +343,13 @@ namespace QCT {
             dialogAboutQCrypTool.exec();
         }
 
-        Core::Editor *MainWindow::getCurrentEditor() {
-            Core::Editor *currentEditor = 0;
+        Core::EditorWidget *MainWindow::getCurrentEditorWidget() {
+            Core::EditorWidget *currentEditorWidget = 0;
             QMdiSubWindow *currentMdiSubWindow = m_ui->mdiArea->currentSubWindow();
             if(currentMdiSubWindow) {
-                currentEditor = static_cast<Core::Editor*>(currentMdiSubWindow->widget());
+                currentEditorWidget = static_cast<Core::EditorWidget*>(currentMdiSubWindow->widget());
             }
-            return currentEditor;
+            return currentEditorWidget;
         }
 
     }

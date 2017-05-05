@@ -36,6 +36,35 @@ namespace QCT {
                     return QString::null;
                 }
 
+                qint64 getFileSize(const QString &_fileName) {
+                    QFile file(_fileName);
+                    if(!file.open(QFile::ReadOnly)) {
+                        return -1;
+                    }
+                    const qint64 fileSize = file.size();
+                    return fileSize;
+                }
+
+                qint64 calculateNonPrintableCharactersInFile(const QString &_fileName, const QString &_charactersTreatedAsPrintable) {
+                    const qint64 chunkSize = 32768;
+                    qint64 nonPrintableCharacters = 0;
+                    QFile file(_fileName);
+                    if(!file.open(QFile::ReadOnly)) {
+                        return -1;
+                    }
+                    const qint64 fileSize = file.size();
+                    for(qint64 offset=0; offset<fileSize; offset+=chunkSize) {
+                        const QByteArray data = file.read(chunkSize);
+                        for(int indexByte=0; indexByte<data.length(); indexByte++) {
+                            const char byte = data.at(indexByte);
+                            if(!isprint(byte) && !_charactersTreatedAsPrintable.contains(byte)) {
+                                nonPrintableCharacters++;
+                            }
+                        }
+                    }
+                    return nonPrintableCharacters;
+                }
+
             }
         }
     }

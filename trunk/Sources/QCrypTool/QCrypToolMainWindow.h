@@ -24,6 +24,9 @@ namespace QCT {
             virtual void slotInitializeSignalsAndSlots();
             virtual void slotInitializeLanguage();
             virtual void slotInitializeScaling();
+        protected slots:
+            virtual void slotMdiSubWindowActivated(QMdiSubWindow *_mdiSubWindow);
+            virtual void slotActivateAndDeactivateMenusAndActions();
         private slots:
             void slotTriggeredMenuFileActionNew();
             void slotTriggeredMenuFileActionOpen();
@@ -64,7 +67,7 @@ namespace QCT {
         private slots:
             void slotTriggeredMenuHelpActionAboutQCrypTool();
         private:
-            Core::Editor *getCurrentEditor();
+            Core::EditorWidget *getCurrentEditorWidget();
         private:
             Ui::QCrypToolMainWindow *m_ui;
         };

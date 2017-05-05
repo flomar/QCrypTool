@@ -50,6 +50,7 @@
 #include <QMdiSubWindow>
 #include <QWidget>
 #include <QTextEdit>
+#include <QLabel>
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -57,6 +58,7 @@
 #include <QFontMetricsF>
 #include <QStandardPaths>
 #include <QFileDialog>
+#include <QTimer>
 
 namespace QCT {
 

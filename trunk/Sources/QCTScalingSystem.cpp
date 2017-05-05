@@ -79,6 +79,62 @@ namespace QCT {
         return font;
     }
 
+    QFont ScalingSystem::getFontNormal(const FontType _fontType) const {
+        switch(_fontType) {
+        case FONT_TYPE_NORMAL_XS:
+            return getFont(FONT_TYPE_NORMAL_XS);
+        case FONT_TYPE_NORMAL_S:
+            return getFont(FONT_TYPE_NORMAL_S);
+        case FONT_TYPE_NORMAL_M:
+            return getFont(FONT_TYPE_NORMAL_M);
+        case FONT_TYPE_NORMAL_L:
+            return getFont(FONT_TYPE_NORMAL_L);
+        case FONT_TYPE_NORMAL_XL:
+            return getFont(FONT_TYPE_NORMAL_XL);
+        case FONT_TYPE_MONOSPACE_XS:
+            return getFont(FONT_TYPE_NORMAL_XS);
+        case FONT_TYPE_MONOSPACE_S:
+            return getFont(FONT_TYPE_NORMAL_S);
+        case FONT_TYPE_MONOSPACE_M:
+            return getFont(FONT_TYPE_NORMAL_M);
+        case FONT_TYPE_MONOSPACE_L:
+            return getFont(FONT_TYPE_NORMAL_L);
+        case FONT_TYPE_MONOSPACE_XL:
+            return getFont(FONT_TYPE_NORMAL_XL);
+        default:
+            break;
+        }
+        return getFont(FONT_TYPE_NORMAL_M);
+    }
+
+    QFont ScalingSystem::getFontMonospace(const FontType _fontType) const {
+        switch(_fontType) {
+        case FONT_TYPE_NORMAL_XS:
+            return getFont(FONT_TYPE_MONOSPACE_XS);
+        case FONT_TYPE_NORMAL_S:
+            return getFont(FONT_TYPE_MONOSPACE_S);
+        case FONT_TYPE_NORMAL_M:
+            return getFont(FONT_TYPE_MONOSPACE_M);
+        case FONT_TYPE_NORMAL_L:
+            return getFont(FONT_TYPE_MONOSPACE_L);
+        case FONT_TYPE_NORMAL_XL:
+            return getFont(FONT_TYPE_MONOSPACE_XL);
+        case FONT_TYPE_MONOSPACE_XS:
+            return getFont(FONT_TYPE_MONOSPACE_XS);
+        case FONT_TYPE_MONOSPACE_S:
+            return getFont(FONT_TYPE_MONOSPACE_S);
+        case FONT_TYPE_MONOSPACE_M:
+            return getFont(FONT_TYPE_MONOSPACE_M);
+        case FONT_TYPE_MONOSPACE_L:
+            return getFont(FONT_TYPE_MONOSPACE_L);
+        case FONT_TYPE_MONOSPACE_XL:
+            return getFont(FONT_TYPE_MONOSPACE_XL);
+        default:
+            break;
+        }
+        return getFont(FONT_TYPE_MONOSPACE_M);
+    }
+
     QString ScalingSystem::getFontFamily(const FontType _fontType) const {
         QString fontFamily = QString::null;
         switch(_fontType) {
@@ -129,6 +185,26 @@ namespace QCT {
             break;
         }
         return fontPixelSize;
+    }
+
+    QVector<ScalingSystem::FontType> ScalingSystem::getVectorFontTypesNormal() const {
+        QVector<ScalingSystem::FontType> vectorFontTypesNormal;
+        vectorFontTypesNormal << FONT_TYPE_NORMAL_XS;
+        vectorFontTypesNormal << FONT_TYPE_NORMAL_S;
+        vectorFontTypesNormal << FONT_TYPE_NORMAL_M;
+        vectorFontTypesNormal << FONT_TYPE_NORMAL_L;
+        vectorFontTypesNormal << FONT_TYPE_NORMAL_XL;
+        return vectorFontTypesNormal;
+    }
+
+    QVector<ScalingSystem::FontType> ScalingSystem::getVectorFontTypesMonospace() const {
+        QVector<ScalingSystem::FontType> vectorFontTypesMonospace;
+        vectorFontTypesMonospace << FONT_TYPE_MONOSPACE_XS;
+        vectorFontTypesMonospace << FONT_TYPE_MONOSPACE_S;
+        vectorFontTypesMonospace << FONT_TYPE_MONOSPACE_M;
+        vectorFontTypesMonospace << FONT_TYPE_MONOSPACE_L;
+        vectorFontTypesMonospace << FONT_TYPE_MONOSPACE_XL;
+        return vectorFontTypesMonospace;
     }
 
 }
